@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { BackToHomeButton } from "@/common/components/back-to-home-button";
 import { ContactForm } from "@/modules/landing-page/presentation/pages/contact/components/contact-form";
 
-const SUPPORT_EMAIL = "support@gemsignal.com";
+const SUPPORT_EMAIL = "quangthinhtran3588@gmail.com";
 
 export async function ContactPage() {
   const t = await getTranslations("modules.contact.pages.contact");

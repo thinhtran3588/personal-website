@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
-import { Button } from "@/common/components/button";
+import { getYearsOfExperience } from "@/application/config/personal-info";
 import {
   Card,
   CardContent,
@@ -8,97 +9,194 @@ import {
   CardHeader,
   CardTitle,
 } from "@/common/components/card";
-import { Link } from "@/common/routing/navigation";
+import {
+  CloudGearIcon,
+  FacebookIcon,
+  FlutterIcon,
+  GitHubIcon,
+  LinkedInIcon,
+  NodejsIcon,
+  ReactIcon,
+  SolidityIcon,
+} from "@/common/components/icons";
 import { cn } from "@/common/utils/cn";
+import { ResumeTabs } from "./components/resume-tabs";
 import { ScrollReveal } from "./components/scroll-reveal";
+import { TypedText } from "./components/typed-text";
+
+const SOCIAL_LINKS = [
+  {
+    key: "linkedin",
+    href: "https://www.linkedin.com/in/thinhtran3588",
+    icon: LinkedInIcon,
+  },
+  {
+    key: "github",
+    href: "https://github.com/thinhtran3588",
+    icon: GitHubIcon,
+  },
+  {
+    key: "facebook",
+    href: "https://www.facebook.com/bongusagi",
+    icon: FacebookIcon,
+  },
+] as const;
+
+const SKILL_ITEMS = [
+  { key: "react", icon: ReactIcon },
+  { key: "reactNative", icon: ReactIcon },
+  { key: "flutter", icon: FlutterIcon },
+  { key: "nodejs", icon: NodejsIcon },
+  { key: "solidity", icon: SolidityIcon },
+  { key: "devops", icon: CloudGearIcon },
+] as const;
+
+const SERVICE_KEYS = [
+  "fullstack",
+  "blockchain",
+  "devops",
+  "consultant",
+] as const;
+
+const EXPERIENCE_ITEMS = [
+  { key: "0", pointCount: 3 },
+  { key: "1", pointCount: 2 },
+  { key: "2", pointCount: 3 },
+  { key: "3", pointCount: 3 },
+  { key: "4", pointCount: 3 },
+  { key: "5", pointCount: 2 },
+  { key: "6", pointCount: 3 },
+] as const;
+
+const SKILL_CATEGORY_COUNT = 5;
+const EDUCATION_COUNT = 5;
+const ROLE_COUNT = 5;
 
 export async function LandingPage() {
-  const tCommon = await getTranslations("common");
   const tHome = await getTranslations("modules.landing.pages.home");
+  const yearsOfExperience = getYearsOfExperience();
 
-  const featureKeys = [
-    "cleanArchitecture",
-    "modularStructure",
-    "testCoverage",
-    "i18nReady",
-    "typeSafeForms",
-    "firebaseIntegration",
-  ] as const;
+  const roles = Array.from({ length: ROLE_COUNT }, (_, i) =>
+    tHome(`main.roles.${i}`),
+  );
 
-  const architectureLayerKeys = [
-    "domain",
-    "application",
-    "infrastructure",
-    "presentation",
-  ] as const;
+  const experience = EXPERIENCE_ITEMS.map(({ key, pointCount }) => ({
+    title: tHome(`resume.experience.${key}.title`),
+    company: tHome(`resume.experience.${key}.company`),
+    period: tHome(`resume.experience.${key}.period`),
+    points: Array.from({ length: pointCount }, (_, j) =>
+      tHome(`resume.experience.${key}.points.${j}`),
+    ),
+  }));
 
-  const techStackKeys = [
-    "nextjs",
-    "react",
-    "typescript",
-    "tailwind",
-    "radix",
-    "rhf",
-    "zod",
-    "zustand",
-    "nextIntl",
-    "firebase",
-    "awilix",
-    "vitest",
-  ] as const;
+  const skills = Array.from({ length: SKILL_CATEGORY_COUNT }, (_, i) => ({
+    name: tHome(`resume.skills.${i}.name`),
+    items: tHome(`resume.skills.${i}.items`),
+  }));
+
+  const education = Array.from({ length: EDUCATION_COUNT }, (_, i) => ({
+    title: tHome(`resume.education.${i}.title`),
+    institution: tHome(`resume.education.${i}.institution`),
+    period: tHome(`resume.education.${i}.period`),
+  }));
 
   return (
     <>
       <div className="flex flex-col gap-28 sm:gap-32">
-        {/* Hero Section */}
+        {/* Main Section */}
         <section className="hero-shine glass-panel-strong liquid-border rounded-2xl px-8 py-14 sm:rounded-3xl sm:px-12 sm:py-20">
-          <div className="relative z-10 flex flex-col items-center gap-12 text-center lg:gap-16">
-            <div className="max-w-2xl space-y-6">
+          <div className="relative z-10 flex flex-col items-center gap-10 text-center lg:flex-row lg:items-start lg:gap-16 lg:text-left">
+            <div className="hero-entrance hero-entrance-delay-1 shrink-0">
+              <Image
+                src="/assets/images/profile.png"
+                alt="Thinh Tran"
+                width={180}
+                height={180}
+                className="rounded-full border-2 border-[var(--glass-border)]"
+                priority
+              />
+            </div>
+
+            <div className="space-y-6">
               <p className="hero-entrance hero-entrance-delay-1 text-xs font-medium tracking-[0.28em] text-[var(--text-muted)] uppercase">
-                {tHome("hero.eyebrow")}
+                {tHome("main.greeting")}
               </p>
               <h1 className="hero-entrance hero-entrance-delay-2 text-3xl leading-tight font-semibold text-[var(--text-primary)] sm:text-4xl lg:text-5xl lg:leading-[1.15]">
-                {tHome("hero.title")}
+                {tHome("main.name")}
               </h1>
-              <p className="hero-entrance hero-entrance-delay-3 text-base leading-relaxed text-[var(--text-muted)] sm:text-lg">
-                {tHome("hero.subtitle")}
+              <p className="hero-entrance hero-entrance-delay-3 text-xl text-[var(--text-muted)] sm:text-2xl">
+                {tHome("main.rolePrefix")} <TypedText roles={roles} />
               </p>
-              <div className="hero-entrance hero-entrance-delay-4 flex flex-wrap justify-center gap-3">
-                <Button asChild variant="primary" className="min-w-[140px]">
-                  <Link href="/app">{tCommon("navigation.goToApp")}</Link>
-                </Button>
-                <Button asChild variant="secondary" className="min-w-[140px]">
-                  <Link href="/auth/sign-up">
-                    {tCommon("navigation.createAccount")}
-                  </Link>
-                </Button>
+              <p className="hero-entrance hero-entrance-delay-3 max-w-2xl text-base leading-relaxed text-[var(--text-muted)]">
+                {tHome("main.bio", { yearsOfExperience })}
+              </p>
+
+              {/* Social Links */}
+              <div className="hero-entrance hero-entrance-delay-4 space-y-3">
+                <p className="text-sm font-medium text-[var(--text-muted)]">
+                  {tHome("main.findMe")}
+                </p>
+                <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
+                  {SOCIAL_LINKS.map(({ key, href, icon: Icon }) => (
+                    <a
+                      key={key}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="glass-panel flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-[var(--text-muted)] transition hover:text-[var(--text-primary)]"
+                    >
+                      <Icon className="h-4 w-4" />
+                      {tHome(`main.social.${key}`)}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Best Skills */}
+              <div className="hero-entrance hero-entrance-delay-5 space-y-3">
+                <p className="text-sm font-medium text-[var(--text-muted)]">
+                  {tHome("main.bestSkills")}
+                </p>
+                <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
+                  {SKILL_ITEMS.map(({ key, icon: Icon }) => (
+                    <span
+                      key={key}
+                      className={cn(
+                        "flex items-center gap-1.5 rounded-full border border-[var(--glass-border)] bg-[var(--glass-highlight)] px-4 py-1.5 text-sm text-[var(--text-primary)]",
+                      )}
+                    >
+                      <Icon className="h-3.5 w-3.5" />
+                      {tHome(`main.skills.${key}`)}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Services Section */}
         <ScrollReveal>
           <section className="space-y-8">
             <div className="space-y-2">
-              <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
-                {tHome("features.title")}
-              </h2>
-              <p className="max-w-2xl text-sm text-[var(--text-muted)] sm:text-base">
-                {tHome("features.description")}
+              <p className="text-xs font-medium tracking-[0.28em] text-[var(--text-muted)] uppercase">
+                {tHome("services.eyebrow")}
               </p>
+              <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
+                {tHome("services.title")}
+              </h2>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-              {featureKeys.map((key) => (
+              {SERVICE_KEYS.map((key) => (
                 <Card key={key} className="bento-card px-6 py-6 sm:rounded-2xl">
                   <CardHeader className="space-y-0 pb-0">
                     <CardTitle>
-                      {tHome(`features.items.${key}.title`)}
+                      {tHome(`services.items.${key}.title`)}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-3">
                     <CardDescription>
-                      {tHome(`features.items.${key}.description`)}
+                      {tHome(`services.items.${key}.description`)}
                     </CardDescription>
                   </CardContent>
                 </Card>
@@ -107,176 +205,32 @@ export async function LandingPage() {
           </section>
         </ScrollReveal>
 
-        {/* Clean Architecture Section */}
+        {/* Resume Section */}
         <ScrollReveal>
           <section className="space-y-8">
             <div className="space-y-2">
-              <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
-                {tHome("architecture.title")}
-              </h2>
-              <p className="max-w-2xl text-sm text-[var(--text-muted)] sm:text-base">
-                {tHome("architecture.description")}
+              <p className="text-xs font-medium tracking-[0.28em] text-[var(--text-muted)] uppercase">
+                {tHome("resume.eyebrow", { yearsOfExperience })}
               </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-              {architectureLayerKeys.map((key, index) => (
-                <Card
-                  key={key}
-                  className={cn(
-                    "bento-card px-6 py-6 sm:rounded-2xl",
-                    index === 0 && "border-l-2 border-l-green-500",
-                    index === 1 && "border-l-2 border-l-orange-500",
-                    index === 2 && "border-l-2 border-l-pink-500",
-                    index === 3 && "border-l-2 border-l-blue-500",
-                  )}
-                >
-                  <CardHeader className="space-y-0 pb-0">
-                    <CardTitle className="text-base">
-                      {tHome(`architecture.layers.${key}.title`)}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-3">
-                    <CardDescription className="text-xs leading-relaxed">
-                      {tHome(`architecture.layers.${key}.description`)}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
-        </ScrollReveal>
-
-        {/* Tech Stack Section */}
-        <ScrollReveal>
-          <Card
-            variant="strong"
-            className="bento-card rounded-2xl px-8 py-10 sm:rounded-3xl sm:px-12 sm:py-14"
-          >
-            <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
-              {tHome("techStack.title")}
-            </h2>
-            <p className="mt-2 max-w-2xl text-sm text-[var(--text-muted)] sm:text-base">
-              {tHome("techStack.description")}
-            </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {techStackKeys.map((key) => (
-                <div
-                  key={key}
-                  className="flex items-start gap-3 rounded-xl border border-[var(--glass-border)] bg-[var(--glass-highlight)] p-4"
-                >
-                  <span
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[var(--glass-border)] bg-[var(--surface)] text-xs text-[var(--text-primary)]"
-                    aria-hidden
-                  >
-                    ✓
-                  </span>
-                  <div className="space-y-1">
-                    <p className="text-sm font-medium text-[var(--text-primary)]">
-                      {tHome(`techStack.items.${key}.name`)}
-                    </p>
-                    <p className="text-xs leading-relaxed text-[var(--text-muted)]">
-                      {tHome(`techStack.items.${key}.description`)}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-        </ScrollReveal>
-
-        {/* Getting Started Section */}
-        <ScrollReveal>
-          <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
-            <div className="space-y-4 lg:col-span-5">
               <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
-                {tHome("gettingStarted.title")}
+                {tHome("resume.title")}
               </h2>
-              <p className="text-sm leading-relaxed text-[var(--text-muted)] sm:text-base">
-                {tHome("gettingStarted.description")}
-              </p>
             </div>
-            <div className="space-y-3 lg:col-span-7">
-              <code className="block rounded-xl border border-[var(--glass-border)] bg-[var(--code-bg)] px-4 py-3 font-mono text-sm text-[var(--text-primary)]">
-                {tHome("gettingStarted.steps.install")}
-              </code>
-              <code className="block rounded-xl border border-[var(--glass-border)] bg-[var(--code-bg)] px-4 py-3 font-mono text-sm text-[var(--text-primary)]">
-                {tHome("gettingStarted.steps.dev")}
-              </code>
-              <code className="block rounded-xl border border-[var(--glass-border)] bg-[var(--code-bg)] px-4 py-3 font-mono text-sm text-[var(--text-primary)]">
-                {tHome("gettingStarted.steps.validate")}
-              </code>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* Documentation Section */}
-        <ScrollReveal>
-          <section className="space-y-8">
-            <div className="space-y-2">
-              <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
-                {tHome("docs.title")}
-              </h2>
-              <p className="max-w-2xl text-sm text-[var(--text-muted)] sm:text-base">
-                {tHome("docs.description")}
-              </p>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:gap-5">
-              {[
-                {
-                  key: "architecture",
-                  href: "/docs/architecture",
-                  titleKey: "docs.items.architecture.title",
-                  descKey: "docs.items.architecture.description",
-                  span: "lg:col-span-6",
-                },
-                {
-                  key: "codingConventions",
-                  href: "/docs/coding-conventions",
-                  titleKey: "docs.items.codingConventions.title",
-                  descKey: "docs.items.codingConventions.description",
-                  span: "lg:col-span-6",
-                },
-                {
-                  key: "development",
-                  href: "/docs/development-guide",
-                  titleKey: "docs.items.development.title",
-                  descKey: "docs.items.development.description",
-                  span: "lg:col-span-4",
-                },
-                {
-                  key: "testing",
-                  href: "/docs/testing-guide",
-                  titleKey: "docs.items.testing.title",
-                  descKey: "docs.items.testing.description",
-                  span: "lg:col-span-4",
-                },
-                {
-                  key: "firebase",
-                  href: "/docs/firebase-integration",
-                  titleKey: "docs.items.firebase.title",
-                  descKey: "docs.items.firebase.description",
-                  span: "lg:col-span-4",
-                },
-                {
-                  key: "deployment",
-                  href: "/docs/deployment",
-                  titleKey: "docs.items.deployment.title",
-                  descKey: "docs.items.deployment.description",
-                  span: "lg:col-span-4",
-                },
-              ].map(({ key: itemKey, href, titleKey, descKey, span }) => (
-                <Link key={itemKey} href={href} className={span}>
-                  <Card className="bento-card h-full px-6 py-6 transition-colors hover:bg-[var(--glass-highlight)] sm:rounded-2xl">
-                    <CardHeader className="space-y-0 pb-0">
-                      <CardTitle>{tHome(titleKey)}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-3">
-                      <CardDescription>{tHome(descKey)}</CardDescription>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
+            <Card
+              variant="strong"
+              className="bento-card rounded-2xl px-8 py-10 sm:rounded-3xl sm:px-12 sm:py-14"
+            >
+              <ResumeTabs
+                tabs={{
+                  experience: tHome("resume.tabs.experience"),
+                  skills: tHome("resume.tabs.skills"),
+                  education: tHome("resume.tabs.education"),
+                }}
+                experience={experience}
+                skills={skills}
+                education={education}
+              />
+            </Card>
           </section>
         </ScrollReveal>
       </div>

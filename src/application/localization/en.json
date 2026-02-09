@@ -23,15 +23,16 @@
         "deployment": "Deployment"
       },
       "contact": "Contact",
+      "products": "Products",
       "menu": "Menu"
     },
     "footer": {
-      "copyright": "© 2026 Next.js Starter Kit. All rights reserved."
+      "copyright": "© 2026. All rights reserved by Thinh Tran."
     },
     "app": {
       "metadata": {
-        "title": "Next.js Starter Kit",
-        "description": "Build scalable Next.js apps with Clean Architecture, TypeScript, and 100% test coverage out of the box."
+        "title": "Thinh Tran",
+        "description": "Senior engineering leader with {yearsOfExperience}+ years of experience in full-stack development, blockchain, and cloud architecture."
       }
     },
     "errors": {
@@ -465,11 +466,11 @@
     "contact": {
       "pages": {
         "contact": {
-          "title": "Contact Us",
+          "title": "Contact Me",
           "metadata": {
-            "description": "Get in touch with us. Send us a message or email us directly."
+            "description": "Get in touch with me. Send me a message or email me directly."
           },
-          "subtitle": "Have a question or need help? Fill out the form below or email us directly at",
+          "subtitle": "Have a question or need help? Fill out the form below or email me directly at",
           "form": {
             "nameLabel": "Name",
             "namePlaceholder": "Your name",
@@ -478,7 +479,7 @@
             "subjectLabel": "Subject",
             "subjectPlaceholder": "What is this about?",
             "messageLabel": "Message",
-            "messagePlaceholder": "Tell us more about your inquiry...",
+            "messagePlaceholder": "Tell me more about your inquiry...",
             "submitButton": "Send message",
             "validation": {
               "nameRequired": "Name is required",
@@ -490,165 +491,202 @@
               "messageMaxLength": "Message must be at most 2000 characters"
             }
           },
-          "emailNote": "You can also reach us directly at",
-          "successMessage": "Your email client should open shortly. If it doesn't, please email us directly."
+          "emailNote": "You can also reach me directly at",
+          "successMessage": "Your email client should open shortly. If it doesn't, please email me directly."
         }
       }
     },
     "landing": {
       "pages": {
         "home": {
-          "badge": "Starter Kit",
-          "hero": {
-            "eyebrow": "Production-ready foundation",
-            "title": "Next.js Starter Kit",
-            "subtitle": "A production-ready Next.js starter with Clean Architecture and a modular structure for scalable frontend development. Built with the App Router, TypeScript, and 100% test coverage."
+          "badge": "Thinh Tran",
+          "main": {
+            "greeting": "Welcome to my personal website",
+            "name": "Hi, I'm Thinh Tran",
+            "rolePrefix": "a",
+            "roles": {
+              "0": "Full-stack Developer",
+              "1": "Blockchain Developer",
+              "2": "Engineering Leader",
+              "3": "DevOps Engineer",
+              "4": "Tech Consultant"
+            },
+            "bio": "Senior engineering leader with {yearsOfExperience}+ years of experience building scalable software products. From co-founding a tech company to leading engineering teams as VP of Engineering, I specialize in full-stack development, blockchain, and cloud architecture. I've shipped enterprise systems, blockchain games, and mobile apps used across multiple countries.",
+            "findMe": "Find me",
+            "bestSkills": "Best skills",
+            "social": {
+              "github": "Github",
+              "linkedin": "LinkedIn",
+              "facebook": "Facebook"
+            },
+            "skills": {
+              "solidity": "Solidity",
+              "react": "React",
+              "reactNative": "React Native",
+              "flutter": "Flutter",
+              "nodejs": "Node.js",
+              "devops": "DevOps"
+            }
           },
-          "features": {
-            "title": "Key Features",
-            "description": "Everything you need to build scalable, maintainable frontend applications with best practices built-in.",
+          "services": {
+            "eyebrow": "Services",
+            "title": "What I Do",
             "items": {
-              "cleanArchitecture": {
-                "title": "Clean Architecture",
-                "description": "Four distinct layers (Domain, Application, Infrastructure, Presentation) with clear dependency rules and Awilix DI."
+              "fullstack": {
+                "title": "Full Stack Development",
+                "description": "Build and ship scalable web and mobile applications end-to-end. From responsive frontends with React and Next.js to robust backends with Node.js and .NET, paired with PostgreSQL, SQL Server, or MongoDB. Cross-platform mobile delivery with React Native and Flutter, deployed on AWS, Azure, and Google Cloud."
               },
-              "modularStructure": {
-                "title": "Modular Structure",
-                "description": "Feature modules under src/modules/ with isolated boundaries. App Router handles routing only; all code lives in src/."
+              "blockchain": {
+                "title": "Blockchain Development",
+                "description": "Design and deploy smart contracts and decentralized applications on Ethereum, Polygon, and Base. Experienced with Solidity and Hardhat, from token systems to full blockchain gaming ecosystems."
               },
-              "testCoverage": {
-                "title": "100% Test Coverage",
-                "description": "Mandatory coverage thresholds with Vitest and React Testing Library. AAA pattern and behavior-focused testing."
+              "devops": {
+                "title": "DevOps",
+                "description": "Streamline development workflows and ensure reliable deployments using Docker, GitHub Actions, and multi-cloud infrastructure on AWS, Azure, and Google Cloud."
               },
-              "i18nReady": {
-                "title": "i18n Ready",
-                "description": "next-intl with locale-based routing. English, Vietnamese, and Chinese translations included out of the box."
-              },
-              "typeSafeForms": {
-                "title": "Type-Safe Forms",
-                "description": "React Hook Form with Zod validation. Single source of truth for schemas with automatic TypeScript inference."
-              },
-              "firebaseIntegration": {
-                "title": "Firebase Integration",
-                "description": "Auth, Firestore and Analytics with abstracted interfaces. Easy to swap providers without changing application code."
+              "consultant": {
+                "title": "Consultant Service",
+                "description": "Partner with founders and product teams to turn ideas into production-ready software. From architecture design and tech stack selection to team building and delivery, I help bring products to market efficiently."
               }
             }
           },
-          "architecture": {
-            "title": "Clean Architecture",
-            "description": "Separation of concerns with dependency inversion. Inner layers have no knowledge of outer layers, enabling testability and flexibility.",
-            "layers": {
-              "domain": {
-                "title": "Domain",
-                "description": "Core types, Zod schemas, and interfaces. No external dependencies—pure business rules and data shapes."
+          "resume": {
+            "eyebrow": "{yearsOfExperience}+ years of experience",
+            "title": "My Resume",
+            "tabs": {
+              "experience": "Experience",
+              "skills": "Professional Skills",
+              "education": "Education and Certification"
+            },
+            "experience": {
+              "0": {
+                "title": "VP of Engineering",
+                "company": "Kuma Games Inc",
+                "period": "October 2021 - October 2025",
+                "points": {
+                  "0": "Led the engineering team to build and ship Chibi Kingdom, a blockchain gaming universe inspired by Romance of the Three Kingdoms.",
+                  "1": "Architected the platform using React for the web application and Unity for game development, delivering a seamless cross-platform experience.",
+                  "2": "Designed and deployed smart contracts with Solidity on Mainnet, Polygon & Base, powering in-game economies and NFT systems."
+                }
               },
-              "application": {
-                "title": "Application",
-                "description": "Use cases orchestrating business logic. Depends only on Domain; no UI or framework specifics."
+              "1": {
+                "title": "Senior Software Engineer (contract)",
+                "company": "GOSEI Vietnam JSC",
+                "period": "August 2017 - October 2021",
+                "points": {
+                  "0": "Maintained and enhanced an enterprise document management system used by multiple banks, incorporating web applications, Office Online Server, digital signing, Office plugins, and desktop clients.",
+                  "1": "Built with .NET MVC, Kendo UI, WPF, and SQL Server, ensuring high availability and compliance with banking-grade security requirements."
+                }
               },
-              "infrastructure": {
-                "title": "Infrastructure",
-                "description": "Services and repositories implementing domain interfaces. All external I/O and SDK usage lives here."
+              "2": {
+                "title": "Co-Founder & CTO",
+                "company": "Mindx Technology JSC",
+                "period": "March 2018 - February 2020",
+                "points": {
+                  "0": "Co-founded a software company and served as CTO, delivering custom web and mobile products for startups and SMEs.",
+                  "1": "Managed the engineering team end-to-end: gathering client requirements, designing solutions, and overseeing delivery timelines.",
+                  "2": "Built products using TypeScript, React, React Native, Node.js, MongoDB, AWS, and Google Cloud Platform."
+                }
               },
-              "presentation": {
-                "title": "Presentation",
-                "description": "Pages, components, and hooks. React and Next.js specifics; uses Application layer via DI container."
+              "3": {
+                "title": "Senior Software Engineer",
+                "company": "Ciber - CMC Joint Venture Corporation",
+                "period": "February 2017 - August 2017",
+                "points": {
+                  "0": "Implemented and customized Microsoft Dynamics 365 for enterprise customers, including public services web portals.",
+                  "1": "Designed solution architectures and established CI/CD pipelines to accelerate delivery cycles.",
+                  "2": "Built integrations and custom modules using .NET, SQL Server, and jQuery."
+                }
+              },
+              "4": {
+                "title": "Senior Software Engineer / Technical Lead",
+                "company": "Tek Experts",
+                "period": "May 2015 - February 2017",
+                "points": {
+                  "0": "Led the migration of HP Enterprise's Quoting tool from Excel VBA to a cloud-based Sales Support Cloud (SSC) solution.",
+                  "1": "Architected the system for 24/7 global availability, handling high-volume concurrent requests across multiple time zones.",
+                  "2": "Delivered the solution using .NET MVC, Kendo UI, and SQL Server."
+                }
+              },
+              "5": {
+                "title": "SQL Server Developer",
+                "company": "Rendy",
+                "period": "July 2014 - May 2015",
+                "points": {
+                  "0": "Successfully migrated a large-scale SQL Server database from version 2005 to 2012, preserving complex business logic and ensuring zero data loss.",
+                  "1": "Developed automated migration tools and validation scripts using SSIS, WPF, and Excel VBA."
+                }
+              },
+              "6": {
+                "title": "Software Developer / Technical Lead",
+                "company": "SanhaIT Vina",
+                "period": "June 2011 - May 2014",
+                "points": {
+                  "0": "Built a web-based ERP solution for managing operations across golf clubs, resorts, and luxury hotels.",
+                  "1": "Developed a groupware platform that improved collaboration efficiency among distributed remote teams.",
+                  "2": "Delivered using .NET MVC, Kendo UI, Java Spring, and Oracle."
+                }
               }
-            }
-          },
-          "techStack": {
-            "title": "Tech Stack",
-            "description": "Modern, production-ready technologies carefully selected for developer experience and performance.",
-            "items": {
-              "nextjs": {
-                "name": "Next.js 16",
-                "description": "App Router, React Server Components, and optimized SSR/SSG."
+            },
+            "skills": {
+              "0": {
+                "name": "Frontend",
+                "items": "React, Next.js, React Native, Flutter, TypeScript"
               },
-              "react": {
-                "name": "React 19",
-                "description": "Latest React with concurrent features and improved performance."
+              "1": {
+                "name": "Backend",
+                "items": "Node.js, .NET/C#"
               },
-              "typescript": {
-                "name": "TypeScript 5",
-                "description": "Strict mode enabled for maximum type safety across the codebase."
+              "2": {
+                "name": "Database",
+                "items": "PostgreSQL, MongoDB, SQL Server"
               },
-              "tailwind": {
-                "name": "Tailwind CSS 4",
-                "description": "Utility-first styling with automatic class sorting and optimization."
+              "3": {
+                "name": "Blockchain",
+                "items": "Solidity, Hardhat"
               },
-              "radix": {
-                "name": "Radix UI",
-                "description": "Accessible, unstyled primitives via shadcn/ui component collection."
-              },
-              "rhf": {
-                "name": "React Hook Form",
-                "description": "Performant form management with minimal re-renders."
-              },
-              "zod": {
-                "name": "Zod",
-                "description": "Schema validation with TypeScript type inference."
-              },
-              "zustand": {
-                "name": "Zustand",
-                "description": "Lightweight client state management with simple API."
-              },
-              "nextIntl": {
-                "name": "next-intl",
-                "description": "Internationalization with locale routing and message formatting."
-              },
-              "firebase": {
-                "name": "Firebase",
-                "description": "Authentication, Firestore database and Analytics with abstracted interfaces."
-              },
-              "awilix": {
-                "name": "Awilix",
-                "description": "Dependency injection container for decoupled, testable code."
-              },
-              "vitest": {
-                "name": "Vitest",
-                "description": "Fast unit testing with React Testing Library integration."
+              "4": {
+                "name": "DevOps & Cloud",
+                "items": "Docker, GitHub Actions, AWS, Azure, Google Cloud"
               }
-            }
-          },
-          "gettingStarted": {
-            "title": "Getting started",
-            "description": "Clone the repo, install dependencies, and run the dev server. Validation runs lint, format check, and tests with coverage.",
-            "steps": {
-              "install": "npm install",
-              "dev": "npm run dev",
-              "validate": "npm run validate"
-            }
-          },
-          "docs": {
-            "title": "Documentation",
-            "description": "Six comprehensive guides cover architecture, conventions, development workflow, testing, Firebase integration, and deployment.",
-            "items": {
-              "architecture": {
-                "title": "Architecture",
-                "description": "Layer structure, data flow diagrams, design patterns, and Awilix dependency injection."
+            },
+            "education": {
+              "0": {
+                "title": "AWS Certified SysOps Administrator - Associate",
+                "institution": "Amazon Web Services (AWS)",
+                "period": "2020"
               },
-              "codingConventions": {
-                "title": "Coding conventions",
-                "description": "App Router patterns, file naming, component props, forms with Zod, and next-intl i18n."
+              "1": {
+                "title": "AWS Certified Developer - Associate",
+                "institution": "Amazon Web Services (AWS)",
+                "period": "2020"
               },
-              "development": {
-                "title": "Development guide",
-                "description": "Git workflow, 7-step feature guide, module creation, and common patterns."
+              "2": {
+                "title": "AWS Certified Solution Architect - Associate",
+                "institution": "Amazon Web Services (AWS)",
+                "period": "2020"
               },
-              "testing": {
-                "title": "Testing guide",
-                "description": "Vitest + React Testing Library, 100% coverage, test organization, and AAA pattern."
+              "3": {
+                "title": "Master's Degree, Software Engineering",
+                "institution": "FPT University",
+                "period": "2018"
               },
-              "firebase": {
-                "title": "Firebase integration",
-                "description": "Auth, Firestore and Analytics setup, abstracted interfaces, security rules, and swapping providers."
-              },
-              "deployment": {
-                "title": "Deployment",
-                "description": "Firebase setup, Cloudflare Pages hosting, GitHub Actions CI/CD, and environment variables."
+              "4": {
+                "title": "Bachelor's Degree, Software Engineering",
+                "institution": "FPT University",
+                "period": "2011"
               }
             }
           }
+        },
+        "products": {
+          "title": "My Products",
+          "metadata": {
+            "description": "Personal products developed by Thinh Tran."
+          },
+          "eyebrow": "What I have personally developed",
+          "comingSoon": "Coming Soon",
+          "comingSoonDescription": "I'm working on some exciting new products. Stay tuned for updates!"
         }
       }
     }

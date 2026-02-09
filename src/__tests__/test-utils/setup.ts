@@ -57,7 +57,10 @@ if (getContainerOrNull() === null) {
   initializeContainer();
 }
 
-const lookupMessage = (fullKey: string) => {
+const lookupMessage = (
+  fullKey: string,
+  params?: Record<string, string | number>,
+) => {
   const value = fullKey.split(".").reduce<unknown>((result, key) => {
     if (result && typeof result === "object" && key in result) {
       return (result as Record<string, unknown>)[key];
@@ -65,7 +68,18 @@ const lookupMessage = (fullKey: string) => {
     return undefined;
   }, messages);
 
-  return typeof value === "string" ? value : String(value ?? fullKey);
+  let resolved = typeof value === "string" ? value : String(value ?? fullKey);
+
+  if (params) {
+    for (const [paramKey, paramValue] of Object.entries(params)) {
+      resolved = resolved.replace(
+        new RegExp(`\\{${paramKey}\\}`, "g"),
+        String(paramValue),
+      );
+    }
+  }
+
+  return resolved;
 };
 
 vi.mock("next/navigation", () => ({
@@ -79,8 +93,10 @@ vi.mock("next/navigation", () => ({
 }));
 
 vi.mock("next-intl/server", () => ({
-  getTranslations: async (namespace?: string) => (key: string) =>
-    lookupMessage(namespace ? `${namespace}.${key}` : key),
+  getTranslations:
+    async (namespace?: string) =>
+    (key: string, params?: Record<string, string | number>) =>
+      lookupMessage(namespace ? `${namespace}.${key}` : key, params),
   getMessages: async () => messages,
   getLocale: async () => "en",
   getRequestConfig: (
@@ -92,10 +108,10 @@ vi.mock("next-intl/server", () => ({
 
 vi.mock("next-intl", () => ({
   useTranslations: (namespace?: string) => {
-    const t = (key: string) =>
-      lookupMessage(namespace ? `${namespace}.${key}` : key);
-    t.rich = (key: string) =>
-      lookupMessage(namespace ? `${namespace}.${key}` : key);
+    const t = (key: string, params?: Record<string, string | number>) =>
+      lookupMessage(namespace ? `${namespace}.${key}` : key, params);
+    t.rich = (key: string, params?: Record<string, string | number>) =>
+      lookupMessage(namespace ? `${namespace}.${key}` : key, params);
     return t;
   },
   useLocale: vi.fn(() => "en"),

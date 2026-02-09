@@ -6,6 +6,7 @@ import {
 } from "next-intl/server";
 
 import { AppInitializer } from "@/application/components/app-initializer";
+import { getYearsOfExperience } from "@/application/config/personal-info";
 import { RootLayout } from "@/common/components/root-layout";
 import { Toaster } from "@/common/components/toaster";
 import { routing } from "@/common/routing/routing";
@@ -21,7 +22,9 @@ export async function generateMetadata({
 
   return {
     title: t("app.metadata.title"),
-    description: t("app.metadata.description"),
+    description: t("app.metadata.description", {
+      yearsOfExperience: getYearsOfExperience(),
+    }),
   };
 }
 

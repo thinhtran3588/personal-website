@@ -21,7 +21,7 @@ import {
   type ContactFormData,
 } from "@/modules/landing-page/domain/schemas";
 
-const SUPPORT_EMAIL = "support@gemsignal.com";
+const SUPPORT_EMAIL = "quangthinhtran3588@gmail.com";
 
 export function ContactForm() {
   const t = useTranslations("modules.contact.pages.contact");

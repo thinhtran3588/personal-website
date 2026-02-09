@@ -3,29 +3,6 @@ import { vi } from "vitest";
 
 import { MainHeader } from "@/common/components/main-header";
 import type { ResolvedMenuItem } from "@/common/interfaces";
-import { Link } from "@/common/routing/navigation";
-
-let mockAuthUser: {
-  id: string;
-  email: string | null;
-  displayName: string | null;
-  photoURL: string | null;
-  authType: "email" | "google" | "apple" | "other";
-} | null = null;
-let mockAuthLoading = false;
-
-vi.mock("@/common/hooks/use-container", () => ({
-  useContainer: vi.fn(() => ({
-    resolve: (name: string) =>
-      name === "signOutUseCase" ? { execute: vi.fn() } : {},
-  })),
-}));
-
-vi.mock("@/modules/auth/presentation/hooks/use-auth-user-store", () => ({
-  useAuthUserStore: (
-    selector: (s: { user: typeof mockAuthUser; loading: boolean }) => unknown,
-  ) => selector({ user: mockAuthUser, loading: mockAuthLoading }),
-}));
 
 let mockPathname = "/";
 vi.mock("@/common/routing/navigation", async (importOriginal) => {
@@ -36,8 +13,6 @@ vi.mock("@/common/routing/navigation", async (importOriginal) => {
     usePathname: () => mockPathname,
   };
 });
-
-const signInLabel = "Sign in";
 
 const menuItems: ResolvedMenuItem[] = [
   { id: "home", label: "Home", href: "/" },
@@ -78,7 +53,6 @@ const baseProps = {
   badge: "Liquid Badge",
   menuItems,
   menuLabel: "Menu",
-  authSlot: <Link href="/auth/sign-in">{signInLabel}</Link>,
   settingsSlot: defaultSettingsSlot,
 };
 
@@ -96,7 +70,6 @@ describe("MainHeader", () => {
 
     expect(screen.getByText(baseProps.badge)).toBeInTheDocument();
     expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(screen.getByText(signInLabel)).toBeInTheDocument();
     expect(screen.getByText("Privacy")).toBeInTheDocument();
     expect(screen.getByText("Terms")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^Theme:/ })).toBeInTheDocument();
@@ -152,17 +125,6 @@ describe("MainHeader", () => {
     privacyLinks.forEach((link) => {
       expect(link).toHaveClass("font-bold");
     });
-  });
-
-  it("shows Sign in at top of mobile menu", () => {
-    render(<MainHeader {...baseProps} />);
-    fireEvent.click(screen.getByRole("button", { name: baseProps.menuLabel }));
-
-    const nav = screen.getByTestId("mobile-menu");
-    const linksAndButtons = nav.querySelectorAll("a, button");
-    const firstLink = linksAndButtons[0];
-    expect(firstLink).toHaveAttribute("href", "/auth/sign-in");
-    expect(firstLink).toHaveTextContent(signInLabel);
   });
 
   it("closes mobile menu when backdrop is clicked", () => {
@@ -291,50 +253,8 @@ describe("MainHeader", () => {
   });
 
   it("does not render settings slot when settingsSlot is undefined", () => {
-    render(
-      <MainHeader
-        {...baseProps}
-        authSlot={undefined}
-        settingsSlot={undefined}
-      />,
-    );
+    render(<MainHeader {...baseProps} settingsSlot={undefined} />);
     expect(screen.queryByTestId("settings-slot")).not.toBeInTheDocument();
-  });
-
-  it("does not render auth slot in mobile menu when authSlot is undefined", () => {
-    render(<MainHeader {...baseProps} authSlot={undefined} />);
-    fireEvent.click(screen.getByRole("button", { name: baseProps.menuLabel }));
-    const mobileMenu = screen.getByTestId("mobile-menu");
-    const nav = within(mobileMenu).getByRole("navigation");
-    const links = within(nav).getAllByRole("link");
-    expect(links[0]).toHaveTextContent("Home");
-  });
-
-  it("shows user name, Profile, and Sign out directly in mobile menu when signed in", async () => {
-    const { AuthHeaderSlot } =
-      await import("@/modules/auth/presentation/components/auth-header-slot");
-    mockAuthUser = {
-      id: "uid-1",
-      email: "a@b.com",
-      displayName: "Alice",
-      photoURL: null,
-      authType: "email",
-    };
-    mockAuthLoading = false;
-
-    render(<MainHeader {...baseProps} authSlot={<AuthHeaderSlot />} />);
-    fireEvent.click(screen.getByRole("button", { name: baseProps.menuLabel }));
-
-    const mobileMenu = screen.getByTestId("mobile-menu");
-    expect(within(mobileMenu).getByTestId("auth-user-name")).toHaveTextContent(
-      "Alice",
-    );
-    expect(
-      within(mobileMenu).getByRole("link", { name: "Profile" }),
-    ).toHaveAttribute("href", "/profile");
-    expect(
-      within(mobileMenu).getByRole("button", { name: "Sign out" }),
-    ).toBeInTheDocument();
   });
 
   it("renders GitHub link when githubUrl is provided", () => {

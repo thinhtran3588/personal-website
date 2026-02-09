@@ -18,12 +18,12 @@ describe("ContactPage", () => {
     render(await ContactPage());
 
     const emailLinks = screen.getAllByRole("link", {
-      name: "support@gemsignal.com",
+      name: "quangthinhtran3588@gmail.com",
     });
     expect(emailLinks.length).toBeGreaterThanOrEqual(1);
     expect(emailLinks[0]).toHaveAttribute(
       "href",
-      "mailto:support@gemsignal.com",
+      "mailto:quangthinhtran3588@gmail.com",
     );
   });
 
