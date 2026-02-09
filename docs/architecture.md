@@ -14,8 +14,7 @@ This frontend follows **Clean Architecture** with a **modular** structure. The a
    - [Presentation Layer](#4-presentation-layer-srcmodulesmodulepresentation)
 5. [Module Structure](#module-structure)
 6. [Critical Design Patterns](#critical-design-patterns)
-7. [Authentication](#authentication)
-8. [Technology Stack](#technology-stack)
+7. [Technology Stack](#technology-stack)
 
 ## Architecture Overview
 
@@ -41,7 +40,7 @@ graph TD
 
 - **Domain Layer**: Core types, Zod schemas, and interfaces used across the app. No external dependencies; defines the shape of data and validation rules (e.g. API contracts, form payloads).
 
-- **Infrastructure Layer**: Technical implementations—services (external integrations like Firebase) and repositories (data access). Implements interfaces defined in the domain layer.
+- **Infrastructure Layer**: Technical implementations—services (external integrations) and repositories (data access). Implements interfaces defined in the domain layer.
 
 ## Layer Structure
 
@@ -158,7 +157,7 @@ Core types and validation with no external dependencies. Shared domain concepts 
 
 **Components:**
 
-- **Types**: Interfaces and type aliases for API responses, form state, and module concepts (e.g. auth types in `src/modules/auth/domain/types.ts`).
+- **Types**: Interfaces and type aliases for API responses, form state, and module concepts (e.g. settings types in `src/modules/settings/domain/types.ts`).
 - **Zod Schemas**: Validation and parsing for forms in per-module `domain/schemas.ts`.
 - **Constants**: Domain-related constants (e.g. route paths, error codes) used within the module.
 
@@ -173,8 +172,8 @@ Orchestrates use cases and application logic. Use cases are resolved from the DI
 
 **Components:**
 
-- **Use Cases**: Classes (or functions) in `src/modules/{module}/application/` that implement application flows (e.g. `sign-in-with-email-use-case.ts`, `update-profile-use-case.ts`). They extend `BaseUseCase` from `src/common/utils/base-use-case.ts`, use domain types/schemas, and depend on services or API client via the container.
-- **Module state**: Module-level state (e.g. Zustand) is exposed via hooks in `src/modules/{module}/presentation/hooks/` (e.g. `use-auth-user-store.ts`).
+- **Use Cases**: Classes (or functions) in `src/modules/{module}/application/` that implement application flows (e.g. `load-user-settings-use-case.ts`, `save-user-settings-use-case.ts`). They extend `BaseUseCase` from `src/common/utils/base-use-case.ts`, use domain types/schemas, and depend on services or API client via the container.
+- **Module state**: Module-level state (e.g. Zustand) is exposed via hooks in `src/modules/{module}/presentation/hooks/` (e.g. `use-user-settings-store.ts`).
 - **Data-fetching**: Server or Client Components load data by resolving and calling use cases from the container.
 
 **Key Principles:**
@@ -188,8 +187,8 @@ Implements technical concerns and external integrations. Optional per-module API
 
 **Components:**
 
-- **Services**: External integrations in `src/modules/{module}/infrastructure/services/` (e.g. `firebase-auth-service.ts` in auth). They implement interfaces defined in `src/modules/{module}/domain/interfaces.ts`.
-- **Repositories**: Data access implementations in `src/modules/{module}/infrastructure/repositories/` (e.g. `firestore-book-repository.ts` in books). They implement interfaces defined in `src/modules/{module}/domain/interfaces.ts`.
+- **Services**: External integrations in `src/modules/{module}/infrastructure/services/` (e.g. external API services). They implement interfaces defined in `src/modules/{module}/domain/interfaces.ts`.
+- **Repositories**: Data access implementations in `src/modules/{module}/infrastructure/repositories/` (e.g. data repositories). They implement interfaces defined in `src/modules/{module}/domain/interfaces.ts`.
 - **API Client**: When the app talks to a backend HTTP API, a client can live in `src/common/` or per-module and is registered in the container.
 
 **Key Principles:**
@@ -206,7 +205,7 @@ Handles user interaction and renders UI.
 - **App Routes**: `app/[locale]/**/page.tsx` (and route groups like `(main)`) serve as the routing layer only. They import and render page components from `src/modules/{module}/presentation/pages/`.
 - **Module Pages**: `src/modules/{module}/presentation/pages/{page}/page.tsx` contain actual page components. Pages can be Server or Client Components; page-specific components live in `presentation/pages/{page}/components/`.
 - **Module Components**: Module-shared components in `src/modules/{module}/presentation/components/`.
-- **Module Hooks**: Module-specific hooks in `src/modules/{module}/presentation/hooks/` (e.g. `use-auth-user-store.ts`, `use-sync-auth-state.ts`).
+- **Module Hooks**: Module-specific hooks in `src/modules/{module}/presentation/hooks/` (e.g. `use-user-settings-store.ts`).
 - **Common Components**: Shared components in `src/common/components/` (e.g. form, input, label, root-layout, main-layout). Use `"use client"` only where needed (hooks, browser APIs, Zustand).
 
 **Key Principles:**
@@ -225,17 +224,15 @@ The app uses `/src` as the main source folder, keeping `/app` as the routing lay
 app/                               # Routing layer ONLY (Next.js App Router)
 ├── [locale]/                      # Locale segment (next-intl)
 │   ├── layout.tsx, error.tsx, not-found.tsx
-│   ├── (main)/                    # Route group: main pages
-│   │   ├── page.tsx, docs/, profile/, ...
-│   └── auth/                      # Auth routes
-│       ├── sign-in/, sign-up/, forgot-password/
+│   └── (main)/                    # Route group: main pages
+│       └── page.tsx
 ├── globals.css, layout.tsx, not-found.tsx
 
 src/                               # All application code lives here
 ├── __tests__/                     # Tests mirror src structure
 ├── application/                   # App-level setup
 │   ├── components/                # AppInitializer
-│   ├── config/                    # firebase-config, main-menu
+│   ├── config/                    # main-menu
 │   ├── localization/              # request.ts, en.json, vi.json, zh.json
 │   └── register-container.ts
 ├── common/                        # Shared code across all modules
@@ -247,20 +244,27 @@ src/                               # All application code lives here
 │   └── utils/                     # cn, container, base-use-case, ...
 │
 ├── modules/                       # Feature modules (Clean Architecture)
-│   ├── auth/                      # Example: Auth module
+│   ├── landing-page/              # Landing page module
 │   │   ├── domain/                # types.ts, schemas.ts, interfaces.ts
-│   │   ├── application/           # sign-in-use-case.ts, sign-out-use-case.ts, ...
-│   │   ├── infrastructure/        # services/firebase-auth-service.ts
+│   │   ├── application/           # Use cases
+│   │   ├── infrastructure/        # services/, repositories/
 │   │   ├── presentation/
-│   │   │   ├── components/        # auth-layout, auth-header-slot, ...
-│   │   │   ├── hooks/             # use-auth-user-store, use-sync-auth-state
-│   │   │   └── pages/             # sign-in/, sign-up/, profile/
+│   │   │   ├── components/        # Landing page components
+│   │   │   ├── hooks/             # Landing page hooks
+│   │   │   └── pages/             # Landing page pages
 │   │   ├── utils/
 │   │   └── module-configuration.ts
 │   │
-│   ├── books/                     # Example: Books module (CRUD)
-│   ├── settings/                  # Example: User settings module
-│   ├── docs/, landing-page/       # Other modules
+│   ├── settings/                  # User settings module
+│   │   ├── domain/                # types.ts, schemas.ts, interfaces.ts
+│   │   ├── application/           # load-user-settings-use-case.ts, save-user-settings-use-case.ts
+│   │   ├── infrastructure/        # services/, repositories/
+│   │   ├── presentation/
+│   │   │   ├── components/        # Settings components
+│   │   │   ├── hooks/             # use-user-settings-store
+│   │   │   └── pages/             # Settings pages
+│   │   ├── utils/
+│   │   └── module-configuration.ts
 │   │
 │   └── {module-name}/             # Module template
 │       ├── domain/                # types.ts, schemas.ts, interfaces.ts
@@ -270,7 +274,7 @@ src/                               # All application code lives here
 │       └── module-configuration.ts
 ```
 
-Route groups (e.g. `(main)`) use a shared layout that provides `MainLayout` with menu and auth slot; auth routes use `AuthLayout`. This keeps `/app` minimal and all code in `/src` for better organization and testability.
+Route groups (e.g. `(main)`) use a shared layout that provides `MainLayout` with menu. This keeps `/app` minimal and all code in `/src` for better organization and testability.
 
 See [Coding Conventions](./coding-conventions.md) for detailed routing examples and patterns.
 
@@ -295,7 +299,7 @@ See [Coding Conventions](./coding-conventions.md) for detailed routing examples 
 
 ### 2. Modular Feature Structure
 
-**Purpose**: Keep features (auth, books, docs, landing-page, settings) grouped and boundaries clear.
+**Purpose**: Keep features (landing-page, settings) grouped and boundaries clear.
 
 **Implementation:**
 
@@ -316,9 +320,9 @@ See [Coding Conventions](./coding-conventions.md) for detailed routing examples 
 **Implementation:**
 
 - Container is created in `src/common/utils/container.ts` with `injectionMode: InjectionMode.PROXY` and registered in `src/application/register-container.ts`.
-- Each module exposes `registerModule(container)` in `module-configuration.ts`, registering use cases and services (e.g. `asFunction(cradle => new SignInWithEmailUseCase(cradle.authService)).singleton()`).
+- Each module exposes `registerModule(container)` in `module-configuration.ts`, registering use cases and services (e.g. `asFunction(cradle => new LoadUserSettingsUseCase(cradle.settingsRepository)).singleton()`).
 - Components resolve use cases via `useContainer()` from `src/common/hooks/use-container.ts` and call `execute()`.
-- App-level dependencies (e.g. Firebase auth instance) are registered in `register-container.ts`.
+- App-level dependencies are registered in `register-container.ts`.
 
 **Benefits:**
 
@@ -331,7 +335,7 @@ See [Coding Conventions](./coding-conventions.md) for detailed routing examples 
 **Implementation:**
 
 - When the app talks to a backend API, an API client can live in `src/common/` or per-module and be registered in the container. Use domain types for request/response.
-- External integrations (e.g. Firebase) live in `src/modules/{module}/infrastructure/services/` and implement interfaces in `src/modules/{module}/domain/interfaces.ts`. Use cases depend on these interfaces and receive implementations via the container.
+- External integrations live in `src/modules/{module}/infrastructure/services/` and implement interfaces in `src/modules/{module}/domain/interfaces.ts`. Use cases depend on these interfaces and receive implementations via the container.
 
 **Benefits:**
 
@@ -357,88 +361,11 @@ See [Coding Conventions](./coding-conventions.md) for detailed routing examples 
 
 **Implementation:**
 
-- Interfaces (e.g. `AuthenticationService`) live in `src/modules/{module}/domain/interfaces.ts`. Use cases depend on these interfaces; implementations (e.g. `FirebaseAuthenticationService`) live in `infrastructure/services/` and are registered in the container.
+- Interfaces live in `src/modules/{module}/domain/interfaces.ts`. Use cases depend on these interfaces; implementations live in `infrastructure/services/` and are registered in the container.
 
 **Benefits:**
 
 - Easier unit tests and swapping implementations (e.g. mock auth in tests).
-
-## Authentication
-
-This project uses **abstracted authentication** that allows swapping the underlying provider without changing application or presentation code. Firebase Auth is the current implementation for rapid MVP development.
-
-### Authentication Architecture
-
-```mermaid
-graph TD
-    subgraph Presentation["Presentation Layer"]
-        Components[Pages & Components]
-        Hooks[Auth Hooks]
-        Store[Zustand Store]
-    end
-
-    subgraph Application["Application Layer"]
-        UseCases[Auth Use Cases]
-    end
-
-    subgraph Domain["Domain Layer"]
-        Interface[AuthenticationService Interface]
-        Types[AuthUser, AuthResult Types]
-    end
-
-    subgraph Infrastructure["Infrastructure Layer"]
-        Firebase[FirebaseAuthenticationService]
-        Future[Future: Other Providers]
-    end
-
-    Components --> Hooks
-    Hooks --> Store
-    Hooks --> UseCases
-    UseCases --> Interface
-    Firebase -.implements.-> Interface
-    Future -.implements.-> Interface
-    Firebase --> Types
-    Future --> Types
-
-    style Presentation fill:#1976d2,color:#fff
-    style Application fill:#f57c00,color:#fff
-    style Domain fill:#388e3c,color:#fff
-    style Infrastructure fill:#c2185b,color:#fff
-```
-
-### How It Works
-
-1. **Domain Interface**: `AuthenticationService` in `src/modules/auth/domain/interfaces.ts` defines the contract for all auth operations (sign in, sign up, sign out, password reset, etc.)
-
-2. **Domain Types**: `AuthUser`, `AuthResult`, `AuthErrorCode` in `src/modules/auth/domain/types.ts` are provider-agnostic
-
-3. **Infrastructure Implementation**: `FirebaseAuthenticationService` implements the interface and maps Firebase-specific types/errors to domain types
-
-4. **Dependency Injection**: The service is registered in the DI container and injected into use cases
-
-5. **State Management**: `useAuthUserStore` (Zustand) holds the current user state, synced via `useSyncAuthState` hook
-
-### Swapping Authentication Providers
-
-To switch from Firebase to another provider (e.g., Auth0, Supabase, custom backend):
-
-1. Create a new service implementing `AuthenticationService` interface
-2. Update `module-configuration.ts` to register the new service
-3. No changes needed in use cases, pages, or components
-
-```typescript
-// Example: New provider implementation
-export class Auth0AuthenticationService implements AuthenticationService {
-  async signInWithEmail(email: string, password: string): Promise<AuthResult> {
-    // Auth0 implementation
-  }
-  // ... other methods
-}
-```
-
-This abstraction makes the codebase **MVP-friendly** (fast iteration with Firebase) while remaining **production-ready** (easy migration to enterprise auth solutions).
-
-For detailed Firebase setup and configuration, see [Firebase Integration](./firebase-integration.md).
 
 ## Technology Stack
 
@@ -451,5 +378,4 @@ For detailed Firebase setup and configuration, see [Firebase Integration](./fire
 | **Forms** | React Hook Form + Zod |
 | **i18n** | next-intl |
 | **DI** | Awilix |
-| **Auth** | Firebase (optional) |
 | **Testing** | Vitest, React Testing Library |

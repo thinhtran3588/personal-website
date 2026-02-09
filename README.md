@@ -1,10 +1,10 @@
-# Next.js Starter Kit
+# Thinh Tran — Personal Website
 
-[![CI - Main](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-main.yml/badge.svg?branch=main)](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-main.yml)
-[![codecov - Main](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/branch/main/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/tree/main)
+[![CI - Main](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-main.yml/badge.svg?branch=main)](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-main.yml)
+[![codecov - Main](https://codecov.io/gh/thinhtran3588/personal-website/branch/main/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/personal-website/tree/main)
 
-[![CI - Develop](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-develop.yml/badge.svg?branch=develop)](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-develop.yml)
-[![codecov - Develop](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/branch/develop/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/tree/develop)
+[![CI - Develop](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-develop.yml/badge.svg?branch=develop)](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-develop.yml)
+[![codecov - Develop](https://codecov.io/gh/thinhtran3588/personal-website/branch/develop/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/personal-website/tree/develop)
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)
@@ -13,15 +13,14 @@
 ![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=flat&logo=radix-ui&logoColor=white)
 ![Zod](https://img.shields.io/badge/Zod-3E67B1?style=flat&logo=zod&logoColor=white)
 ![React Hook Form](https://img.shields.io/badge/React_Hook_Form-EC5990?style=flat&logo=reacthookform&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=flat&logo=firebase&logoColor=white)
 ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat&logo=vitest&logoColor=white)
 ![Testing Library](https://img.shields.io/badge/Testing_Library-E33332?style=flat&logo=testing-library&logoColor=white)
 
 **English** | [Tiếng Việt](README-vi.md) | [中文](README-zh.md)
 
-**[Live Demo](https://nextjs-starter-kit.gemsignal.com/en)**
+**[Live Site](https://thinhtq.com/en)**
 
-A production-ready Next.js starter kit with Clean Architecture and modular structure for scalable frontend development.
+My personal website showcasing my portfolio, services, resume, and blog — built with Next.js, Clean Architecture, and a modular structure.
 
 ## Features
 
@@ -31,7 +30,6 @@ A production-ready Next.js starter kit with Clean Architecture and modular struc
 - **Forms & Validation** — React Hook Form + Zod with type-safe schemas
 - **State & i18n** — Zustand for client state, next-intl with 3 languages (EN, VI, ZH)
 - **Testing** — Vitest + React Testing Library with 100% coverage requirement
-- **Firebase** — Auth, Firestore & Analytics with abstracted interfaces for easy provider swapping
 
 ## Quick Start
 
@@ -52,14 +50,13 @@ The app runs at `http://localhost:3000`.
 
 ## Documentation
 
-| Document                                             | Description                                           |
-| ---------------------------------------------------- | ----------------------------------------------------- |
-| [Architecture](docs/architecture.md)                 | Layers, data flow, design patterns, DI with Awilix    |
-| [Coding Conventions](docs/coding-conventions.md)     | File naming, App Router patterns, forms, i18n         |
-| [Development Guide](docs/development-guide.md)       | Git workflow, adding features, creating modules       |
-| [Testing Guide](docs/testing-guide.md)               | Test organization, coverage, best practices           |
-| [Firebase Integration](docs/firebase-integration.md) | Auth, Firestore & Analytics setup, swapping providers |
-| [Deployment](docs/deployment.md)                     | Firebase, Cloudflare Pages, GitHub Actions CI/CD      |
+| Document                                         | Description                                        |
+| ------------------------------------------------ | -------------------------------------------------- |
+| [Architecture](docs/architecture.md)             | Layers, data flow, design patterns, DI with Awilix |
+| [Coding Conventions](docs/coding-conventions.md) | File naming, App Router patterns, forms, i18n      |
+| [Development Guide](docs/development-guide.md)   | Git workflow, adding features, creating modules    |
+| [Testing Guide](docs/testing-guide.md)           | Test organization, coverage, best practices        |
+| [Deployment](docs/deployment.md)                 | Cloudflare Pages, GitHub Actions CI/CD             |
 
 ## AI Agent Integration
 

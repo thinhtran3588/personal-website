@@ -95,41 +95,37 @@ src/__tests__/
 **Targets**:
 - Phối hợp Component + use case
 - Error handling flows
-- Flows riêng module (auth, books, settings)
+- Flows riêng module (settings, landing-page)
 
 ## Viết Tests
 
 ### Use Case Tests
 
 ```typescript
-// src/__tests__/modules/auth/application/sign-in-with-email-use-case.test.ts
-import { SignInWithEmailUseCase } from "@/modules/auth/application/sign-in-with-email-use-case";
-import type { AuthenticationService } from "@/modules/auth/domain/interfaces";
+// src/__tests__/modules/{module}/application/create-feature-use-case.test.ts
+import { CreateFeatureUseCase } from "@/modules/{module}/application/create-feature-use-case";
+import type { FeatureRepository } from "@/modules/{module}/domain/interfaces";
 
-describe("SignInWithEmailUseCase", () => {
-  let useCase: SignInWithEmailUseCase;
-  let mockAuthService: AuthenticationService;
+describe("CreateFeatureUseCase", () => {
+  let useCase: CreateFeatureUseCase;
+  let mockRepository: FeatureRepository;
 
   beforeEach(() => {
-    mockAuthService = {
-      signInWithEmail: vi.fn(),
-      signInWithGoogle: vi.fn(),
-      signUpWithEmail: vi.fn(),
-      signOut: vi.fn(),
-      sendPasswordReset: vi.fn(),
-      subscribeToAuthState: vi.fn(),
-      updateDisplayName: vi.fn(),
-      updatePassword: vi.fn(),
+    mockRepository = {
+      create: vi.fn(),
+      get: vi.fn(),
+      update: vi.fn(),
+      delete: vi.fn(),
     };
-    useCase = new SignInWithEmailUseCase(mockAuthService);
+    useCase = new CreateFeatureUseCase(mockRepository);
   });
 
-  it("gọi auth service với credentials", async () => {
-    await useCase.execute({ email: "test@example.com", password: "password123" });
+  it("gọi repository với dữ liệu đúng", async () => {
+    await useCase.execute({ userId: "user1", data: { name: "Feature" } });
     
-    expect(mockAuthService.signInWithEmail).toHaveBeenCalledWith(
-      "test@example.com",
-      "password123"
+    expect(mockRepository.create).toHaveBeenCalledWith(
+      "user1",
+      { name: "Feature" }
     );
   });
 });
@@ -138,31 +134,31 @@ describe("SignInWithEmailUseCase", () => {
 ### Component Tests
 
 ```typescript
-// src/__tests__/modules/auth/presentation/pages/sign-in/components/sign-in-form.test.tsx
+// src/__tests__/modules/settings/presentation/components/theme-selector.test.tsx
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { SignInForm } from "@/modules/auth/presentation/pages/sign-in/components/sign-in-form";
+import { ThemeSelector } from "@/modules/settings/presentation/components/theme-selector";
 
-describe("SignInForm", () => {
-  it("submit valid credentials", async () => {
+describe("ThemeSelector", () => {
+  it("hiển thị các tùy chọn theme", async () => {
     const user = userEvent.setup();
-    render(<SignInForm />);
+    render(<ThemeSelector />);
 
-    await user.type(screen.getByLabelText(/email/i), "user@example.com");
-    await user.type(screen.getByLabelText(/password/i), "ValidPass123!");
-    await user.click(screen.getByRole("button", { name: /sign in/i }));
+    await user.click(screen.getByRole("button", { name: /theme/i }));
 
-    expect(screen.getByText(/signing in/i)).toBeInTheDocument();
+    expect(screen.getByRole("menuitem", { name: /light/i })).toBeInTheDocument();
+    expect(screen.getByRole("menuitem", { name: /dark/i })).toBeInTheDocument();
+    expect(screen.getByRole("menuitem", { name: /system/i })).toBeInTheDocument();
   });
 
-  it("hiển thị validation error cho invalid email", async () => {
+  it("cập nhật theme khi chọn tùy chọn", async () => {
     const user = userEvent.setup();
-    render(<SignInForm />);
+    render(<ThemeSelector />);
 
-    await user.type(screen.getByLabelText(/email/i), "invalid");
-    await user.click(screen.getByRole("button", { name: /sign in/i }));
+    await user.click(screen.getByRole("button", { name: /theme/i }));
+    await user.click(screen.getByRole("menuitem", { name: /dark/i }));
 
-    expect(screen.getByText(/invalid email/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /theme: dark/i })).toBeInTheDocument();
   });
 });
 ```
@@ -170,26 +166,34 @@ describe("SignInForm", () => {
 ### Schema Tests
 
 ```typescript
-// src/__tests__/modules/auth/domain/schemas.test.ts
-import { loginSchema } from "@/modules/auth/domain/schemas";
+// src/__tests__/modules/settings/domain/schemas.test.ts
+import { userSettingsSchema } from "@/modules/settings/domain/schemas";
 
-describe("loginSchema", () => {
+describe("userSettingsSchema", () => {
   it("validates đúng input", () => {
-    const result = loginSchema.safeParse({
-      email: "test@example.com",
-      password: "password123",
+    const result = userSettingsSchema.safeParse({
+      locale: "en",
+      theme: "dark",
     });
     
     expect(result.success).toBe(true);
   });
 
-  it("reject invalid email", () => {
-    const result = loginSchema.safeParse({
-      email: "invalid",
-      password: "password123",
+  it("reject invalid theme", () => {
+    const result = userSettingsSchema.safeParse({
+      locale: "en",
+      theme: "invalid",
     });
     
     expect(result.success).toBe(false);
+  });
+
+  it("chấp nhận input một phần", () => {
+    const result = userSettingsSchema.safeParse({
+      locale: "en",
+    });
+    
+    expect(result.success).toBe(true);
   });
 });
 ```
@@ -286,10 +290,10 @@ npm run validate      # Full validation (bao gồm tests)
 3. **Mock tại boundary** - Mock services/repositories, không mock use cases
    ```typescript
    // Tốt - mock service interface
-   const mockService: AuthenticationService = { ... };
+   const mockService: FeatureService = { ... };
    
    // Tránh - mock internal implementation
-   vi.mock("firebase/auth");
+   vi.mock("@/modules/feature/infrastructure/services/feature-service");
    ```
 
 4. **Test error cases** - Cover validation errors, API failures, edge cases

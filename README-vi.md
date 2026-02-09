@@ -1,10 +1,10 @@
-# Next.js Starter Kit
+# Thinh Tran — Trang Web Cá Nhân
 
-[![CI - Main](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-main.yml/badge.svg?branch=main)](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-main.yml)
-[![codecov - Main](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/branch/main/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/tree/main)
+[![CI - Main](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-main.yml/badge.svg?branch=main)](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-main.yml)
+[![codecov - Main](https://codecov.io/gh/thinhtran3588/personal-website/branch/main/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/personal-website/tree/main)
 
-[![CI - Develop](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-develop.yml/badge.svg?branch=develop)](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-develop.yml)
-[![codecov - Develop](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/branch/develop/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/tree/develop)
+[![CI - Develop](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-develop.yml/badge.svg?branch=develop)](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-develop.yml)
+[![codecov - Develop](https://codecov.io/gh/thinhtran3588/personal-website/branch/develop/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/personal-website/tree/develop)
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)
@@ -13,15 +13,14 @@
 ![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=flat&logo=radix-ui&logoColor=white)
 ![Zod](https://img.shields.io/badge/Zod-3E67B1?style=flat&logo=zod&logoColor=white)
 ![React Hook Form](https://img.shields.io/badge/React_Hook_Form-EC5990?style=flat&logo=reacthookform&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=flat&logo=firebase&logoColor=white)
 ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat&logo=vitest&logoColor=white)
 ![Testing Library](https://img.shields.io/badge/Testing_Library-E33332?style=flat&logo=testing-library&logoColor=white)
 
 [English](README.md) | **Tiếng Việt** | [中文](README-zh.md)
 
-**[Xem Demo](https://nextjs-starter-kit.gemsignal.com/en)**
+**[Trang web](https://thinhtq.com/vi)**
 
-Bộ khởi tạo Next.js sẵn sàng production với Clean Architecture và cấu trúc module cho phát triển frontend mở rộng.
+Trang web cá nhân giới thiệu portfolio, dịch vụ, hồ sơ và blog — được xây dựng với Next.js, Clean Architecture và cấu trúc module.
 
 ## Tính năng
 
@@ -31,7 +30,6 @@ Bộ khởi tạo Next.js sẵn sàng production với Clean Architecture và c�
 - **Forms & Validation** — React Hook Form + Zod với schemas type-safe
 - **State & i18n** — Zustand cho state client, next-intl với 3 ngôn ngữ (EN, VI, ZH)
 - **Testing** — Vitest + React Testing Library với yêu cầu 100% coverage
-- **Firebase** — Auth, Firestore & Analytics với interfaces trừu tượng hóa, dễ thay đổi provider
 
 ## Bắt đầu nhanh
 
@@ -58,8 +56,7 @@ npm run dev
 | [Quy ước Coding](docs/coding-conventions-vi.md)      | Đặt tên file, patterns App Router, forms, i18n           |
 | [Hướng dẫn Phát triển](docs/development-guide-vi.md) | Git workflow, thêm tính năng, tạo modules                |
 | [Hướng dẫn Testing](docs/testing-guide-vi.md)        | Tổ chức test, coverage, best practices                   |
-| [Tích hợp Firebase](docs/firebase-integration-vi.md) | Cài đặt Auth, Firestore & Analytics, thay đổi providers  |
-| [Triển khai](docs/deployment-vi.md)                  | Firebase, Cloudflare Pages, GitHub Actions CI/CD         |
+| [Triển khai](docs/deployment-vi.md)                  | Cloudflare Pages, GitHub Actions CI/CD                   |
 
 ## Tích hợp AI Agent
 

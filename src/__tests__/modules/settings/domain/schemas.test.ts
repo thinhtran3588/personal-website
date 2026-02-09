@@ -3,23 +3,26 @@ import { describe, expect, it } from "vitest";
 import { userSettingsSchema } from "@/modules/settings/domain/schemas";
 
 describe("userSettingsSchema", () => {
-  it("accepts empty object", () => {
-    expect(userSettingsSchema.parse({})).toEqual({});
-  });
-
-  it("accepts locale and theme", () => {
-    expect(userSettingsSchema.parse({ locale: "en", theme: "dark" })).toEqual({
+  it("accepts valid settings with all fields", () => {
+    const result = userSettingsSchema.safeParse({
       locale: "en",
       theme: "dark",
     });
+    expect(result.success).toBe(true);
   });
 
-  it("accepts valid theme values", () => {
-    expect(userSettingsSchema.parse({ theme: "light" }).theme).toBe("light");
-    expect(userSettingsSchema.parse({ theme: "system" }).theme).toBe("system");
+  it("accepts empty object", () => {
+    const result = userSettingsSchema.safeParse({});
+    expect(result.success).toBe(true);
+  });
+
+  it("accepts partial settings", () => {
+    const result = userSettingsSchema.safeParse({ theme: "light" });
+    expect(result.success).toBe(true);
   });
 
   it("rejects invalid theme", () => {
-    expect(() => userSettingsSchema.parse({ theme: "invalid" })).toThrow();
+    const result = userSettingsSchema.safeParse({ theme: "invalid" });
+    expect(result.success).toBe(false);
   });
 });

@@ -98,8 +98,6 @@ flowchart TD
 ### Step 1: Identify the Module
 
 Determine which module the feature belongs to:
-- `auth` - Authentication features
-- `books` - Book CRUD operations
 - `settings` - User settings
 - `landing-page` - Public pages
 - Or create a new module (see [Creating a New Module](#creating-a-new-module))
@@ -250,7 +248,7 @@ src/modules/{module-name}/
      container.register({
        // Register services/repositories
        featureRepository: asFunction(
-         (cradle) => new FirestoreFeatureRepository(cradle.getFirestoreInstance)
+         (cradle) => new FeatureRepository(cradle.service)
        ).singleton(),
        // Register use cases
        createFeatureUseCase: asFunction(
@@ -323,8 +321,8 @@ export interface FeatureRepository {
   get(userId: string, id: string): Promise<Feature | null>;
 }
 
-// infrastructure/repositories/firestore-feature-repository.ts
-export class FirestoreFeatureRepository implements FeatureRepository {
+// infrastructure/repositories/feature-repository.ts
+export class FeatureRepository implements FeatureRepository {
   // Implementation
 }
 ```

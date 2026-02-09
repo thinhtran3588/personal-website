@@ -1,14 +1,13 @@
 # Deployment
 
-This guide covers deploying the Next.js Starter Kit to production using **Firebase** for backend services and **Cloudflare Pages** for static hosting, with **GitHub Actions** for CI/CD automation.
+This guide covers deploying the personal website to production using **Cloudflare Pages** for static hosting, with **GitHub Actions** for CI/CD automation.
 
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Firebase Setup](#firebase-setup)
-3. [Cloudflare Pages Setup](#cloudflare-pages-setup)
-4. [GitHub Actions CI/CD](#github-actions-cicd)
-5. [Environment Variables](#environment-variables)
+2. [Cloudflare Pages Setup](#cloudflare-pages-setup)
+3. [GitHub Actions CI/CD](#github-actions-cicd)
+4. [Environment Variables](#environment-variables)
 
 ## Overview
 
@@ -23,58 +22,6 @@ The deployment pipeline consists of three parts:
 ```
 Developer → Push to GitHub → GitHub Actions → Build → Deploy to Cloudflare Pages
 ```
-
-## Firebase Setup
-
-### 1. Create a Firebase Project
-
-1. Go to the [Firebase Console](https://console.firebase.google.com/)
-2. Click **Add project** and follow the wizard
-3. Enable **Google Analytics** if desired (used by the Analytics module)
-
-### 2. Enable Authentication
-
-1. Navigate to **Authentication** → **Sign-in method**
-2. Enable the providers you need:
-   - **Email/Password** — required for email sign-in/sign-up
-   - **Google** — required for "Continue with Google" flow
-3. Under **Authorized domains**, add your production domain (e.g., `yourdomain.com`)
-
-### 3. Create a Firestore Database
-
-1. Navigate to **Firestore Database** → **Create database**
-2. Choose a region close to your users
-3. Start in **production mode** (rules will be deployed separately)
-
-### 4. Get Firebase Client Configuration
-
-1. Navigate to **Project settings** → **General**
-2. Under **Your apps**, click the **Web** icon (`</>`) to register a web app
-3. Copy the Firebase config object as a JSON string:
-
-```json
-{
-  "apiKey": "...",
-  "authDomain": "...",
-  "projectId": "...",
-  "storageBucket": "...",
-  "messagingSenderId": "...",
-  "appId": "...",
-  "measurementId": "..."
-}
-```
-
-4. This entire JSON object is stored as a single environment variable `NEXT_PUBLIC_FIREBASE_CONFIG` (see [Environment Variables](#environment-variables))
-
-### 5. Deploy Firestore Security Rules
-
-Firestore security rules live in `firestore.rules` at the project root. Deploy them manually through the [Firebase Console](https://console.firebase.google.com/):
-
-1. Navigate to **Firestore Database** → **Rules**
-2. Copy the contents of `firestore.rules` into the editor
-3. Click **Publish**
-
-> **Note**: Security rules rarely change, so manual deployment through the console is sufficient.
 
 ## Cloudflare Pages Setup
 
@@ -123,11 +70,8 @@ Add these secrets in your repository under **Settings** → **Secrets and variab
 
 | Secret | Description |
 |--------|-------------|
-| `NEXT_PUBLIC_FIREBASE_CONFIG` | Firebase web config JSON (see [Firebase Setup](#4-get-firebase-client-configuration)) |
 | `CLOUDFLARE_API_TOKEN` | Cloudflare API token (for Pages deployment) |
 | `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account ID |
-
-> **Note**: You do **not** need to add environment variables in the Cloudflare Pages dashboard. The `NEXT_PUBLIC_FIREBASE_CONFIG` secret is injected during the GitHub Actions build step, so the values are embedded into the static site at build time.
 
 ### Deploy Step Example
 
@@ -144,24 +88,16 @@ To deploy to Cloudflare Pages from GitHub Actions, add a deploy step to your wor
 
 ## Environment Variables
 
-The Firebase configuration is provided through a single environment variable containing the full web config as a JSON string.
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `NEXT_PUBLIC_FIREBASE_CONFIG` | Firebase web config JSON | `{"apiKey":"...","authDomain":"...","projectId":"...","storageBucket":"...","messagingSenderId":"...","appId":"...","measurementId":"..."}` |
-
-This variable is prefixed with `NEXT_PUBLIC_` so it is embedded into the static site at build time.
-
 ### Local Development
 
-For local development, copy `.env.development` and fill in your value:
+For local development, copy `.env.development` and fill in your values:
 
 ```bash
 cp .env.development .env.local
 ```
 
-Edit `.env.local` with your Firebase config JSON. This file is git-ignored and safe for local secrets.
+Edit `.env.local` with your configuration values. This file is git-ignored and safe for local secrets.
 
 ### Production
 
-For production builds, set `NEXT_PUBLIC_FIREBASE_CONFIG` as a **GitHub Actions secret**. It is injected at build time and embedded into the static output — no additional configuration is needed in Cloudflare Pages.
+For production builds, set any required environment variables as **GitHub Actions secrets**. They are injected at build time and embedded into the static output — no additional configuration is needed in Cloudflare Pages.

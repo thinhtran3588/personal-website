@@ -95,41 +95,37 @@ src/__tests__/
 **目标**：
 - Component + use case 协作
 - 错误处理流程
-- 模块专属流程（auth、books、settings）
+- 模块专属流程（settings、landing-page）
 
 ## 编写测试
 
 ### Use Case Tests
 
 ```typescript
-// src/__tests__/modules/auth/application/sign-in-with-email-use-case.test.ts
-import { SignInWithEmailUseCase } from "@/modules/auth/application/sign-in-with-email-use-case";
-import type { AuthenticationService } from "@/modules/auth/domain/interfaces";
+// src/__tests__/modules/{module}/application/create-feature-use-case.test.ts
+import { CreateFeatureUseCase } from "@/modules/{module}/application/create-feature-use-case";
+import type { FeatureRepository } from "@/modules/{module}/domain/interfaces";
 
-describe("SignInWithEmailUseCase", () => {
-  let useCase: SignInWithEmailUseCase;
-  let mockAuthService: AuthenticationService;
+describe("CreateFeatureUseCase", () => {
+  let useCase: CreateFeatureUseCase;
+  let mockRepository: FeatureRepository;
 
   beforeEach(() => {
-    mockAuthService = {
-      signInWithEmail: vi.fn(),
-      signInWithGoogle: vi.fn(),
-      signUpWithEmail: vi.fn(),
-      signOut: vi.fn(),
-      sendPasswordReset: vi.fn(),
-      subscribeToAuthState: vi.fn(),
-      updateDisplayName: vi.fn(),
-      updatePassword: vi.fn(),
+    mockRepository = {
+      create: vi.fn(),
+      get: vi.fn(),
+      update: vi.fn(),
+      delete: vi.fn(),
     };
-    useCase = new SignInWithEmailUseCase(mockAuthService);
+    useCase = new CreateFeatureUseCase(mockRepository);
   });
 
-  it("用凭据调用 auth service", async () => {
-    await useCase.execute({ email: "test@example.com", password: "password123" });
+  it("用正确数据调用 repository", async () => {
+    await useCase.execute({ userId: "user1", data: { name: "Feature" } });
     
-    expect(mockAuthService.signInWithEmail).toHaveBeenCalledWith(
-      "test@example.com",
-      "password123"
+    expect(mockRepository.create).toHaveBeenCalledWith(
+      "user1",
+      { name: "Feature" }
     );
   });
 });
@@ -138,31 +134,31 @@ describe("SignInWithEmailUseCase", () => {
 ### Component Tests
 
 ```typescript
-// src/__tests__/modules/auth/presentation/pages/sign-in/components/sign-in-form.test.tsx
+// src/__tests__/modules/settings/presentation/components/theme-selector.test.tsx
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { SignInForm } from "@/modules/auth/presentation/pages/sign-in/components/sign-in-form";
+import { ThemeSelector } from "@/modules/settings/presentation/components/theme-selector";
 
-describe("SignInForm", () => {
-  it("提交有效凭据", async () => {
+describe("ThemeSelector", () => {
+  it("渲染主题选项", async () => {
     const user = userEvent.setup();
-    render(<SignInForm />);
+    render(<ThemeSelector />);
 
-    await user.type(screen.getByLabelText(/email/i), "user@example.com");
-    await user.type(screen.getByLabelText(/password/i), "ValidPass123!");
-    await user.click(screen.getByRole("button", { name: /sign in/i }));
+    await user.click(screen.getByRole("button", { name: /theme/i }));
 
-    expect(screen.getByText(/signing in/i)).toBeInTheDocument();
+    expect(screen.getByRole("menuitem", { name: /light/i })).toBeInTheDocument();
+    expect(screen.getByRole("menuitem", { name: /dark/i })).toBeInTheDocument();
+    expect(screen.getByRole("menuitem", { name: /system/i })).toBeInTheDocument();
   });
 
-  it("对无效 email 显示 validation 错误", async () => {
+  it("选择选项时更新主题", async () => {
     const user = userEvent.setup();
-    render(<SignInForm />);
+    render(<ThemeSelector />);
 
-    await user.type(screen.getByLabelText(/email/i), "invalid");
-    await user.click(screen.getByRole("button", { name: /sign in/i }));
+    await user.click(screen.getByRole("button", { name: /theme/i }));
+    await user.click(screen.getByRole("menuitem", { name: /dark/i }));
 
-    expect(screen.getByText(/invalid email/i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /theme: dark/i })).toBeInTheDocument();
   });
 });
 ```
@@ -170,26 +166,34 @@ describe("SignInForm", () => {
 ### Schema Tests
 
 ```typescript
-// src/__tests__/modules/auth/domain/schemas.test.ts
-import { loginSchema } from "@/modules/auth/domain/schemas";
+// src/__tests__/modules/settings/domain/schemas.test.ts
+import { userSettingsSchema } from "@/modules/settings/domain/schemas";
 
-describe("loginSchema", () => {
+describe("userSettingsSchema", () => {
   it("验证正确输入", () => {
-    const result = loginSchema.safeParse({
-      email: "test@example.com",
-      password: "password123",
+    const result = userSettingsSchema.safeParse({
+      locale: "en",
+      theme: "dark",
     });
     
     expect(result.success).toBe(true);
   });
 
-  it("拒绝无效 email", () => {
-    const result = loginSchema.safeParse({
-      email: "invalid",
-      password: "password123",
+  it("拒绝无效主题", () => {
+    const result = userSettingsSchema.safeParse({
+      locale: "en",
+      theme: "invalid",
     });
     
     expect(result.success).toBe(false);
+  });
+
+  it("接受部分输入", () => {
+    const result = userSettingsSchema.safeParse({
+      locale: "en",
+    });
+    
+    expect(result.success).toBe(true);
   });
 });
 ```
@@ -286,10 +290,10 @@ npm run validate      # 完整 validation（包含测试）
 3. **在边界处 mock** - mock services/repositories，而非 use cases
    ```typescript
    // 好 - mock service interface
-   const mockService: AuthenticationService = { ... };
+   const mockService: FeatureService = { ... };
    
    // 避免 - mock 内部实现
-   vi.mock("firebase/auth");
+   vi.mock("@/modules/feature/infrastructure/services/feature-service");
    ```
 
 4. **测试错误情况** - 覆盖 validation 错误、API 失败、边界情况

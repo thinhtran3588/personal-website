@@ -98,8 +98,6 @@ flowchart TD
 ### 步骤 1：确定 Module
 
 确定功能所属的 module：
-- `auth` - 认证功能
-- `books` - 图书 CRUD 操作
 - `settings` - 用户设置
 - `landing-page` - 公开页面
 - 或创建新 module（见 [创建新 Module](#创建新-module)）
@@ -250,7 +248,7 @@ src/modules/{module-name}/
      container.register({
        // 注册 services/repositories
        featureRepository: asFunction(
-         (cradle) => new FirestoreFeatureRepository(cradle.getFirestoreInstance)
+         (cradle) => new FeatureRepository(cradle.service)
        ).singleton(),
        // 注册 use cases
        createFeatureUseCase: asFunction(
@@ -323,8 +321,8 @@ export interface FeatureRepository {
   get(userId: string, id: string): Promise<Feature | null>;
 }
 
-// infrastructure/repositories/firestore-feature-repository.ts
-export class FirestoreFeatureRepository implements FeatureRepository {
+// infrastructure/repositories/feature-repository.ts
+export class FeatureRepository implements FeatureRepository {
   // Implementation
 }
 ```

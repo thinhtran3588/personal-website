@@ -98,8 +98,6 @@ flowchart TD
 ### Bước 1: Xác định Module
 
 Xác định module chứa tính năng:
-- `auth` - Tính năng xác thực
-- `books` - Thao tác CRUD sách
 - `settings` - Cài đặt người dùng
 - `landing-page` - Trang công khai
 - Hoặc tạo module mới (xem [Tạo Module mới](#tạo-module-mới))
@@ -250,7 +248,7 @@ src/modules/{module-name}/
      container.register({
        // Đăng ký services/repositories
        featureRepository: asFunction(
-         (cradle) => new FirestoreFeatureRepository(cradle.getFirestoreInstance)
+         (cradle) => new FeatureRepository(cradle.service)
        ).singleton(),
        // Đăng ký use cases
        createFeatureUseCase: asFunction(
@@ -323,8 +321,8 @@ export interface FeatureRepository {
   get(userId: string, id: string): Promise<Feature | null>;
 }
 
-// infrastructure/repositories/firestore-feature-repository.ts
-export class FirestoreFeatureRepository implements FeatureRepository {
+// infrastructure/repositories/feature-repository.ts
+export class FeatureRepository implements FeatureRepository {
   // Implementation
 }
 ```

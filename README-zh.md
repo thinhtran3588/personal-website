@@ -1,10 +1,10 @@
-# Next.js Starter Kit
+# Thinh Tran — 个人网站
 
-[![CI - Main](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-main.yml/badge.svg?branch=main)](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-main.yml)
-[![codecov - Main](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/branch/main/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/tree/main)
+[![CI - Main](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-main.yml/badge.svg?branch=main)](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-main.yml)
+[![codecov - Main](https://codecov.io/gh/thinhtran3588/personal-website/branch/main/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/personal-website/tree/main)
 
-[![CI - Develop](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-develop.yml/badge.svg?branch=develop)](https://github.com/thinhtran3588/nextjs-starter-kit/actions/workflows/ci-develop.yml)
-[![codecov - Develop](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/branch/develop/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/nextjs-starter-kit/tree/develop)
+[![CI - Develop](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-develop.yml/badge.svg?branch=develop)](https://github.com/thinhtran3588/personal-website/actions/workflows/ci-develop.yml)
+[![codecov - Develop](https://codecov.io/gh/thinhtran3588/personal-website/branch/develop/graph/badge.svg)](https://codecov.io/gh/thinhtran3588/personal-website/tree/develop)
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)
@@ -13,15 +13,14 @@
 ![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=flat&logo=radix-ui&logoColor=white)
 ![Zod](https://img.shields.io/badge/Zod-3E67B1?style=flat&logo=zod&logoColor=white)
 ![React Hook Form](https://img.shields.io/badge/React_Hook_Form-EC5990?style=flat&logo=reacthookform&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=flat&logo=firebase&logoColor=white)
 ![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat&logo=vitest&logoColor=white)
 ![Testing Library](https://img.shields.io/badge/Testing_Library-E33332?style=flat&logo=testing-library&logoColor=white)
 
 [English](README.md) | [Tiếng Việt](README-vi.md) | **中文**
 
-**[在线演示](https://nextjs-starter-kit.gemsignal.com/en)**
+**[网站](https://thinhtq.com/zh)**
 
-生产就绪的 Next.js 入门套件，采用 Clean Architecture 与模块化结构，支持可扩展的前端开发。
+我的个人网站，展示作品集、服务、简历和博客 — 使用 Next.js、Clean Architecture 和模块化结构构建。
 
 ## 功能特性
 
@@ -31,7 +30,6 @@
 - **表单与验证** — React Hook Form + Zod，类型安全的 schemas
 - **状态与国际化** — Zustand 管理客户端状态，next-intl 支持 3 种语言（EN、VI、ZH）
 - **测试** — Vitest + React Testing Library，要求 100% 覆盖率
-- **Firebase** — Auth、Firestore 与 Analytics，抽象化接口便于更换 provider
 
 ## 快速开始
 
@@ -52,14 +50,13 @@ npm run dev
 
 ## 文档
 
-| 文档                                             | 说明                                             |
-| ------------------------------------------------ | ------------------------------------------------ |
-| [架构](docs/architecture-zh.md)                  | 层级结构、数据流、设计模式、Awilix 依赖注入      |
-| [编码规范](docs/coding-conventions-zh.md)        | 文件命名、App Router 模式、表单、国际化          |
-| [开发指南](docs/development-guide-zh.md)         | Git 工作流、添加功能、创建模块                   |
-| [测试指南](docs/testing-guide-zh.md)             | 测试组织、覆盖率、最佳实践                       |
-| [Firebase 集成](docs/firebase-integration-zh.md) | Auth、Firestore 与 Analytics 设置、更换 provider |
-| [部署](docs/deployment-zh.md)                    | Firebase、Cloudflare Pages、GitHub Actions CI/CD |
+| 文档                                      | 说明                                        |
+| ----------------------------------------- | ------------------------------------------- |
+| [架构](docs/architecture-zh.md)           | 层级结构、数据流、设计模式、Awilix 依赖注入 |
+| [编码规范](docs/coding-conventions-zh.md) | 文件命名、App Router 模式、表单、国际化     |
+| [开发指南](docs/development-guide-zh.md)  | Git 工作流、添加功能、创建模块              |
+| [测试指南](docs/testing-guide-zh.md)      | 测试组织、覆盖率、最佳实践                  |
+| [部署](docs/deployment-zh.md)             | Cloudflare Pages、GitHub Actions CI/CD      |
 
 ## AI Agent 集成
 

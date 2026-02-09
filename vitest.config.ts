@@ -4,17 +4,7 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    {
-      name: "md-raw-loader",
-      transform(code, id) {
-        if (id.endsWith(".md")) {
-          return `export default ${JSON.stringify(code)}`;
-        }
-      },
-    },
-  ],
+  plugins: [react()],
   resolve: {
     alias: [
       {
@@ -54,6 +44,7 @@ export default defineConfig({
       exclude: [
         "src/__tests__/**",
         "src/**/interfaces/**",
+        "src/**/interfaces.ts",
         "src/**/domain/types.ts",
         "src/types/**/*.d.ts",
       ],

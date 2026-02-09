@@ -1,42 +1,27 @@
 import { render } from "@testing-library/react";
 
 import {
-  AppleIcon,
   BackArrowIcon,
   ChevronDownIcon,
+  CloudGearIcon,
   EyeIcon,
   EyeOffIcon,
-  GoogleIcon,
+  FacebookIcon,
+  FlutterIcon,
+  GitHubIcon,
+  LinkedInIcon,
   LoaderIcon,
-  MailIcon,
   MenuIcon,
   MonitorIcon,
   MoonIcon,
-  PencilIcon,
-  PlusIcon,
+  NodejsIcon,
+  ReactIcon,
+  SolidityIcon,
   SunIcon,
-  UserIcon,
   XIcon,
 } from "@/common/components/icons";
 
 describe("Icons", () => {
-  it("GoogleIcon renders svg with aria-hidden", () => {
-    const { container } = render(<GoogleIcon />);
-    const svg = container.querySelector("svg");
-    expect(svg).toBeInTheDocument();
-    expect(svg).toHaveAttribute("aria-hidden");
-  });
-
-  it("GoogleIcon applies className", () => {
-    const { container } = render(<GoogleIcon className="w-6" />);
-    expect(container.querySelector("svg")).toHaveClass("w-6");
-  });
-
-  it("MailIcon renders svg", () => {
-    const { container } = render(<MailIcon />);
-    expect(container.querySelector("svg")).toBeInTheDocument();
-  });
-
   it("BackArrowIcon renders with optional className", () => {
     const { container } = render(<BackArrowIcon className="size-4" />);
     expect(container.querySelector("svg")).toBeInTheDocument();
@@ -66,16 +51,6 @@ describe("Icons", () => {
     expect(container.querySelector("svg")).toBeInTheDocument();
   });
 
-  it("AppleIcon renders", () => {
-    const { container } = render(<AppleIcon />);
-    expect(container.querySelector("svg")).toBeInTheDocument();
-  });
-
-  it("UserIcon renders", () => {
-    const { container } = render(<UserIcon />);
-    expect(container.querySelector("svg")).toBeInTheDocument();
-  });
-
   it("SunIcon, MoonIcon and MonitorIcon render", () => {
     const { container: c1 } = render(<SunIcon />);
     const { container: c2 } = render(<MoonIcon />);
@@ -91,10 +66,50 @@ describe("Icons", () => {
     expect(container.querySelector("svg")).toHaveClass("size-3");
   });
 
-  it("PencilIcon and PlusIcon render", () => {
-    const { container: c1 } = render(<PencilIcon className="size-4" />);
-    const { container: c2 } = render(<PlusIcon className="size-4" />);
-    expect(c1.querySelector("svg")).toBeInTheDocument();
-    expect(c2.querySelector("svg")).toBeInTheDocument();
+  it("LinkedInIcon renders", () => {
+    const { container } = render(<LinkedInIcon />);
+    expect(container.querySelector("svg")).toBeInTheDocument();
+  });
+
+  it("FacebookIcon renders", () => {
+    const { container } = render(<FacebookIcon />);
+    expect(container.querySelector("svg")).toBeInTheDocument();
+  });
+
+  it("ReactIcon renders", () => {
+    const { container } = render(<ReactIcon />);
+    expect(container.querySelector("svg")).toBeInTheDocument();
+  });
+
+  it("NodejsIcon renders", () => {
+    const { container } = render(<NodejsIcon />);
+    expect(container.querySelector("svg")).toBeInTheDocument();
+  });
+
+  it("FlutterIcon renders", () => {
+    const { container } = render(<FlutterIcon />);
+    expect(container.querySelector("svg")).toBeInTheDocument();
+  });
+
+  it("SolidityIcon renders", () => {
+    const { container } = render(<SolidityIcon />);
+    expect(container.querySelector("svg")).toBeInTheDocument();
+  });
+
+  it("CloudGearIcon renders", () => {
+    const { container } = render(<CloudGearIcon />);
+    expect(container.querySelector("svg")).toBeInTheDocument();
+  });
+
+  it("GitHubIcon renders with aria-hidden", () => {
+    const { container } = render(<GitHubIcon />);
+    const svg = container.querySelector("svg");
+    expect(svg).toBeInTheDocument();
+    expect(svg).toHaveAttribute("aria-hidden");
+  });
+
+  it("GitHubIcon applies className", () => {
+    const { container } = render(<GitHubIcon className="h-5 w-5" />);
+    expect(container.querySelector("svg")).toHaveClass("h-5", "w-5");
   });
 });

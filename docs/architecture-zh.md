@@ -14,8 +14,7 @@
    - [Presentation Layer](#4-presentation-layer-srcmodulesmodulepresentation)
 5. [模块结构](#模块结构)
 6. [关键设计模式](#关键设计模式)
-7. [身份验证](#身份验证)
-8. [Technology Stack](#technology-stack)
+7. [Technology Stack](#technology-stack)
 
 ## 架构概览
 
@@ -41,7 +40,7 @@ graph TD
 
 - **Domain Layer**：核心 types、Zod schemas 与 interfaces，供全应用使用。无外部依赖；定义数据形态与 validation 规则（如 API contracts、form payloads）。
 
-- **Infrastructure Layer**：技术实现——services（外部集成如 Firebase）与 repositories（数据访问）。实现 domain layer 定义的 interface。
+- **Infrastructure Layer**：技术实现——services（外部集成）与 repositories（数据访问）。实现 domain layer 定义的 interface。
 
 ## 层级结构
 
@@ -158,7 +157,7 @@ flowchart TD
 
 **组成：**
 
-- **Types**：API 响应、表单状态及模块概念的 interfaces 与 type aliases（如 `src/modules/auth/domain/types.ts` 中的 auth types）。
+- **Types**：API 响应、表单状态及模块概念的 interfaces 与 type aliases（如 `src/modules/settings/domain/types.ts` 中的 settings types）。
 - **Zod Schemas**：每模块 `domain/schemas.ts` 中的表单 validation 与 parsing。
 - **Constants**：领域相关常量（如路由路径、错误码）在模块内使用。
 
@@ -173,8 +172,8 @@ flowchart TD
 
 **组成：**
 
-- **Use Cases**：`src/modules/{module}/application/` 中的 class（或函数）实现应用流程（如 `sign-in-with-email-use-case.ts`、`update-profile-use-case.ts`）。继承 `src/common/utils/base-use-case.ts` 的 `BaseUseCase`，使用 domain types/schemas，通过 container 依赖 services 或 API client。
-- **Module state**：模块级状态（如 Zustand）通过 `src/modules/{module}/presentation/hooks/` 中的 hooks 暴露（如 `use-auth-user-store.ts`）。
+- **Use Cases**：`src/modules/{module}/application/` 中的 class（或函数）实现应用流程（如 `load-user-settings-use-case.ts`、`save-user-settings-use-case.ts`）。继承 `src/common/utils/base-use-case.ts` 的 `BaseUseCase`，使用 domain types/schemas，通过 container 依赖 services 或 API client。
+- **Module state**：模块级状态（如 Zustand）通过 `src/modules/{module}/presentation/hooks/` 中的 hooks 暴露（如 `use-user-settings-store.ts`）。
 - **Data-fetching**：Server 或 Client Components 通过从 container 解析并调用 use case 加载数据。
 
 **原则：**
@@ -188,8 +187,8 @@ flowchart TD
 
 **组成：**
 
-- **Services**：`src/modules/{module}/infrastructure/services/` 中的外部集成（如 auth 中的 `firebase-auth-service.ts`）。实现 `src/modules/{module}/domain/interfaces.ts` 中定义的 interface。
-- **Repositories**：`src/modules/{module}/infrastructure/repositories/` 中的数据访问实现（如 books 中的 `firestore-book-repository.ts`）。实现 `src/modules/{module}/domain/interfaces.ts` 中定义的 interface。
+- **Services**：`src/modules/{module}/infrastructure/services/` 中的外部集成（如 external API services）。实现 `src/modules/{module}/domain/interfaces.ts` 中定义的 interface。
+- **Repositories**：`src/modules/{module}/infrastructure/repositories/` 中的数据访问实现（如 data repositories）。实现 `src/modules/{module}/domain/interfaces.ts` 中定义的 interface。
 - **API Client**：当应用与后端 HTTP API 通信时，client 可放在 `src/common/` 或每模块，并在 container 中注册。
 
 **原则：**
@@ -206,7 +205,7 @@ flowchart TD
 - **App Routes**：`app/[locale]/**/page.tsx`（及 route group 如 `(main)`）仅作 routing layer。从 `src/modules/{module}/presentation/pages/` 导入并渲染 page component。
 - **Module Pages**：`src/modules/{module}/presentation/pages/{page}/page.tsx` 存放实际 page components。页面可为 Server 或 Client Component；页面专属组件在 `presentation/pages/{page}/components/`。
 - **Module Components**：模块共享组件在 `src/modules/{module}/presentation/components/`。
-- **Module Hooks**：模块专用 hooks 在 `src/modules/{module}/presentation/hooks/`（如 `use-auth-user-store.ts`、`use-sync-auth-state.ts`）。
+- **Module Hooks**：模块专用 hooks 在 `src/modules/{module}/presentation/hooks/`（如 `use-user-settings-store.ts`）。
 - **Common Components**：共享组件在 `src/common/components/`（如 form、input、label、root-layout、main-layout）。仅在需要时使用 `"use client"`（hooks、browser APIs、Zustand）。
 
 **原则：**
@@ -225,17 +224,15 @@ flowchart TD
 app/                               # 仅路由层（Next.js App Router）
 ├── [locale]/                      # 语言段（next-intl）
 │   ├── layout.tsx, error.tsx, not-found.tsx
-│   ├── (main)/                    # 路由组：主要页面
-│   │   ├── page.tsx, docs/, profile/, ...
-│   └── auth/                      # Auth 路由
-│       ├── sign-in/, sign-up/, forgot-password/
+│   └── (main)/                    # 路由组：主要页面
+│       └── page.tsx
 ├── globals.css, layout.tsx, not-found.tsx
 
 src/                               # 应用代码均在此
 ├── __tests__/                     # 测试镜像 src 结构
 ├── application/                   # 应用级设置
 │   ├── components/                # AppInitializer
-│   ├── config/                    # firebase-config, main-menu
+│   ├── config/                    # main-menu
 │   ├── localization/              # request.ts, en.json, vi.json, zh.json
 │   └── register-container.ts
 ├── common/                        # 跨模块共享代码
@@ -247,20 +244,27 @@ src/                               # 应用代码均在此
 │   └── utils/                     # cn, container, base-use-case, ...
 │
 ├── modules/                       # 功能模块（Clean Architecture）
-│   ├── auth/                      # 示例：Auth 模块
+│   ├── landing-page/              # Landing page 模块
 │   │   ├── domain/                # types.ts, schemas.ts, interfaces.ts
-│   │   ├── application/           # sign-in-use-case.ts, sign-out-use-case.ts, ...
-│   │   ├── infrastructure/        # services/firebase-auth-service.ts
+│   │   ├── application/           # Use cases
+│   │   ├── infrastructure/        # services/, repositories/
 │   │   ├── presentation/
-│   │   │   ├── components/        # auth-layout, auth-header-slot, ...
-│   │   │   ├── hooks/             # use-auth-user-store, use-sync-auth-state
-│   │   │   └── pages/             # sign-in/, sign-up/, profile/
+│   │   │   ├── components/        # Landing page components
+│   │   │   ├── hooks/             # Landing page hooks
+│   │   │   └── pages/             # Landing page pages
 │   │   ├── utils/
 │   │   └── module-configuration.ts
 │   │
-│   ├── books/                     # 示例：Books 模块（CRUD）
-│   ├── settings/                  # 示例：User settings 模块
-│   ├── docs/, landing-page/       # 其他模块
+│   ├── settings/                  # User settings 模块
+│   │   ├── domain/                # types.ts, schemas.ts, interfaces.ts
+│   │   ├── application/           # load-user-settings-use-case.ts, save-user-settings-use-case.ts
+│   │   ├── infrastructure/        # services/, repositories/
+│   │   ├── presentation/
+│   │   │   ├── components/        # Settings components
+│   │   │   ├── hooks/             # use-user-settings-store
+│   │   │   └── pages/             # Settings pages
+│   │   ├── utils/
+│   │   └── module-configuration.ts
 │   │
 │   └── {module-name}/             # 模块模板
 │       ├── domain/                # types.ts, schemas.ts, interfaces.ts
@@ -270,7 +274,7 @@ src/                               # 应用代码均在此
 │       └── module-configuration.ts
 ```
 
-路由组（如 `(main)`）使用共享 layout 提供带菜单与 auth slot 的 `MainLayout`；auth 路由使用 `AuthLayout`。这样保持 `/app` 最小化，代码集中在 `/src`，便于组织与测试。
+路由组（如 `(main)`）使用共享 layout 提供带菜单的 `MainLayout`。这样保持 `/app` 最小化，代码集中在 `/src`，便于组织与测试。
 
 详细的路由示例与 patterns 见 [Coding Conventions](./coding-conventions-zh.md)。
 
@@ -295,7 +299,7 @@ src/                               # 应用代码均在此
 
 ### 2. 模块化功能结构
 
-**目的**：将功能（auth、books、docs、landing-page、settings）分组并保持边界清晰。
+**目的**：将功能（landing-page、settings）分组并保持边界清晰。
 
 **实现：**
 
@@ -316,9 +320,9 @@ src/                               # 应用代码均在此
 **实现：**
 
 - Container 在 `src/common/utils/container.ts` 创建，设置 `injectionMode: InjectionMode.PROXY`，在 `src/application/register-container.ts` 注册。
-- 各模块在 `module-configuration.ts` 中暴露 `registerModule(container)`，注册 use case 与 services（如 `asFunction(cradle => new SignInWithEmailUseCase(cradle.authService)).singleton()`）。
+- 各模块在 `module-configuration.ts` 中暴露 `registerModule(container)`，注册 use case 与 services（如 `asFunction(cradle => new LoadUserSettingsUseCase(cradle.settingsRepository)).singleton()`）。
 - Components 通过 `src/common/hooks/use-container.ts` 的 `useContainer()` 解析 use case 并调用 `execute()`。
-- 应用级依赖（如 Firebase auth 实例）在 `register-container.ts` 注册。
+- 应用级依赖在 `register-container.ts` 注册。
 
 **收益：**
 
@@ -331,7 +335,7 @@ src/                               # 应用代码均在此
 **实现：**
 
 - 当应用与后端 API 通信时，API client 可放在 `src/common/` 或每模块，并在 container 中注册。使用 domain types 表示 request/response。
-- 外部集成（如 Firebase）在 `src/modules/{module}/infrastructure/services/`，实现 `src/modules/{module}/domain/interfaces.ts` 中的 interface。Use case 依赖这些 interface，经 container 接收实现。
+- 外部集成在 `src/modules/{module}/infrastructure/services/`，实现 `src/modules/{module}/domain/interfaces.ts` 中的 interface。Use case 依赖这些 interface，经 container 接收实现。
 
 **收益：**
 
@@ -357,88 +361,11 @@ src/                               # 应用代码均在此
 
 **实现：**
 
-- Interface（如 `AuthenticationService`）在 `src/modules/{module}/domain/interfaces.ts`。Use case 依赖这些 interface；实现（如 `FirebaseAuthenticationService`）在 `infrastructure/services/` 并在 container 中注册。
+- Interface 在 `src/modules/{module}/domain/interfaces.ts`。Use case 依赖这些 interface；实现在 `infrastructure/services/` 并在 container 中注册。
 
 **收益：**
 
 - 单元测试更简单，可替换实现（如测试中 mock auth）。
-
-## 身份验证
-
-本项目使用**抽象化身份验证**，允许在不修改 application 或 presentation 代码的情况下更换底层 provider。Firebase Auth 是当前的实现，用于快速 MVP 开发。
-
-### 身份验证架构
-
-```mermaid
-graph TD
-    subgraph Presentation["Presentation Layer"]
-        Components[Pages & Components]
-        Hooks[Auth Hooks]
-        Store[Zustand Store]
-    end
-
-    subgraph Application["Application Layer"]
-        UseCases[Auth Use Cases]
-    end
-
-    subgraph Domain["Domain Layer"]
-        Interface[AuthenticationService Interface]
-        Types[AuthUser, AuthResult Types]
-    end
-
-    subgraph Infrastructure["Infrastructure Layer"]
-        Firebase[FirebaseAuthenticationService]
-        Future[未来：其他 Provider]
-    end
-
-    Components --> Hooks
-    Hooks --> Store
-    Hooks --> UseCases
-    UseCases --> Interface
-    Firebase -.implements.-> Interface
-    Future -.implements.-> Interface
-    Firebase --> Types
-    Future --> Types
-
-    style Presentation fill:#1976d2,color:#fff
-    style Application fill:#f57c00,color:#fff
-    style Domain fill:#388e3c,color:#fff
-    style Infrastructure fill:#c2185b,color:#fff
-```
-
-### 工作原理
-
-1. **Domain Interface**：`src/modules/auth/domain/interfaces.ts` 中的 `AuthenticationService` 定义所有 auth 操作的契约（登录、注册、登出、密码重置等）
-
-2. **Domain Types**：`src/modules/auth/domain/types.ts` 中的 `AuthUser`、`AuthResult`、`AuthErrorCode` 与 provider 无关
-
-3. **Infrastructure Implementation**：`FirebaseAuthenticationService` 实现 interface 并将 Firebase 特定的 types/errors 映射到 domain types
-
-4. **Dependency Injection**：Service 在 DI container 中注册并注入到 use cases
-
-5. **State Management**：`useAuthUserStore`（Zustand）保存当前用户状态，通过 `useSyncAuthState` hook 同步
-
-### 更换 Authentication Provider
-
-要从 Firebase 切换到其他 provider（如 Auth0、Supabase、自建后端）：
-
-1. 创建新 service 实现 `AuthenticationService` interface
-2. 更新 `module-configuration.ts` 注册新 service
-3. 无需修改 use cases、pages 或 components
-
-```typescript
-// 示例：新 provider 实现
-export class Auth0AuthenticationService implements AuthenticationService {
-  async signInWithEmail(email: string, password: string): Promise<AuthResult> {
-    // Auth0 实现
-  }
-  // ... 其他方法
-}
-```
-
-这种抽象使代码库**适合 MVP**（使用 Firebase 快速迭代）同时保持**生产就绪**（易于迁移到企业级认证方案）。
-
-详细的 Firebase 设置与配置，请参阅 [Firebase 集成](./firebase-integration-zh.md)。
 
 ## Technology Stack
 
@@ -451,5 +378,4 @@ export class Auth0AuthenticationService implements AuthenticationService {
 | **Forms** | React Hook Form + Zod |
 | **i18n** | next-intl |
 | **DI** | Awilix |
-| **Auth** | Firebase（可选） |
 | **Testing** | Vitest、React Testing Library |

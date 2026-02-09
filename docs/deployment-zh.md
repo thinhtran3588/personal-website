@@ -1,6 +1,6 @@
 # 部署
 
-本指南介绍如何将 Next.js Starter Kit 部署到生产环境，使用 **Firebase** 提供后端服务，**Cloudflare Pages** 托管静态网站，并通过 **GitHub Actions** 实现 CI/CD 自动化。
+本指南介绍如何将个人网站部署到生产环境，使用 **Cloudflare Pages** 托管静态网站，并通过 **GitHub Actions** 实现 CI/CD 自动化。
 
 ## 目录
 
