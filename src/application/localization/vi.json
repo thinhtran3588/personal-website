@@ -23,15 +23,16 @@
         "deployment": "Triển khai"
       },
       "contact": "Liên hệ",
+      "products": "Sản phẩm",
       "menu": "Menu"
     },
     "footer": {
-      "copyright": "© 2026 Next.js Starter Kit. Bảo lưu mọi quyền."
+      "copyright": "© 2026. Bảo lưu mọi quyền bởi Thinh Tran."
     },
     "app": {
       "metadata": {
-        "title": "Next.js Starter Kit",
-        "description": "Xây dựng ứng dụng Next.js có khả năng mở rộng với Clean Architecture, TypeScript và 100% test coverage."
+        "title": "Thinh Tran",
+        "description": "Lãnh đạo kỹ thuật cấp cao với hơn {yearsOfExperience} năm kinh nghiệm trong phát triển full-stack, blockchain và kiến trúc đám mây."
       }
     },
     "errors": {
@@ -467,7 +468,7 @@
         "contact": {
           "title": "Liên hệ",
           "metadata": {
-            "description": "Liên hệ với chúng tôi. Gửi tin nhắn hoặc email trực tiếp cho chúng tôi."
+            "description": "Liên hệ với tôi. Gửi tin nhắn hoặc email trực tiếp cho tôi."
           },
           "subtitle": "Bạn có câu hỏi hoặc cần trợ giúp? Điền biểu mẫu bên dưới hoặc gửi email trực tiếp đến",
           "form": {
@@ -478,7 +479,7 @@
             "subjectLabel": "Chủ đề",
             "subjectPlaceholder": "Nội dung liên hệ?",
             "messageLabel": "Tin nhắn",
-            "messagePlaceholder": "Cho chúng tôi biết thêm về yêu cầu của bạn...",
+            "messagePlaceholder": "Cho tôi biết thêm về yêu cầu của bạn...",
             "submitButton": "Gửi tin nhắn",
             "validation": {
               "nameRequired": "Vui lòng nhập họ tên",
@@ -490,165 +491,202 @@
               "messageMaxLength": "Tin nhắn tối đa 2000 ký tự"
             }
           },
-          "emailNote": "Bạn cũng có thể liên hệ trực tiếp với chúng tôi tại",
-          "successMessage": "Ứng dụng email của bạn sẽ mở ngay. Nếu không, vui lòng gửi email trực tiếp cho chúng tôi."
+          "emailNote": "Bạn cũng có thể liên hệ trực tiếp với tôi tại",
+          "successMessage": "Ứng dụng email của bạn sẽ mở ngay. Nếu không, vui lòng gửi email trực tiếp cho tôi."
         }
       }
     },
     "landing": {
       "pages": {
         "home": {
-          "badge": "Starter Kit",
-          "hero": {
-            "eyebrow": "Nền tảng sẵn sàng production",
-            "title": "Next.js Starter Kit",
-            "subtitle": "Bộ khởi tạo Next.js sẵn sàng production với Clean Architecture và cấu trúc module cho phát triển frontend mở rộng. Xây trên App Router, TypeScript và 100% test coverage."
+          "badge": "Thinh Tran",
+          "main": {
+            "greeting": "Chào mừng đến trang web cá nhân của tôi",
+            "name": "Xin chào, tôi là Thinh Tran",
+            "rolePrefix": "một",
+            "roles": {
+              "0": "Lập trình viên Full-stack",
+              "1": "Lập trình viên Blockchain",
+              "2": "Lãnh đạo Kỹ thuật",
+              "3": "Kỹ sư DevOps",
+              "4": "Tư vấn Công nghệ"
+            },
+            "bio": "Lãnh đạo kỹ thuật cấp cao với hơn {yearsOfExperience} năm kinh nghiệm xây dựng các sản phẩm phần mềm có khả năng mở rộng. Từ đồng sáng lập công ty công nghệ đến dẫn dắt đội ngũ kỹ thuật với vai trò VP of Engineering, tôi chuyên về phát triển full-stack, blockchain và kiến trúc đám mây. Tôi đã phát triển các hệ thống doanh nghiệp, game blockchain và ứng dụng di động được sử dụng tại nhiều quốc gia.",
+            "findMe": "Tìm tôi tại",
+            "bestSkills": "Kỹ năng tốt nhất",
+            "social": {
+              "github": "Github",
+              "linkedin": "LinkedIn",
+              "facebook": "Facebook"
+            },
+            "skills": {
+              "solidity": "Solidity",
+              "react": "React",
+              "reactNative": "React Native",
+              "flutter": "Flutter",
+              "nodejs": "Node.js",
+              "devops": "DevOps"
+            }
           },
-          "features": {
-            "title": "Tính năng chính",
-            "description": "Mọi thứ bạn cần để xây dựng ứng dụng frontend có khả năng mở rộng, dễ bảo trì với các best practices tích hợp sẵn.",
+          "services": {
+            "eyebrow": "Dịch vụ",
+            "title": "Tôi làm gì",
             "items": {
-              "cleanArchitecture": {
-                "title": "Clean Architecture",
-                "description": "Bốn lớp riêng biệt (Domain, Application, Infrastructure, Presentation) với quy tắc phụ thuộc rõ ràng và Awilix DI."
+              "fullstack": {
+                "title": "Phát triển Full Stack",
+                "description": "Xây dựng và phát hành ứng dụng web và di động có khả năng mở rộng từ đầu đến cuối. Từ giao diện responsive với React và Next.js đến backend mạnh mẽ với Node.js và .NET, kết hợp PostgreSQL, SQL Server hoặc MongoDB. Phát triển di động đa nền tảng với React Native và Flutter, triển khai trên AWS, Azure và Google Cloud."
               },
-              "modularStructure": {
-                "title": "Cấu trúc Module",
-                "description": "Module tính năng dưới src/modules/ với ranh giới cô lập. App Router chỉ xử lý routing; toàn bộ code trong src/."
+              "blockchain": {
+                "title": "Phát triển Blockchain",
+                "description": "Thiết kế và triển khai smart contracts và ứng dụng phi tập trung trên Ethereum, Polygon và Base. Có kinh nghiệm với Solidity và Hardhat, từ hệ thống token đến hệ sinh thái game blockchain hoàn chỉnh."
               },
-              "testCoverage": {
-                "title": "100% Test Coverage",
-                "description": "Ngưỡng coverage bắt buộc với Vitest và React Testing Library. Pattern AAA và testing tập trung vào hành vi."
+              "devops": {
+                "title": "DevOps",
+                "description": "Tối ưu quy trình phát triển và đảm bảo triển khai ổn định bằng Docker, GitHub Actions và hạ tầng đa đám mây trên AWS, Azure và Google Cloud."
               },
-              "i18nReady": {
-                "title": "Sẵn sàng i18n",
-                "description": "next-intl với locale-based routing. Đã có bản dịch tiếng Anh, Việt và Trung sẵn dùng."
-              },
-              "typeSafeForms": {
-                "title": "Form Type-Safe",
-                "description": "React Hook Form với Zod validation. Nguồn duy nhất cho schemas với tự động suy luận TypeScript."
-              },
-              "firebaseIntegration": {
-                "title": "Tích hợp Firebase",
-                "description": "Auth, Firestore và Analytics với interfaces trừu tượng. Dễ thay đổi provider mà không sửa code ứng dụng."
+              "consultant": {
+                "title": "Dịch vụ Tư vấn",
+                "description": "Hợp tác với các founder và đội ngũ sản phẩm để biến ý tưởng thành phần mềm sẵn sàng cho sản xuất. Từ thiết kế kiến trúc và lựa chọn công nghệ đến xây dựng đội ngũ và giao hàng, tôi giúp đưa sản phẩm ra thị trường hiệu quả."
               }
             }
           },
-          "architecture": {
-            "title": "Clean Architecture",
-            "description": "Tách biệt mối quan tâm với đảo ngược phụ thuộc. Các lớp trong không biết về các lớp ngoài, cho phép kiểm thử và linh hoạt.",
-            "layers": {
-              "domain": {
-                "title": "Domain",
-                "description": "Types cốt lõi, Zod schemas và interfaces. Không phụ thuộc bên ngoài—chỉ quy tắc nghiệp vụ và hình dạng dữ liệu."
+          "resume": {
+            "eyebrow": "Hơn {yearsOfExperience} năm kinh nghiệm",
+            "title": "Hồ sơ của tôi",
+            "tabs": {
+              "experience": "Kinh nghiệm",
+              "skills": "Kỹ năng chuyên môn",
+              "education": "Học vấn và Chứng chỉ"
+            },
+            "experience": {
+              "0": {
+                "title": "VP of Engineering",
+                "company": "Kuma Games Inc",
+                "period": "Tháng 10/2021 - Tháng 10/2025",
+                "points": {
+                  "0": "Dẫn dắt đội ngũ kỹ thuật xây dựng và phát hành Chibi Kingdom, vũ trụ game blockchain lấy cảm hứng từ Tam Quốc Diễn Nghĩa.",
+                  "1": "Kiến trúc nền tảng sử dụng React cho ứng dụng web và Unity cho phát triển game, mang lại trải nghiệm đa nền tảng liền mạch.",
+                  "2": "Thiết kế và triển khai smart contracts bằng Solidity trên Mainnet, Polygon & Base, vận hành nền kinh tế trong game và hệ thống NFT."
+                }
               },
-              "application": {
-                "title": "Application",
-                "description": "Use cases điều phối logic nghiệp vụ. Chỉ phụ thuộc Domain; không có UI hay framework cụ thể."
+              "1": {
+                "title": "Senior Software Engineer (hợp đồng)",
+                "company": "GOSEI Vietnam JSC",
+                "period": "Tháng 8/2017 - Tháng 10/2021",
+                "points": {
+                  "0": "Bảo trì và nâng cấp hệ thống quản lý tài liệu doanh nghiệp được sử dụng bởi nhiều ngân hàng, bao gồm ứng dụng web, Office Online Server, ký số, plugin Office và ứng dụng desktop.",
+                  "1": "Xây dựng với .NET MVC, Kendo UI, WPF và SQL Server, đảm bảo tính sẵn sàng cao và tuân thủ yêu cầu bảo mật cấp ngân hàng."
+                }
               },
-              "infrastructure": {
-                "title": "Infrastructure",
-                "description": "Services và repositories triển khai domain interfaces. Mọi I/O bên ngoài và SDK usage nằm ở đây."
+              "2": {
+                "title": "Co-Founder & CTO",
+                "company": "Mindx Technology JSC",
+                "period": "Tháng 3/2018 - Tháng 2/2020",
+                "points": {
+                  "0": "Đồng sáng lập công ty phần mềm và giữ vai trò CTO, phát triển các sản phẩm web và mobile tùy chỉnh cho startup và doanh nghiệp vừa và nhỏ.",
+                  "1": "Quản lý đội ngũ kỹ thuật toàn diện: thu thập yêu cầu khách hàng, thiết kế giải pháp và giám sát tiến độ giao hàng.",
+                  "2": "Xây dựng sản phẩm sử dụng TypeScript, React, React Native, Node.js, MongoDB, AWS và Google Cloud Platform."
+                }
               },
-              "presentation": {
-                "title": "Presentation",
-                "description": "Pages, components và hooks. Chi tiết React và Next.js; dùng Application layer qua DI container."
+              "3": {
+                "title": "Senior Software Engineer",
+                "company": "Ciber - CMC Joint Venture Corporation",
+                "period": "Tháng 2/2017 - Tháng 8/2017",
+                "points": {
+                  "0": "Triển khai và tùy chỉnh Microsoft Dynamics 365 cho khách hàng doanh nghiệp, bao gồm cổng dịch vụ công.",
+                  "1": "Thiết kế kiến trúc giải pháp và thiết lập CI/CD pipelines nhằm đẩy nhanh chu kỳ phát triển.",
+                  "2": "Xây dựng tích hợp và module tùy chỉnh sử dụng .NET, SQL Server và jQuery."
+                }
+              },
+              "4": {
+                "title": "Senior Software Engineer / Technical Lead",
+                "company": "Tek Experts",
+                "period": "Tháng 5/2015 - Tháng 2/2017",
+                "points": {
+                  "0": "Dẫn dắt việc chuyển đổi công cụ Quoting của HP Enterprise từ Excel VBA sang giải pháp Sales Support Cloud (SSC) trên đám mây.",
+                  "1": "Kiến trúc hệ thống hoạt động liên tục 24/7 toàn cầu, xử lý lượng lớn yêu cầu đồng thời qua nhiều múi giờ.",
+                  "2": "Phát triển giải pháp sử dụng .NET MVC, Kendo UI và SQL Server."
+                }
+              },
+              "5": {
+                "title": "SQL Server Developer",
+                "company": "Rendy",
+                "period": "Tháng 7/2014 - Tháng 5/2015",
+                "points": {
+                  "0": "Di chuyển thành công cơ sở dữ liệu SQL Server quy mô lớn từ phiên bản 2005 lên 2012, bảo toàn logic nghiệp vụ phức tạp và đảm bảo không mất dữ liệu.",
+                  "1": "Phát triển công cụ di chuyển tự động và script kiểm tra sử dụng SSIS, WPF và Excel VBA."
+                }
+              },
+              "6": {
+                "title": "Software Developer / Technical Lead",
+                "company": "SanhaIT Vina",
+                "period": "Tháng 6/2011 - Tháng 5/2014",
+                "points": {
+                  "0": "Xây dựng giải pháp ERP web quản lý hoạt động vận hành cho câu lạc bộ golf, resort và khách sạn cao cấp.",
+                  "1": "Phát triển nền tảng groupware giúp cải thiện hiệu quả cộng tác giữa các nhóm làm việc từ xa.",
+                  "2": "Phát triển sử dụng .NET MVC, Kendo UI, Java Spring và Oracle."
+                }
               }
-            }
-          },
-          "techStack": {
-            "title": "Tech Stack",
-            "description": "Công nghệ hiện đại, sẵn sàng production được chọn lọc kỹ cho trải nghiệm developer và hiệu năng.",
-            "items": {
-              "nextjs": {
-                "name": "Next.js 16",
-                "description": "App Router, React Server Components và SSR/SSG tối ưu."
+            },
+            "skills": {
+              "0": {
+                "name": "Frontend",
+                "items": "React, Next.js, React Native, Flutter, TypeScript"
               },
-              "react": {
-                "name": "React 19",
-                "description": "React mới nhất với concurrent features và hiệu năng cải thiện."
+              "1": {
+                "name": "Backend",
+                "items": "Node.js, .NET/C#"
               },
-              "typescript": {
-                "name": "TypeScript 5",
-                "description": "Strict mode bật để đảm bảo type safety tối đa trong codebase."
+              "2": {
+                "name": "Cơ sở dữ liệu",
+                "items": "PostgreSQL, MongoDB, SQL Server"
               },
-              "tailwind": {
-                "name": "Tailwind CSS 4",
-                "description": "Styling utility-first với tự động sắp xếp và tối ưu class."
+              "3": {
+                "name": "Blockchain",
+                "items": "Solidity, Hardhat"
               },
-              "radix": {
-                "name": "Radix UI",
-                "description": "Primitives accessible, unstyled qua bộ component shadcn/ui."
-              },
-              "rhf": {
-                "name": "React Hook Form",
-                "description": "Quản lý form hiệu năng với ít re-renders nhất."
-              },
-              "zod": {
-                "name": "Zod",
-                "description": "Validation schema với suy luận type TypeScript."
-              },
-              "zustand": {
-                "name": "Zustand",
-                "description": "Quản lý client state nhẹ với API đơn giản."
-              },
-              "nextIntl": {
-                "name": "next-intl",
-                "description": "Quốc tế hóa với locale routing và message formatting."
-              },
-              "firebase": {
-                "name": "Firebase",
-                "description": "Authentication, Firestore database và Analytics với interfaces trừu tượng."
-              },
-              "awilix": {
-                "name": "Awilix",
-                "description": "Container dependency injection cho code tách rời, dễ test."
-              },
-              "vitest": {
-                "name": "Vitest",
-                "description": "Unit testing nhanh với tích hợp React Testing Library."
+              "4": {
+                "name": "DevOps & Cloud",
+                "items": "Docker, GitHub Actions, AWS, Azure, Google Cloud"
               }
-            }
-          },
-          "gettingStarted": {
-            "title": "Bắt đầu",
-            "description": "Clone repo, cài dependency và chạy dev server. Validate chạy lint, kiểm tra format và test với coverage.",
-            "steps": {
-              "install": "npm install",
-              "dev": "npm run dev",
-              "validate": "npm run validate"
-            }
-          },
-          "docs": {
-            "title": "Tài liệu",
-            "description": "Sáu hướng dẫn toàn diện về kiến trúc, quy ước, quy trình phát triển, testing, tích hợp Firebase và triển khai.",
-            "items": {
-              "architecture": {
-                "title": "Kiến trúc",
-                "description": "Cấu trúc layer, sơ đồ luồng dữ liệu, design patterns và dependency injection với Awilix."
+            },
+            "education": {
+              "0": {
+                "title": "AWS Certified SysOps Administrator - Associate",
+                "institution": "Amazon Web Services (AWS)",
+                "period": "2020"
               },
-              "codingConventions": {
-                "title": "Quy ước coding",
-                "description": "Patterns App Router, đặt tên file, component props, forms với Zod và next-intl i18n."
+              "1": {
+                "title": "AWS Certified Developer - Associate",
+                "institution": "Amazon Web Services (AWS)",
+                "period": "2020"
               },
-              "development": {
-                "title": "Hướng dẫn phát triển",
-                "description": "Git workflow, hướng dẫn 7 bước thêm tính năng, tạo module và common patterns."
+              "2": {
+                "title": "AWS Certified Solution Architect - Associate",
+                "institution": "Amazon Web Services (AWS)",
+                "period": "2020"
               },
-              "testing": {
-                "title": "Hướng dẫn testing",
-                "description": "Vitest + React Testing Library, 100% coverage, tổ chức test và pattern AAA."
+              "3": {
+                "title": "Thạc sĩ Kỹ thuật Phần mềm",
+                "institution": "Đại học FPT",
+                "period": "2018"
               },
-              "firebase": {
-                "title": "Tích hợp Firebase",
-                "description": "Thiết lập Auth, Firestore và Analytics, interfaces trừu tượng, security rules và thay đổi providers."
-              },
-              "deployment": {
-                "title": "Triển khai",
-                "description": "Thiết lập Firebase, hosting Cloudflare Pages, GitHub Actions CI/CD và biến môi trường."
+              "4": {
+                "title": "Cử nhân Kỹ thuật Phần mềm",
+                "institution": "Đại học FPT",
+                "period": "2011"
               }
             }
           }
+        },
+        "products": {
+          "title": "Sản phẩm của tôi",
+          "metadata": {
+            "description": "Các sản phẩm cá nhân được phát triển bởi Thinh Tran."
+          },
+          "eyebrow": "Sản phẩm tôi đã phát triển",
+          "comingSoon": "Sắp ra mắt",
+          "comingSoonDescription": "Tôi đang phát triển một số sản phẩm mới thú vị. Hãy theo dõi để cập nhật!"
         }
       }
     }

@@ -71,7 +71,7 @@ describe("ContactForm", () => {
 
     await waitFor(() => {
       expect(mockOpen).toHaveBeenCalledWith(
-        expect.stringContaining("mailto:support@gemsignal.com"),
+        expect.stringContaining("mailto:quangthinhtran3588@gmail.com"),
         "_self",
       );
     });

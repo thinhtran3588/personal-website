@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/common/components/button";
 import { DocumentsDropdown } from "@/common/components/documents-dropdown";
 import { GitHubIcon, MenuIcon } from "@/common/components/icons";
-import { MobileMenuProvider } from "@/common/contexts/mobile-menu-context";
 import type { ResolvedMenuItem } from "@/common/interfaces";
 import { Link, usePathname } from "@/common/routing/navigation";
 import { cn } from "@/common/utils/cn";
@@ -16,7 +15,6 @@ type MainHeaderProps = {
   menuItems: ResolvedMenuItem[];
   menuLabel: string;
   githubUrl?: string;
-  authSlot?: React.ReactNode;
   settingsSlot?: React.ReactNode;
 };
 
@@ -33,7 +31,6 @@ export function MainHeader({
   menuItems,
   menuLabel,
   githubUrl,
-  authSlot,
   settingsSlot,
 }: MainHeaderProps) {
   const pathname = usePathname();
@@ -87,7 +84,7 @@ export function MainHeader({
             href="/"
           >
             <Image
-              src="/icon.svg"
+              src="/assets/images/profile.png"
               alt=""
               width={24}
               height={24}
@@ -144,9 +141,6 @@ export function MainHeader({
                 {settingsSlot}
               </div>
             ) : null}
-            {authSlot != null ? (
-              <div className="hidden sm:block">{authSlot}</div>
-            ) : null}
             <Button
               type="button"
               variant="default"
@@ -176,13 +170,6 @@ export function MainHeader({
                 className="flex flex-col gap-3"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {authSlot != null ? (
-                  <div className="sm:hidden">
-                    <MobileMenuProvider value={true}>
-                      {authSlot}
-                    </MobileMenuProvider>
-                  </div>
-                ) : null}
                 {menuItems.map((item) =>
                   item.children?.length ? (
                     <div key={item.id} className="flex flex-col gap-1">

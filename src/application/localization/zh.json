@@ -23,15 +23,16 @@
         "deployment": "部署"
       },
       "contact": "联系我们",
+      "products": "产品",
       "menu": "菜单"
     },
     "footer": {
-      "copyright": "© 2026 Next.js Starter Kit。保留所有权利。"
+      "copyright": "© 2026。Thinh Tran 保留所有权利。"
     },
     "app": {
       "metadata": {
-        "title": "Next.js Starter Kit",
-        "description": "使用 Clean Architecture、TypeScript 和 100% 测试覆盖率构建可扩展的 Next.js 应用。"
+        "title": "Thinh Tran",
+        "description": "拥有{yearsOfExperience}年以上全栈开发、区块链和云架构经验的资深技术领导者。"
       }
     },
     "errors": {
@@ -465,9 +466,9 @@
     "contact": {
       "pages": {
         "contact": {
-          "title": "联系我们",
+          "title": "联系我",
           "metadata": {
-            "description": "联系我们。发送消息或直接发送电子邮件。"
+            "description": "联系我。发送消息或直接发送电子邮件。"
           },
           "subtitle": "有问题或需要帮助？填写下方表单或直接发送邮件至",
           "form": {
@@ -478,7 +479,7 @@
             "subjectLabel": "主题",
             "subjectPlaceholder": "关于什么？",
             "messageLabel": "消息",
-            "messagePlaceholder": "请告诉我们更多关于您的需求...",
+            "messagePlaceholder": "请告诉我更多关于您的需求...",
             "submitButton": "发送消息",
             "validation": {
               "nameRequired": "请输入姓名",
@@ -490,165 +491,202 @@
               "messageMaxLength": "消息最多 2000 个字符"
             }
           },
-          "emailNote": "您也可以直接通过以下邮箱联系我们",
-          "successMessage": "您的邮件客户端即将打开。如果没有打开，请直接发送邮件给我们。"
+          "emailNote": "您也可以直接通过以下邮箱联系我",
+          "successMessage": "您的邮件客户端即将打开。如果没有打开，请直接发送邮件给我。"
         }
       }
     },
     "landing": {
       "pages": {
         "home": {
-          "badge": "Starter Kit",
-          "hero": {
-            "eyebrow": "生产就绪的基础",
-            "title": "Next.js Starter Kit",
-            "subtitle": "生产就绪的 Next.js 入门套件，采用 Clean Architecture 与模块化结构，支持可扩展的前端开发。基于 App Router、TypeScript 与 100% 测试覆盖率构建。"
+          "badge": "Thinh Tran",
+          "main": {
+            "greeting": "欢迎来到我的个人网站",
+            "name": "你好，我是 Thinh Tran",
+            "rolePrefix": "一名",
+            "roles": {
+              "0": "全栈开发工程师",
+              "1": "区块链开发工程师",
+              "2": "技术领导者",
+              "3": "DevOps工程师",
+              "4": "技术顾问"
+            },
+            "bio": "拥有{yearsOfExperience}年以上经验的资深技术领导者，专注于构建可扩展的软件产品。从联合创办科技公司到以VP of Engineering身份领导工程团队，我专注于全栈开发、区块链和云架构。我已交付企业系统、区块链游戏和在多个国家使用的移动应用。",
+            "findMe": "找到我",
+            "bestSkills": "核心技能",
+            "social": {
+              "github": "Github",
+              "linkedin": "LinkedIn",
+              "facebook": "Facebook"
+            },
+            "skills": {
+              "solidity": "Solidity",
+              "react": "React",
+              "reactNative": "React Native",
+              "flutter": "Flutter",
+              "nodejs": "Node.js",
+              "devops": "DevOps"
+            }
           },
-          "features": {
-            "title": "核心特性",
-            "description": "构建可扩展、易维护前端应用所需的一切，内置最佳实践。",
+          "services": {
+            "eyebrow": "服务",
+            "title": "我能做什么",
             "items": {
-              "cleanArchitecture": {
-                "title": "Clean Architecture",
-                "description": "四个独立层（Domain、Application、Infrastructure、Presentation），清晰的依赖规则与 Awilix DI。"
+              "fullstack": {
+                "title": "全栈开发",
+                "description": "端到端构建和交付可扩展的Web和移动应用。从使用React和Next.js的响应式前端到使用Node.js和.NET的强大后端，搭配PostgreSQL、SQL Server或MongoDB。使用React Native和Flutter进行跨平台移动开发，部署到AWS、Azure和Google Cloud。"
               },
-              "modularStructure": {
-                "title": "模块化结构",
-                "description": "功能模块位于 src/modules/，边界隔离。App Router 仅处理路由；代码均在 src/ 中。"
+              "blockchain": {
+                "title": "区块链开发",
+                "description": "在Ethereum、Polygon和Base上设计和部署智能合约及去中心化应用。熟练使用Solidity和Hardhat，从代币系统到完整的区块链游戏生态系统。"
               },
-              "testCoverage": {
-                "title": "100% 测试覆盖率",
-                "description": "使用 Vitest 与 React Testing Library 强制覆盖率阈值。AAA 模式与行为导向测试。"
+              "devops": {
+                "title": "DevOps",
+                "description": "使用Docker、GitHub Actions以及AWS、Azure和Google Cloud的多云基础设施，优化开发流程并确保可靠部署。"
               },
-              "i18nReady": {
-                "title": "i18n 就绪",
-                "description": "next-intl 与基于 locale 的路由。开箱即用的英语、越南语与中文翻译。"
-              },
-              "typeSafeForms": {
-                "title": "类型安全表单",
-                "description": "React Hook Form 与 Zod 验证。Schema 单一数据源，自动 TypeScript 类型推断。"
-              },
-              "firebaseIntegration": {
-                "title": "Firebase 集成",
-                "description": "Auth、Firestore 与 Analytics 使用抽象接口。轻松更换提供商，无需修改应用代码。"
+              "consultant": {
+                "title": "咨询服务",
+                "description": "与创始人和产品团队合作，将创意转化为生产级软件。从架构设计和技术选型到团队建设和交付，帮助高效地将产品推向市场。"
               }
             }
           },
-          "architecture": {
-            "title": "Clean Architecture",
-            "description": "关注点分离与依赖反转。内层对外层无感知，实现可测试性与灵活性。",
-            "layers": {
-              "domain": {
-                "title": "Domain",
-                "description": "核心类型、Zod schemas 与接口。无外部依赖——纯业务规则与数据结构。"
+          "resume": {
+            "eyebrow": "{yearsOfExperience}年以上经验",
+            "title": "我的简历",
+            "tabs": {
+              "experience": "工作经历",
+              "skills": "专业技能",
+              "education": "教育与认证"
+            },
+            "experience": {
+              "0": {
+                "title": "VP of Engineering",
+                "company": "Kuma Games Inc",
+                "period": "2021年10月 - 2025年10月",
+                "points": {
+                  "0": "领导工程团队构建并交付Chibi Kingdom，一个以三国演义为灵感的区块链游戏宇宙。",
+                  "1": "使用React构建Web应用、Unity进行游戏开发，架构整个平台以提供无缝的跨平台体验。",
+                  "2": "在Mainnet、Polygon和Base上设计和部署Solidity智能合约，驱动游戏内经济和NFT系统。"
+                }
               },
-              "application": {
-                "title": "Application",
-                "description": "用例编排业务逻辑。仅依赖 Domain；无 UI 或框架细节。"
+              "1": {
+                "title": "高级软件工程师（合同）",
+                "company": "GOSEI Vietnam JSC",
+                "period": "2017年8月 - 2021年10月",
+                "points": {
+                  "0": "维护和增强多家银行使用的企业文档管理系统，涵盖Web应用、Office Online Server、数字签名、Office插件和桌面客户端。",
+                  "1": "使用.NET MVC、Kendo UI、WPF和SQL Server构建，确保高可用性并符合银行级安全要求。"
+                }
               },
-              "infrastructure": {
-                "title": "Infrastructure",
-                "description": "实现 domain 接口的服务与仓库。所有外部 I/O 与 SDK 调用在此。"
+              "2": {
+                "title": "联合创始人 & CTO",
+                "company": "Mindx Technology JSC",
+                "period": "2018年3月 - 2020年2月",
+                "points": {
+                  "0": "联合创办软件公司并担任CTO，为初创企业和中小企业提供定制Web和移动产品。",
+                  "1": "全面管理工程团队：收集客户需求、设计解决方案并监督交付进度。",
+                  "2": "使用TypeScript、React、React Native、Node.js、MongoDB、AWS和Google Cloud Platform构建产品。"
+                }
               },
-              "presentation": {
-                "title": "Presentation",
-                "description": "页面、组件与 hooks。React 与 Next.js 细节；通过 DI 容器使用 Application 层。"
+              "3": {
+                "title": "高级软件工程师",
+                "company": "Ciber - CMC Joint Venture Corporation",
+                "period": "2017年2月 - 2017年8月",
+                "points": {
+                  "0": "为企业客户实施和定制Microsoft Dynamics 365，包括公共服务Web门户。",
+                  "1": "设计解决方案架构并建立CI/CD管道以加速交付周期。",
+                  "2": "使用.NET、SQL Server和jQuery构建集成和自定义模块。"
+                }
+              },
+              "4": {
+                "title": "高级软件工程师 / 技术负责人",
+                "company": "Tek Experts",
+                "period": "2015年5月 - 2017年2月",
+                "points": {
+                  "0": "主导将HP Enterprise的报价工具从Excel VBA迁移至云端Sales Support Cloud（SSC）解决方案。",
+                  "1": "架构系统实现全球24/7可用性，跨多个时区处理高并发请求。",
+                  "2": "使用.NET MVC、Kendo UI和SQL Server交付解决方案。"
+                }
+              },
+              "5": {
+                "title": "SQL Server开发工程师",
+                "company": "Rendy",
+                "period": "2014年7月 - 2015年5月",
+                "points": {
+                  "0": "成功将大型SQL Server数据库从2005版本迁移至2012版本，保留复杂业务逻辑并确保零数据丢失。",
+                  "1": "使用SSIS、WPF和Excel VBA开发自动化迁移工具和验证脚本。"
+                }
+              },
+              "6": {
+                "title": "软件开发工程师 / 技术负责人",
+                "company": "SanhaIT Vina",
+                "period": "2011年6月 - 2014年5月",
+                "points": {
+                  "0": "构建基于Web的ERP解决方案，管理高尔夫俱乐部、度假村和豪华酒店的运营。",
+                  "1": "开发群件平台，提升分布式远程团队的协作效率。",
+                  "2": "使用.NET MVC、Kendo UI、Java Spring和Oracle交付。"
+                }
               }
-            }
-          },
-          "techStack": {
-            "title": "技术栈",
-            "description": "精心挑选的现代生产就绪技术，兼顾开发体验与性能。",
-            "items": {
-              "nextjs": {
-                "name": "Next.js 16",
-                "description": "App Router、React Server Components 与优化的 SSR/SSG。"
+            },
+            "skills": {
+              "0": {
+                "name": "前端",
+                "items": "React, Next.js, React Native, Flutter, TypeScript"
               },
-              "react": {
-                "name": "React 19",
-                "description": "最新 React，具备并发特性与性能提升。"
+              "1": {
+                "name": "后端",
+                "items": "Node.js, .NET/C#"
               },
-              "typescript": {
-                "name": "TypeScript 5",
-                "description": "启用严格模式，确保代码库最大类型安全。"
+              "2": {
+                "name": "数据库",
+                "items": "PostgreSQL, MongoDB, SQL Server"
               },
-              "tailwind": {
-                "name": "Tailwind CSS 4",
-                "description": "原子化样式，自动类名排序与优化。"
+              "3": {
+                "name": "区块链",
+                "items": "Solidity, Hardhat"
               },
-              "radix": {
-                "name": "Radix UI",
-                "description": "通过 shadcn/ui 组件集提供无样式的可访问原语。"
-              },
-              "rhf": {
-                "name": "React Hook Form",
-                "description": "高性能表单管理，最小化重渲染。"
-              },
-              "zod": {
-                "name": "Zod",
-                "description": "Schema 验证，支持 TypeScript 类型推断。"
-              },
-              "zustand": {
-                "name": "Zustand",
-                "description": "轻量级客户端状态管理，API 简洁。"
-              },
-              "nextIntl": {
-                "name": "next-intl",
-                "description": "国际化支持 locale 路由与消息格式化。"
-              },
-              "firebase": {
-                "name": "Firebase",
-                "description": "认证、Firestore 数据库与 Analytics，使用抽象接口。"
-              },
-              "awilix": {
-                "name": "Awilix",
-                "description": "依赖注入容器，实现解耦与可测试代码。"
-              },
-              "vitest": {
-                "name": "Vitest",
-                "description": "快速单元测试，集成 React Testing Library。"
+              "4": {
+                "name": "DevOps与云",
+                "items": "Docker, GitHub Actions, AWS, Azure, Google Cloud"
               }
-            }
-          },
-          "gettingStarted": {
-            "title": "快速开始",
-            "description": "克隆仓库、安装依赖并启动开发服务器。validate 会执行 lint、格式检查与带覆盖率的测试。",
-            "steps": {
-              "install": "npm install",
-              "dev": "npm run dev",
-              "validate": "npm run validate"
-            }
-          },
-          "docs": {
-            "title": "文档",
-            "description": "六份全面指南涵盖架构、规范、开发流程、测试、Firebase 集成与部署。",
-            "items": {
-              "architecture": {
-                "title": "架构",
-                "description": "层级结构、数据流图、设计模式与 Awilix 依赖注入。"
+            },
+            "education": {
+              "0": {
+                "title": "AWS Certified SysOps Administrator - Associate",
+                "institution": "Amazon Web Services (AWS)",
+                "period": "2020"
               },
-              "codingConventions": {
-                "title": "编码规范",
-                "description": "App Router 模式、文件命名、组件 props、Zod 表单与 next-intl 国际化。"
+              "1": {
+                "title": "AWS Certified Developer - Associate",
+                "institution": "Amazon Web Services (AWS)",
+                "period": "2020"
               },
-              "development": {
-                "title": "开发指南",
-                "description": "Git 工作流、7 步功能开发指南、模块创建与常用模式。"
+              "2": {
+                "title": "AWS Certified Solution Architect - Associate",
+                "institution": "Amazon Web Services (AWS)",
+                "period": "2020"
               },
-              "testing": {
-                "title": "测试指南",
-                "description": "Vitest + React Testing Library、100% 覆盖率、测试组织与 AAA 模式。"
+              "3": {
+                "title": "软件工程硕士",
+                "institution": "FPT大学",
+                "period": "2018"
               },
-              "firebase": {
-                "title": "Firebase 集成",
-                "description": "Auth、Firestore 与 Analytics 设置、抽象接口、安全规则与更换提供商。"
-              },
-              "deployment": {
-                "title": "部署",
-                "description": "Firebase 设置、Cloudflare Pages 托管、GitHub Actions CI/CD 与环境变量。"
+              "4": {
+                "title": "软件工程学士",
+                "institution": "FPT大学",
+                "period": "2011"
               }
             }
           }
+        },
+        "products": {
+          "title": "我的产品",
+          "metadata": {
+            "description": "Thinh Tran 个人开发的产品。"
+          },
+          "eyebrow": "我个人开发的产品",
+          "comingSoon": "即将推出",
+          "comingSoonDescription": "我正在开发一些令人兴奋的新产品，敬请期待！"
         }
       }
     }

@@ -3,7 +3,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getMainMenuConfig } from "@/application/config/main-menu";
 import { MainLayout } from "@/common/components/main-layout";
 import { resolveMenuItems } from "@/common/utils/menu";
-import { AuthHeaderSlot } from "@/modules/auth/presentation/components/auth-header-slot";
 import { AuthVerification } from "@/modules/auth/presentation/components/auth-verification";
 import { SettingsHeaderSlot } from "@/modules/settings/presentation/components/settings-header-slot";
 
@@ -21,11 +20,7 @@ export default async function AppLayout({
   const menuItems = resolveMenuItems(menuConfig, (key) => tCommon(key));
 
   return (
-    <MainLayout
-      menuItems={menuItems}
-      authSlot={<AuthHeaderSlot />}
-      settingsSlot={<SettingsHeaderSlot />}
-    >
+    <MainLayout menuItems={menuItems} settingsSlot={<SettingsHeaderSlot />}>
       <AuthVerification>{children}</AuthVerification>
     </MainLayout>
   );

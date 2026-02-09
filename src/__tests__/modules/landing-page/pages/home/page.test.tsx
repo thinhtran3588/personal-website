@@ -1,46 +1,86 @@
 import { render, screen } from "@testing-library/react";
 
+import { getYearsOfExperience } from "@/application/config/personal-info";
 import messages from "@/application/localization/en.json";
 import { LandingPage } from "@/modules/landing-page/presentation/pages/home/page";
 
-const docItems = messages.modules.landing.pages.home.docs.items;
+const home = messages.modules.landing.pages.home;
 
 describe("LandingPage", () => {
-  it("renders the hero headline and main app CTA", async () => {
+  it("renders the main section with name heading", async () => {
     render(await LandingPage());
 
     expect(
       screen.getByRole("heading", {
-        name: messages.modules.landing.pages.home.hero.title,
-      }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", {
-        name: messages.common.navigation.goToApp,
+        name: home.main.name,
       }),
     ).toBeInTheDocument();
   });
 
-  it("renders documentation cards as links to the corresponding doc pages", async () => {
+  it("renders the bio text", async () => {
     render(await LandingPage());
 
-    const expectedLinks = [
-      { title: docItems.architecture.title, href: "/docs/architecture" },
-      {
-        title: docItems.codingConventions.title,
-        href: "/docs/coding-conventions",
-      },
-      { title: docItems.development.title, href: "/docs/development-guide" },
-      { title: docItems.testing.title, href: "/docs/testing-guide" },
-      { title: docItems.firebase.title, href: "/docs/firebase-integration" },
-      { title: docItems.deployment.title, href: "/docs/deployment" },
-    ];
+    const expectedBio = home.main.bio.replace(
+      "{yearsOfExperience}",
+      String(getYearsOfExperience()),
+    );
+    expect(screen.getByText(expectedBio)).toBeInTheDocument();
+  });
 
-    for (const { title, href } of expectedLinks) {
-      const heading = screen.getByRole("heading", { name: title });
-      const link = heading.closest("a");
-      expect(link).toBeInTheDocument();
-      expect(link).toHaveAttribute("href", href);
+  it("renders all service cards", async () => {
+    render(await LandingPage());
+
+    const serviceKeys = [
+      "fullstack",
+      "blockchain",
+      "devops",
+      "consultant",
+    ] as const;
+
+    for (const key of serviceKeys) {
+      expect(
+        screen.getByRole("heading", {
+          name: home.services.items[key].title,
+        }),
+      ).toBeInTheDocument();
     }
+  });
+
+  it("renders resume section with tab labels", async () => {
+    render(await LandingPage());
+
+    expect(
+      screen.getByRole("heading", { name: home.resume.title }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("tab", { name: home.resume.tabs.experience }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("tab", { name: home.resume.tabs.skills }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("tab", { name: home.resume.tabs.education }),
+    ).toBeInTheDocument();
+  });
+
+  it("renders social links", async () => {
+    render(await LandingPage());
+
+    expect(
+      screen.getByRole("link", { name: home.main.social.github }),
+    ).toHaveAttribute("href", "https://github.com/thinhtran3588");
+    expect(
+      screen.getByRole("link", { name: home.main.social.linkedin }),
+    ).toHaveAttribute("href", "https://www.linkedin.com/in/thinhtran3588");
+  });
+
+  it("renders skill badges", async () => {
+    render(await LandingPage());
+
+    expect(screen.getByText(home.main.skills.solidity)).toBeInTheDocument();
+    expect(screen.getByText(home.main.skills.react)).toBeInTheDocument();
+    expect(
+      screen.getAllByText(home.main.skills.nodejs).length,
+    ).toBeGreaterThanOrEqual(1);
   });
 });

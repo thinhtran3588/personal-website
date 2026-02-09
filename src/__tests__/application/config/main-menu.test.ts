@@ -30,34 +30,20 @@ describe("main-menu", () => {
     });
   });
 
-  it("getMainMenuConfig returns menu items with home, app, documents, and contact", () => {
+  it("getMainMenuConfig returns menu items with home, products, and contact", () => {
     const menu = getMainMenuConfig();
-    expect(menu).toHaveLength(4);
+    expect(menu).toHaveLength(3);
     expect(menu[0]).toEqual({
       id: "home",
       translationKey: "navigation.home",
       href: "/",
     });
     expect(menu[1]).toEqual({
-      id: "app",
-      translationKey: "navigation.app",
-      href: "/app/books",
+      id: "products",
+      translationKey: "navigation.products",
+      href: "/products",
     });
-    expect(menu[2].id).toBe("documents");
-    expect(menu[2].translationKey).toBe("navigation.documents");
-    expect(menu[2].href).toBe("");
-    expect(menu[2].children).toHaveLength(6);
-    const docSlugs = menu[2].children!.map((c) => c.id) as DocSlug[];
-    expect(docSlugs).toEqual(DOC_SLUGS);
-    expect(menu[2].children!.map((c) => c.href)).toEqual([
-      "/docs/architecture",
-      "/docs/coding-conventions",
-      "/docs/development-guide",
-      "/docs/testing-guide",
-      "/docs/firebase-integration",
-      "/docs/deployment",
-    ]);
-    expect(menu[3]).toEqual({
+    expect(menu[2]).toEqual({
       id: "contact",
       translationKey: "navigation.contact",
       href: "/contact",

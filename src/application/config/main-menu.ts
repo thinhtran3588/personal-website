@@ -28,19 +28,9 @@ export function getMainMenuConfig(): MenuItem[] {
       href: "/",
     },
     {
-      id: "app",
-      translationKey: "navigation.app",
-      href: "/app/books",
-    },
-    {
-      id: "documents",
-      translationKey: "navigation.documents",
-      href: "",
-      children: DOC_SLUGS.map((slug) => ({
-        id: slug,
-        translationKey: `navigation.docs.${DOC_I18N_KEYS[slug]}`,
-        href: `/docs/${slug}`,
-      })),
+      id: "products",
+      translationKey: "navigation.products",
+      href: "/products",
     },
     {
       id: "contact",

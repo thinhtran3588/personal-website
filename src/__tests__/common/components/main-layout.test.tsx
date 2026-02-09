@@ -70,7 +70,7 @@ describe("MainLayout", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the footer with copyright and legal links", async () => {
+  it("renders the footer with copyright", async () => {
     const { MainLayout } = await import("@/common/components/main-layout");
 
     render(
@@ -84,15 +84,5 @@ describe("MainLayout", () => {
     expect(
       screen.getByText(translations.common["footer.copyright"]),
     ).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", {
-        name: translations.common["navigation.privacy"],
-      }),
-    ).toHaveAttribute("href", "/privacy-policy");
-    expect(
-      screen.getByRole("link", {
-        name: translations.common["navigation.terms"],
-      }),
-    ).toHaveAttribute("href", "/terms-of-service");
   });
 });
