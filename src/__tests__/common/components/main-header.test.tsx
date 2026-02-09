@@ -16,26 +16,8 @@ vi.mock("@/common/routing/navigation", async (importOriginal) => {
 
 const menuItems: ResolvedMenuItem[] = [
   { id: "home", label: "Home", href: "/" },
-  {
-    id: "documents",
-    label: "Documents",
-    href: "",
-    children: [
-      { id: "architecture", label: "Architecture", href: "/docs/architecture" },
-      {
-        id: "development-guide",
-        label: "Development guide",
-        href: "/docs/development-guide",
-      },
-      {
-        id: "testing-guide",
-        label: "Testing guide",
-        href: "/docs/testing-guide",
-      },
-    ],
-  },
-  { id: "privacy", label: "Privacy", href: "/privacy-policy" },
-  { id: "terms", label: "Terms", href: "/terms-of-service" },
+  { id: "products", label: "Products", href: "/products" },
+  { id: "contact", label: "Contact", href: "/contact" },
 ];
 
 const defaultSettingsSlot = (
@@ -70,8 +52,8 @@ describe("MainHeader", () => {
 
     expect(screen.getByText(baseProps.badge)).toBeInTheDocument();
     expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(screen.getByText("Privacy")).toBeInTheDocument();
-    expect(screen.getByText("Terms")).toBeInTheDocument();
+    expect(screen.getByText("Products")).toBeInTheDocument();
+    expect(screen.getByText("Contact")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /^Theme:/ })).toBeInTheDocument();
   });
 
@@ -88,41 +70,29 @@ describe("MainHeader", () => {
     });
   });
 
-  it("highlights Privacy when on privacy-policy page", () => {
-    mockPathname = "/privacy-policy";
+  it("highlights Products when on products page", () => {
+    mockPathname = "/products";
     render(<MainHeader {...baseProps} />);
 
     const homeLink = screen.getByRole("link", { name: "Home" });
-    const privacyLink = screen.getByRole("link", {
-      name: "Privacy",
-    });
+    const productsLink = screen.getByRole("link", { name: "Products" });
 
     expect(homeLink).not.toHaveClass("font-bold");
-    expect(privacyLink).toHaveClass("font-bold");
-  });
-
-  it("highlights Terms when on terms-of-service page", () => {
-    mockPathname = "/terms-of-service";
-    render(<MainHeader {...baseProps} />);
-
-    const homeLink = screen.getByRole("link", { name: "Home" });
-    const termsLink = screen.getByRole("link", { name: "Terms" });
-
-    expect(homeLink).not.toHaveClass("font-bold");
-    expect(termsLink).toHaveClass("font-bold");
+    expect(productsLink).toHaveClass("font-bold");
   });
 
   it("highlights current page in mobile menu when open", () => {
-    mockPathname = "/privacy-policy";
+    mockPathname = "/contact";
     render(<MainHeader {...baseProps} />);
 
     fireEvent.click(screen.getByRole("button", { name: baseProps.menuLabel }));
 
-    const privacyLinks = screen.getAllByRole("link", {
-      name: "Privacy",
-    });
-    expect(privacyLinks.length).toBeGreaterThanOrEqual(1);
-    privacyLinks.forEach((link) => {
+    const contactLinks = within(screen.getByTestId("mobile-menu")).getAllByRole(
+      "link",
+      { name: "Contact" },
+    );
+    expect(contactLinks.length).toBeGreaterThanOrEqual(1);
+    contactLinks.forEach((link) => {
       expect(link).toHaveClass("font-bold");
     });
   });
@@ -146,30 +116,6 @@ describe("MainHeader", () => {
     expect(screen.queryByTestId("mobile-menu")).not.toBeInTheDocument();
   });
 
-  it("closes mobile menu when a document link is clicked", () => {
-    render(<MainHeader {...baseProps} />);
-    fireEvent.click(screen.getByRole("button", { name: baseProps.menuLabel }));
-    const mobileMenu = screen.getByTestId("mobile-menu");
-    expect(mobileMenu).toBeInTheDocument();
-
-    fireEvent.click(
-      within(mobileMenu).getByRole("link", { name: "Architecture" }),
-    );
-    expect(screen.queryByTestId("mobile-menu")).not.toBeInTheDocument();
-  });
-
-  it("highlights current document in mobile menu when on docs page", () => {
-    mockPathname = "/docs/architecture";
-    render(<MainHeader {...baseProps} />);
-    fireEvent.click(screen.getByRole("button", { name: baseProps.menuLabel }));
-
-    const architectureLinks = within(
-      screen.getByTestId("mobile-menu"),
-    ).getAllByRole("link", { name: "Architecture" });
-    expect(architectureLinks.length).toBe(1);
-    expect(architectureLinks[0]).toHaveClass("font-bold");
-  });
-
   it("highlights Home in mobile menu when on home page", () => {
     mockPathname = "/";
     render(<MainHeader {...baseProps} />);
@@ -179,20 +125,6 @@ describe("MainHeader", () => {
       name: "Home",
     });
     homeLinks.forEach((link) => {
-      expect(link).toHaveClass("font-bold");
-    });
-  });
-
-  it("highlights Terms in mobile menu when on terms page", () => {
-    mockPathname = "/terms-of-service";
-    render(<MainHeader {...baseProps} />);
-    fireEvent.click(screen.getByRole("button", { name: baseProps.menuLabel }));
-
-    const termsLinks = screen.getAllByRole("link", {
-      name: "Terms",
-    });
-    expect(termsLinks.length).toBeGreaterThanOrEqual(1);
-    termsLinks.forEach((link) => {
       expect(link).toHaveClass("font-bold");
     });
   });

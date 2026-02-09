@@ -35,8 +35,6 @@ jobs:
 
       - name: Run validation
         run: npm run validate
-        env:
-          NEXT_PUBLIC_FIREBASE_CONFIG: ${{ secrets.NEXT_PUBLIC_FIREBASE_CONFIG }}
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
@@ -48,4 +46,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy out --project-name=nextjs-starter-kit-dev --branch=develop
+          command: pages deploy out --project-name=personal-website-dev --branch=develop

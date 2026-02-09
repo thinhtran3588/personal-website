@@ -1,14 +1,13 @@
 # Triển khai
 
-Hướng dẫn này bao gồm việc triển khai Next.js Starter Kit lên môi trường production sử dụng **Firebase** cho các dịch vụ backend và **Cloudflare Pages** để hosting trang web tĩnh, với **GitHub Actions** cho CI/CD tự động.
+Hướng dẫn này bao gồm việc triển khai trang web cá nhân lên môi trường production sử dụng **Cloudflare Pages** để hosting trang web tĩnh, với **GitHub Actions** cho CI/CD tự động.
 
 ## Mục lục
 
 1. [Tổng quan](#tổng-quan)
-2. [Thiết lập Firebase](#thiết-lập-firebase)
-3. [Thiết lập Cloudflare Pages](#thiết-lập-cloudflare-pages)
-4. [GitHub Actions CI/CD](#github-actions-cicd)
-5. [Biến môi trường](#biến-môi-trường)
+2. [Thiết lập Cloudflare Pages](#thiết-lập-cloudflare-pages)
+3. [GitHub Actions CI/CD](#github-actions-cicd)
+4. [Biến môi trường](#biến-môi-trường)
 
 ## Tổng quan
 
@@ -123,11 +122,8 @@ Thêm secrets trong repository tại **Settings** → **Secrets and variables** 
 
 | Secret | Mô tả |
 |--------|-------------|
-| `NEXT_PUBLIC_FIREBASE_CONFIG` | Firebase web config JSON (xem [Thiết lập Firebase](#4-lấy-firebase-client-configuration)) |
 | `CLOUDFLARE_API_TOKEN` | Cloudflare API token (cho Pages deployment) |
 | `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account ID |
-
-> **Lưu ý**: Bạn **không** cần thêm biến môi trường trong Cloudflare Pages dashboard. Secret `NEXT_PUBLIC_FIREBASE_CONFIG` được inject trong bước build của GitHub Actions, nên các giá trị được nhúng vào trang tĩnh tại thời điểm build.
 
 ### Ví dụ bước Deploy
 
@@ -144,14 +140,6 @@ Thêm secrets trong repository tại **Settings** → **Secrets and variables** 
 
 ## Biến môi trường
 
-Cấu hình Firebase được cung cấp qua một biến môi trường duy nhất chứa toàn bộ web config dưới dạng chuỗi JSON.
-
-| Biến | Mô tả | Ví dụ |
-|----------|-------------|---------|
-| `NEXT_PUBLIC_FIREBASE_CONFIG` | Firebase web config JSON | `{"apiKey":"...","authDomain":"...","projectId":"...","storageBucket":"...","messagingSenderId":"...","appId":"...","measurementId":"..."}` |
-
-Biến này có tiền tố `NEXT_PUBLIC_` nên được nhúng vào trang tĩnh tại thời điểm build.
-
 ### Phát triển local
 
 Để phát triển local, sao chép `.env.development` và điền giá trị:
@@ -160,8 +148,8 @@ Biến này có tiền tố `NEXT_PUBLIC_` nên được nhúng vào trang tĩnh
 cp .env.development .env.local
 ```
 
-Sửa `.env.local` với cấu hình Firebase config JSON. File này được git-ignore và an toàn cho secrets local.
+Sửa `.env.local` với các giá trị cấu hình của bạn. File này được git-ignore và an toàn cho secrets local.
 
 ### Production
 
-Cho production builds, thiết lập `NEXT_PUBLIC_FIREBASE_CONFIG` làm **GitHub Actions secret**. Giá trị được inject tại thời điểm build và nhúng vào output tĩnh — không cần cấu hình thêm trong Cloudflare Pages.
+Cho production builds, thiết lập các biến môi trường cần thiết làm **GitHub Actions secrets**. Các giá trị được inject tại thời điểm build và nhúng vào output tĩnh — không cần cấu hình thêm trong Cloudflare Pages.

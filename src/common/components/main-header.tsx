@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { Button } from "@/common/components/button";
-import { DocumentsDropdown } from "@/common/components/documents-dropdown";
 import { GitHubIcon, MenuIcon } from "@/common/components/icons";
 import type { ResolvedMenuItem } from "@/common/interfaces";
 import { Link, usePathname } from "@/common/routing/navigation";
@@ -95,31 +94,20 @@ export function MainHeader({
           </Link>
           <div className="flex items-center gap-3 text-sm">
             <nav className="hidden items-center gap-4 sm:flex">
-              {menuItems.map((item) =>
-                item.children?.length ? (
-                  <DocumentsDropdown
-                    key={item.id}
-                    documentsLabel={item.label}
-                    items={item.children.map((c) => ({
-                      label: c.label,
-                      href: c.href,
-                    }))}
-                  />
-                ) : (
-                  <Link
-                    key={item.id}
-                    className={cn(
-                      navLinkClass,
-                      isActive(item.href)
-                        ? "font-bold text-[var(--text-primary)] after:scale-x-100"
-                        : "after:scale-x-0",
-                    )}
-                    href={item.href}
-                  >
-                    {item.label}
-                  </Link>
-                ),
-              )}
+              {menuItems.map((item) => (
+                <Link
+                  key={item.id}
+                  className={cn(
+                    navLinkClass,
+                    isActive(item.href)
+                      ? "font-bold text-[var(--text-primary)] after:scale-x-100"
+                      : "after:scale-x-0",
+                  )}
+                  href={item.href}
+                >
+                  {item.label}
+                </Link>
+              ))}
             </nav>
             {githubUrl ? (
               <a
@@ -170,42 +158,19 @@ export function MainHeader({
                 className="flex flex-col gap-3"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {menuItems.map((item) =>
-                  item.children?.length ? (
-                    <div key={item.id} className="flex flex-col gap-1">
-                      <span className="py-1 text-[var(--text-muted)]">
-                        {item.label}
-                      </span>
-                      <div className="flex flex-col pl-3">
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.id}
-                            className={cn(
-                              "block py-1 text-[var(--text-muted)] transition hover:text-[var(--text-primary)]",
-                              isActive(child.href) &&
-                                "font-bold text-[var(--text-primary)]",
-                            )}
-                            href={child.href}
-                          >
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  ) : (
-                    <Link
-                      key={item.id}
-                      className={cn(
-                        "py-1 text-[var(--text-muted)] transition hover:text-[var(--text-primary)]",
-                        isActive(item.href) &&
-                          "font-bold text-[var(--text-primary)]",
-                      )}
-                      href={item.href}
-                    >
-                      {item.label}
-                    </Link>
-                  ),
-                )}
+                {menuItems.map((item) => (
+                  <Link
+                    key={item.id}
+                    className={cn(
+                      "py-1 text-[var(--text-muted)] transition hover:text-[var(--text-primary)]",
+                      isActive(item.href) &&
+                        "font-bold text-[var(--text-primary)]",
+                    )}
+                    href={item.href}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </nav>
             </div>
           </>

@@ -14,8 +14,7 @@ Frontend này tuân theo **Clean Architecture** với cấu trúc **module**. �
    - [Presentation Layer](#4-presentation-layer-srcmodulesmodulepresentation)
 5. [Cấu trúc module](#cấu-trúc-module)
 6. [Các mẫu thiết kế quan trọng](#các-mẫu-thiết-kế-quan-trọng)
-7. [Xác thực](#xác-thực)
-8. [Technology Stack](#technology-stack)
+7. [Technology Stack](#technology-stack)
 
 ## Tổng quan kiến trúc
 
@@ -41,7 +40,7 @@ graph TD
 
 - **Domain Layer**: Types cốt lõi, Zod schemas và interfaces dùng trong toàn app. Không phụ thuộc bên ngoài; định nghĩa hình dạng dữ liệu và quy tắc validation (vd. API contracts, form payloads).
 
-- **Infrastructure Layer**: Triển khai kỹ thuật—services (tích hợp bên ngoài như Firebase) và repositories (truy cập dữ liệu). Thực hiện interface do domain layer định nghĩa.
+- **Infrastructure Layer**: Triển khai kỹ thuật—services (tích hợp bên ngoài) và repositories (truy cập dữ liệu). Thực hiện interface do domain layer định nghĩa.
 
 ## Cấu trúc layer
 
@@ -158,7 +157,7 @@ Types và validation cốt lõi, không phụ thuộc bên ngoài. Khái niệm 
 
 **Thành phần:**
 
-- **Types**: Interfaces và type aliases cho API response, form state và khái niệm module (vd. auth types trong `src/modules/auth/domain/types.ts`).
+- **Types**: Interfaces và type aliases cho API response, form state và khái niệm module (vd. settings types trong `src/modules/settings/domain/types.ts`).
 - **Zod Schemas**: Validation và parse cho form trong `domain/schemas.ts` mỗi module.
 - **Constants**: Hằng số liên quan domain (vd. route paths, error codes) dùng trong module.
 
@@ -173,8 +172,8 @@ Types và validation cốt lõi, không phụ thuộc bên ngoài. Khái niệm 
 
 **Thành phần:**
 
-- **Use Cases**: Class (hoặc hàm) trong `src/modules/{module}/application/` thực hiện luồng ứng dụng (vd. `sign-in-with-email-use-case.ts`, `update-profile-use-case.ts`). Kế thừa `BaseUseCase` từ `src/common/utils/base-use-case.ts`, dùng domain types/schemas và phụ thuộc services hoặc API client qua container.
-- **Module state**: State cấp module (vd. Zustand) expose qua hooks trong `src/modules/{module}/presentation/hooks/` (vd. `use-auth-user-store.ts`).
+- **Use Cases**: Class (hoặc hàm) trong `src/modules/{module}/application/` thực hiện luồng ứng dụng (vd. `load-user-settings-use-case.ts`, `save-user-settings-use-case.ts`). Kế thừa `BaseUseCase` từ `src/common/utils/base-use-case.ts`, dùng domain types/schemas và phụ thuộc services hoặc API client qua container.
+- **Module state**: State cấp module (vd. Zustand) expose qua hooks trong `src/modules/{module}/presentation/hooks/` (vd. `use-user-settings-store.ts`).
 - **Data-fetching**: Server hoặc Client Components tải dữ liệu bằng cách resolve và gọi use case từ container.
 
 **Nguyên tắc:**
@@ -188,8 +187,8 @@ Triển khai vấn đề kỹ thuật và tích hợp bên ngoài. API client ho
 
 **Thành phần:**
 
-- **Services**: Tích hợp bên ngoài trong `src/modules/{module}/infrastructure/services/` (vd. `firebase-auth-service.ts` trong auth). Thực hiện interface định nghĩa trong `src/modules/{module}/domain/interfaces.ts`.
-- **Repositories**: Triển khai truy cập dữ liệu trong `src/modules/{module}/infrastructure/repositories/` (vd. `firestore-book-repository.ts` trong books). Thực hiện interface định nghĩa trong `src/modules/{module}/domain/interfaces.ts`.
+- **Services**: Tích hợp bên ngoài trong `src/modules/{module}/infrastructure/services/` (vd. external API services). Thực hiện interface định nghĩa trong `src/modules/{module}/domain/interfaces.ts`.
+- **Repositories**: Triển khai truy cập dữ liệu trong `src/modules/{module}/infrastructure/repositories/` (vd. data repositories). Thực hiện interface định nghĩa trong `src/modules/{module}/domain/interfaces.ts`.
 - **API Client**: Khi app gọi backend HTTP API, client có thể nằm trong `src/common/` hoặc theo module và được đăng ký trong container.
 
 **Nguyên tắc:**
@@ -206,7 +205,7 @@ Xử lý tương tác người dùng và render UI.
 - **App Routes**: `app/[locale]/**/page.tsx` (và route group như `(main)`) chỉ là routing layer. Chúng import và render page component từ `src/modules/{module}/presentation/pages/`.
 - **Module Pages**: `src/modules/{module}/presentation/pages/{page}/page.tsx` chứa page component thực tế. Page có thể là Server hoặc Client Component; component riêng trang nằm trong `presentation/pages/{page}/components/`.
 - **Module Components**: Component dùng chung module trong `src/modules/{module}/presentation/components/`.
-- **Module Hooks**: Hooks riêng module trong `src/modules/{module}/presentation/hooks/` (vd. `use-auth-user-store.ts`, `use-sync-auth-state.ts`).
+- **Module Hooks**: Hooks riêng module trong `src/modules/{module}/presentation/hooks/` (vd. `use-user-settings-store.ts`).
 - **Common Components**: Component dùng chung trong `src/common/components/` (vd. form, input, label, root-layout, main-layout). Dùng `"use client"` chỉ khi cần (hooks, browser APIs, Zustand).
 
 **Nguyên tắc:**
@@ -225,17 +224,15 @@ App dùng `/src` làm thư mục nguồn chính, giữ `/app` chỉ cho routing.
 app/                               # Chỉ routing layer (Next.js App Router)
 ├── [locale]/                      # Segment locale (next-intl)
 │   ├── layout.tsx, error.tsx, not-found.tsx
-│   ├── (main)/                    # Route group: trang chính
-│   │   ├── page.tsx, docs/, profile/, ...
-│   └── auth/                      # Routes auth
-│       ├── sign-in/, sign-up/, forgot-password/
+│   └── (main)/                    # Route group: trang chính
+│       └── page.tsx
 ├── globals.css, layout.tsx, not-found.tsx
 
 src/                               # Toàn bộ code ứng dụng ở đây
 ├── __tests__/                     # Tests phản chiếu cấu trúc src
 ├── application/                   # Thiết lập cấp app
 │   ├── components/                # AppInitializer
-│   ├── config/                    # firebase-config, main-menu
+│   ├── config/                    # main-menu
 │   ├── localization/              # request.ts, en.json, vi.json, zh.json
 │   └── register-container.ts
 ├── common/                        # Code dùng chung mọi module
@@ -247,20 +244,27 @@ src/                               # Toàn bộ code ứng dụng ở đây
 │   └── utils/                     # cn, container, base-use-case, ...
 │
 ├── modules/                       # Module tính năng (Clean Architecture)
-│   ├── auth/                      # Ví dụ: Module Auth
+│   ├── landing-page/              # Module Landing page
 │   │   ├── domain/                # types.ts, schemas.ts, interfaces.ts
-│   │   ├── application/           # sign-in-use-case.ts, sign-out-use-case.ts, ...
-│   │   ├── infrastructure/        # services/firebase-auth-service.ts
+│   │   ├── application/           # Use cases
+│   │   ├── infrastructure/        # services/, repositories/
 │   │   ├── presentation/
-│   │   │   ├── components/        # auth-layout, auth-header-slot, ...
-│   │   │   ├── hooks/             # use-auth-user-store, use-sync-auth-state
-│   │   │   └── pages/             # sign-in/, sign-up/, profile/
+│   │   │   ├── components/        # Landing page components
+│   │   │   ├── hooks/             # Landing page hooks
+│   │   │   └── pages/             # Landing page pages
 │   │   ├── utils/
 │   │   └── module-configuration.ts
 │   │
-│   ├── books/                     # Ví dụ: Module Books (CRUD)
-│   ├── settings/                  # Ví dụ: Module User settings
-│   ├── docs/, landing-page/       # Các module khác
+│   ├── settings/                  # Module User settings
+│   │   ├── domain/                # types.ts, schemas.ts, interfaces.ts
+│   │   ├── application/           # load-user-settings-use-case.ts, save-user-settings-use-case.ts
+│   │   ├── infrastructure/        # services/, repositories/
+│   │   ├── presentation/
+│   │   │   ├── components/        # Settings components
+│   │   │   ├── hooks/             # use-user-settings-store
+│   │   │   └── pages/             # Settings pages
+│   │   ├── utils/
+│   │   └── module-configuration.ts
 │   │
 │   └── {module-name}/             # Template module
 │       ├── domain/                # types.ts, schemas.ts, interfaces.ts
@@ -270,7 +274,7 @@ src/                               # Toàn bộ code ứng dụng ở đây
 │       └── module-configuration.ts
 ```
 
-Route group (vd. `(main)`) dùng layout chung cung cấp `MainLayout` với menu và auth slot; route auth dùng `AuthLayout`. Cách này giữ `/app` tối thiểu và toàn bộ code trong `/src` để dễ tổ chức và testing.
+Route group (vd. `(main)`) dùng layout chung cung cấp `MainLayout` với menu. Cách này giữ `/app` tối thiểu và toàn bộ code trong `/src` để dễ tổ chức và testing.
 
 Xem [Coding Conventions](./coding-conventions-vi.md) để biết ví dụ routing và patterns chi tiết.
 
@@ -295,7 +299,7 @@ Xem [Coding Conventions](./coding-conventions-vi.md) để biết ví dụ routi
 
 ### 2. Cấu trúc tính năng theo module
 
-**Mục đích**: Gom tính năng (auth, books, docs, landing-page, settings) và ranh giới rõ ràng.
+**Mục đích**: Gom tính năng (landing-page, settings) và ranh giới rõ ràng.
 
 **Triển khai:**
 
@@ -316,9 +320,9 @@ Xem [Coding Conventions](./coding-conventions-vi.md) để biết ví dụ routi
 **Triển khai:**
 
 - Container tạo trong `src/common/utils/container.ts` với `injectionMode: InjectionMode.PROXY` và đăng ký trong `src/application/register-container.ts`.
-- Mỗi module expose `registerModule(container)` trong `module-configuration.ts`, đăng ký use case và services (vd. `asFunction(cradle => new SignInWithEmailUseCase(cradle.authService)).singleton()`).
+- Mỗi module expose `registerModule(container)` trong `module-configuration.ts`, đăng ký use case và services (vd. `asFunction(cradle => new LoadUserSettingsUseCase(cradle.settingsRepository)).singleton()`).
 - Components resolve use case qua `useContainer()` từ `src/common/hooks/use-container.ts` và gọi `execute()`.
-- Phụ thuộc cấp app (vd. instance Firebase auth) đăng ký trong `register-container.ts`.
+- Phụ thuộc cấp app đăng ký trong `register-container.ts`.
 
 **Lợi ích:**
 
@@ -331,7 +335,7 @@ Xem [Coding Conventions](./coding-conventions-vi.md) để biết ví dụ routi
 **Triển khai:**
 
 - Khi app gọi backend API, API client có thể nằm trong `src/common/` hoặc theo module và đăng ký trong container. Dùng domain types cho request/response.
-- Tích hợp bên ngoài (vd. Firebase) nằm trong `src/modules/{module}/infrastructure/services/` và implement interface trong `src/modules/{module}/domain/interfaces.ts`. Use case phụ thuộc các interface này và nhận implementation qua container.
+- Tích hợp bên ngoài nằm trong `src/modules/{module}/infrastructure/services/` và implement interface trong `src/modules/{module}/domain/interfaces.ts`. Use case phụ thuộc các interface này và nhận implementation qua container.
 
 **Lợi ích:**
 
@@ -357,88 +361,11 @@ Xem [Coding Conventions](./coding-conventions-vi.md) để biết ví dụ routi
 
 **Triển khai:**
 
-- Interface (vd. `AuthenticationService`) nằm trong `src/modules/{module}/domain/interfaces.ts`. Use case phụ thuộc các interface này; implementation (vd. `FirebaseAuthenticationService`) nằm trong `infrastructure/services/` và đăng ký trong container.
+- Interface nằm trong `src/modules/{module}/domain/interfaces.ts`. Use case phụ thuộc các interface này; implementation nằm trong `infrastructure/services/` và đăng ký trong container.
 
 **Lợi ích:**
 
 - Unit test dễ hơn và có thể đổi implementation (vd. mock auth trong test).
-
-## Xác thực
-
-Dự án này sử dụng **xác thực trừu tượng hóa** cho phép thay đổi provider mà không cần sửa code application hay presentation. Firebase Auth là implementation hiện tại để phát triển MVP nhanh chóng.
-
-### Kiến trúc xác thực
-
-```mermaid
-graph TD
-    subgraph Presentation["Presentation Layer"]
-        Components[Pages & Components]
-        Hooks[Auth Hooks]
-        Store[Zustand Store]
-    end
-
-    subgraph Application["Application Layer"]
-        UseCases[Auth Use Cases]
-    end
-
-    subgraph Domain["Domain Layer"]
-        Interface[AuthenticationService Interface]
-        Types[AuthUser, AuthResult Types]
-    end
-
-    subgraph Infrastructure["Infrastructure Layer"]
-        Firebase[FirebaseAuthenticationService]
-        Future[Tương lai: Provider khác]
-    end
-
-    Components --> Hooks
-    Hooks --> Store
-    Hooks --> UseCases
-    UseCases --> Interface
-    Firebase -.implements.-> Interface
-    Future -.implements.-> Interface
-    Firebase --> Types
-    Future --> Types
-
-    style Presentation fill:#1976d2,color:#fff
-    style Application fill:#f57c00,color:#fff
-    style Domain fill:#388e3c,color:#fff
-    style Infrastructure fill:#c2185b,color:#fff
-```
-
-### Cách hoạt động
-
-1. **Domain Interface**: `AuthenticationService` trong `src/modules/auth/domain/interfaces.ts` định nghĩa contract cho tất cả thao tác auth (đăng nhập, đăng ký, đăng xuất, reset mật khẩu, v.v.)
-
-2. **Domain Types**: `AuthUser`, `AuthResult`, `AuthErrorCode` trong `src/modules/auth/domain/types.ts` không phụ thuộc provider
-
-3. **Infrastructure Implementation**: `FirebaseAuthenticationService` implement interface và map types/errors Firebase sang domain types
-
-4. **Dependency Injection**: Service được đăng ký trong DI container và inject vào use cases
-
-5. **State Management**: `useAuthUserStore` (Zustand) giữ trạng thái user hiện tại, đồng bộ qua hook `useSyncAuthState`
-
-### Thay đổi Authentication Provider
-
-Để chuyển từ Firebase sang provider khác (vd. Auth0, Supabase, backend tự xây):
-
-1. Tạo service mới implement interface `AuthenticationService`
-2. Cập nhật `module-configuration.ts` để đăng ký service mới
-3. Không cần thay đổi use cases, pages hay components
-
-```typescript
-// Ví dụ: Implementation provider mới
-export class Auth0AuthenticationService implements AuthenticationService {
-  async signInWithEmail(email: string, password: string): Promise<AuthResult> {
-    // Implementation Auth0
-  }
-  // ... các method khác
-}
-```
-
-Cách trừu tượng hóa này giúp codebase **thân thiện với MVP** (phát triển nhanh với Firebase) đồng thời **sẵn sàng production** (dễ migrate sang giải pháp auth enterprise).
-
-Để biết chi tiết setup và cấu hình Firebase, xem [Tích hợp Firebase](./firebase-integration-vi.md).
 
 ## Technology Stack
 
@@ -451,5 +378,4 @@ Cách trừu tượng hóa này giúp codebase **thân thiện với MVP** (phá
 | **Forms** | React Hook Form + Zod |
 | **i18n** | next-intl |
 | **DI** | Awilix |
-| **Auth** | Firebase (tùy chọn) |
 | **Testing** | Vitest, React Testing Library |

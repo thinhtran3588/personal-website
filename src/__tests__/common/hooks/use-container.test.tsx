@@ -8,10 +8,7 @@ import { getContainer } from "@/common/utils/container";
 function Consumer() {
   const container = useContainer();
   const isSame = container === getContainer();
-  const hasAuth = container.resolve("authService") !== undefined;
-  return (
-    <span data-testid="result">{isSame && hasAuth ? "ok" : "missing"}</span>
-  );
+  return <span data-testid="result">{isSame ? "ok" : "missing"}</span>;
 }
 
 describe("useContainer", () => {
@@ -19,7 +16,7 @@ describe("useContainer", () => {
     initializeContainer();
   });
 
-  it("returns the same container as getContainer() and can resolve dependencies", () => {
+  it("returns the same container as getContainer()", () => {
     const { getByTestId } = render(<Consumer />);
     expect(getByTestId("result").textContent).toBe("ok");
   });

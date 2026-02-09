@@ -20,7 +20,7 @@ const eslintConfig = defineConfig([
     "build/**",
     "bundled/**",
     "coverage/**",
-    "nextjs-starter-kit-app/**",
+    "personal-website-app/**",
     "next-env.d.ts",
   ]),
 ]);

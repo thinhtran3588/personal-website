@@ -6,11 +6,6 @@ import type { ResolvedMenuItem } from "@/common/interfaces";
 const translations: Record<string, Record<string, string>> = {
   common: {
     "navigation.home": "Home",
-    "navigation.signIn": "Sign in",
-    "navigation.privacy": "Privacy",
-    "navigation.terms": "Terms",
-    "navigation.legal": "Legal",
-    "navigation.documents": "Documents",
     "navigation.docs.architecture": "Architecture",
     "navigation.docs.developmentGuide": "Development guide",
     "navigation.docs.testingGuide": "Testing guide",
@@ -37,7 +32,7 @@ const translations: Record<string, Record<string, string>> = {
 
 const menuItems: ResolvedMenuItem[] = [
   { id: "home", label: "Home", href: "/" },
-  { id: "app", label: "App", href: "/app/books" },
+  { id: "products", label: "Products", href: "/products" },
 ];
 
 vi.mock("next-intl/server", () => ({

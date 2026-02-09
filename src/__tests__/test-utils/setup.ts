@@ -6,53 +6,6 @@ import messages from "@/application/localization/en.json";
 import { initializeContainer } from "@/application/register-container";
 import { getContainerOrNull } from "@/common/utils/container";
 
-vi.mock("@/application/config/firebase-config", () => ({
-  getAnalyticsInstance: vi.fn(() => null),
-  getAuthInstance: vi.fn(() => null),
-  getFirestoreInstance: vi.fn(() => null),
-}));
-
-vi.mock("firebase/analytics", () => ({
-  getAnalytics: vi.fn(),
-  logEvent: vi.fn(),
-  setUserId: vi.fn(),
-}));
-
-vi.mock("firebase/auth", () => ({
-  getAuth: vi.fn(),
-  GoogleAuthProvider: vi.fn(),
-  EmailAuthProvider: { credential: vi.fn() },
-  createUserWithEmailAndPassword: vi.fn(),
-  deleteUser: vi.fn(),
-  onAuthStateChanged: vi.fn(() => () => {}),
-  reauthenticateWithCredential: vi.fn(),
-  reauthenticateWithPopup: vi.fn(),
-  sendPasswordResetEmail: vi.fn(),
-  signInWithEmailAndPassword: vi.fn(),
-  signInWithPopup: vi.fn(),
-  signOut: vi.fn(),
-  updatePassword: vi.fn(),
-  updateProfile: vi.fn(),
-}));
-
-vi.mock("firebase/firestore", () => ({
-  getFirestore: vi.fn(),
-  doc: vi.fn(),
-  getDoc: vi.fn(),
-  setDoc: vi.fn(),
-  collection: vi.fn(),
-  getDocs: vi.fn(),
-  query: vi.fn(),
-  orderBy: vi.fn(),
-  documentId: vi.fn(),
-  where: vi.fn(),
-  limit: vi.fn(),
-  startAfter: vi.fn(),
-  updateDoc: vi.fn(),
-  deleteDoc: vi.fn(),
-  writeBatch: vi.fn(),
-}));
-
 if (getContainerOrNull() === null) {
   initializeContainer();
 }
