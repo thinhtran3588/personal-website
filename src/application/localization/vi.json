@@ -1,0 +1,656 @@
+{
+  "common": {
+    "navigation": {
+      "home": "Trang chủ",
+      "app": "Ứng dụng",
+      "goToApp": "Đi đến ứng dụng chính",
+      "backToHome": "Quay lại trang chủ",
+      "signIn": "Đăng nhập",
+      "signUp": "Đăng ký",
+      "signOut": "Đăng xuất",
+      "profile": "Hồ sơ",
+      "createAccount": "Tạo tài khoản",
+      "privacy": "Quyền riêng tư",
+      "terms": "Điều khoản",
+      "legal": "Pháp lý",
+      "documents": "Tài liệu",
+      "docs": {
+        "architecture": "Kiến trúc",
+        "codingConventions": "Quy ước coding",
+        "developmentGuide": "Hướng dẫn phát triển",
+        "testingGuide": "Hướng dẫn kiểm thử",
+        "firebaseIntegration": "Tích hợp Firebase",
+        "deployment": "Triển khai"
+      },
+      "contact": "Liên hệ",
+      "menu": "Menu"
+    },
+    "footer": {
+      "copyright": "© 2026 Next.js Starter Kit. Bảo lưu mọi quyền."
+    },
+    "app": {
+      "metadata": {
+        "title": "Next.js Starter Kit",
+        "description": "Xây dựng ứng dụng Next.js có khả năng mở rộng với Clean Architecture, TypeScript và 100% test coverage."
+      }
+    },
+    "errors": {
+      "notFound": {
+        "eyebrow": "Không tìm thấy",
+        "title": "Không tìm thấy trang",
+        "description": "Trang bạn tìm kiếm không tồn tại hoặc đã được di chuyển.",
+        "cta": "Quay lại trang chủ"
+      },
+      "serverError": {
+        "eyebrow": "Lỗi",
+        "title": "Đã xảy ra lỗi",
+        "description": "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại.",
+        "tryAgain": "Thử lại",
+        "cta": "Quay lại trang chủ"
+      },
+      "generic": {
+        "eyebrow": "Lỗi",
+        "title": "Đã xảy ra lỗi",
+        "description": "Đã xảy ra lỗi. Vui lòng thử lại sau.",
+        "cta": "Quay lại trang chủ"
+      }
+    }
+  },
+  "settings": {
+    "error": {
+      "saveFailed": "Không thể lưu cài đặt."
+    },
+    "language": {
+      "label": "Ngôn ngữ",
+      "options": {
+        "en": "Tiếng Anh",
+        "vi": "Tiếng Việt",
+        "zh": "Tiếng Trung"
+      },
+      "flags": {
+        "en": "🇺🇸",
+        "vi": "🇻🇳",
+        "zh": "🇨🇳"
+      }
+    },
+    "theme": {
+      "label": "Giao diện",
+      "options": {
+        "system": "Hệ thống",
+        "light": "Sáng",
+        "dark": "Tối"
+      }
+    }
+  },
+  "modules": {
+    "auth": {
+      "pages": {
+        "sign-in": {
+          "title": "Đăng nhập",
+          "or": "Hoặc",
+          "googleButton": "Tiếp tục với Google",
+          "emailLabel": "Email",
+          "passwordLabel": "Mật khẩu",
+          "submitButton": "Đăng nhập bằng email",
+          "forgotPasswordLink": "Quên mật khẩu?",
+          "noAccountPrompt": "Chưa có tài khoản?",
+          "signUpLink": "Đăng ký",
+          "agreeToPolicyAndTerms": "Bằng việc đăng nhập, bạn đồng ý với {privacy} và {terms} của chúng tôi.",
+          "validation": {
+            "invalidEmail": "Email không hợp lệ",
+            "passwordRequired": "Vui lòng nhập mật khẩu",
+            "passwordMaxLength": "Mật khẩu tối đa 20 ký tự"
+          },
+          "errors": {
+            "invalidCredentials": "Email hoặc mật khẩu không đúng.",
+            "tooManyRequests": "Quá nhiều lần thử. Vui lòng thử lại sau.",
+            "generic": "Đã xảy ra lỗi. Vui lòng thử lại."
+          }
+        },
+        "sign-up": {
+          "title": "Đăng ký",
+          "or": "Hoặc",
+          "googleButton": "Tiếp tục với Google",
+          "emailLabel": "Email",
+          "passwordLabel": "Mật khẩu",
+          "confirmPasswordLabel": "Xác nhận mật khẩu",
+          "fullNameLabel": "Họ tên (tùy chọn)",
+          "submitButton": "Tạo tài khoản",
+          "hasAccountPrompt": "Đã có tài khoản?",
+          "signInLink": "Đăng nhập",
+          "agreeToPolicyAndTerms": "Bằng việc đăng ký, bạn đồng ý với {privacy} và {terms} của chúng tôi.",
+          "validation": {
+            "invalidEmail": "Email không hợp lệ",
+            "passwordRequired": "Vui lòng nhập mật khẩu",
+            "minLength": "Ít nhất 8 ký tự",
+            "passwordMaxLength": "Mật khẩu tối đa 20 ký tự",
+            "fullNameMaxLength": "Họ tên tối đa 200 ký tự",
+            "uppercase": "Ít nhất một chữ in hoa",
+            "lowercase": "Ít nhất một chữ thường",
+            "number": "Ít nhất một chữ số",
+            "specialChar": "Ít nhất một ký tự đặc biệt",
+            "passwordsDoNotMatch": "Mật khẩu không khớp"
+          },
+          "errors": {
+            "emailAlreadyInUse": "Email này đã được sử dụng.",
+            "generic": "Đã xảy ra lỗi. Vui lòng thử lại."
+          }
+        },
+        "forgot-password": {
+          "title": "Quên mật khẩu",
+          "emailLabel": "Email",
+          "submitButton": "Gửi link đặt lại",
+          "successMessage": "Nếu có tài khoản với email này, chúng tôi đã gửi link đặt lại mật khẩu.",
+          "backToSignIn": "Quay lại đăng nhập",
+          "validation": {
+            "invalidEmail": "Email không hợp lệ"
+          },
+          "errors": {
+            "generic": "Đã xảy ra lỗi. Vui lòng thử lại."
+          }
+        },
+        "profile": {
+          "title": "Hồ sơ",
+          "metadata": {
+            "description": "Xem và cập nhật thông tin hồ sơ cá nhân và mật khẩu."
+          },
+          "emailLabel": "Email",
+          "fullNameLabel": "Họ và tên",
+          "signInTypeLabel": "Loại đăng nhập",
+          "signInTypeEmail": "Email",
+          "signInTypeGoogle": "Google",
+          "signInTypeApple": "Apple",
+          "signInTypeOther": "Khác",
+          "saveButton": "Lưu",
+          "editButton": "Chỉnh sửa",
+          "passwordSectionTitle": "Đổi mật khẩu",
+          "oldPasswordLabel": "Mật khẩu hiện tại",
+          "newPasswordLabel": "Mật khẩu mới",
+          "confirmPasswordLabel": "Xác nhận mật khẩu mới",
+          "cancelButton": "Hủy",
+          "changePasswordButton": "Đổi mật khẩu",
+          "updatePasswordButton": "Cập nhật mật khẩu",
+          "backToApp": "Quay lại ứng dụng",
+          "successMessage": "Đã cập nhật hồ sơ.",
+          "passwordSuccessMessage": "Đã cập nhật mật khẩu.",
+          "validation": {
+            "fullNameMaxLength": "Họ tên tối đa 200 ký tự",
+            "oldPasswordRequired": "Cần nhập mật khẩu hiện tại",
+            "minLength": "Ít nhất 8 ký tự",
+            "passwordMaxLength": "Mật khẩu tối đa 20 ký tự",
+            "uppercase": "Ít nhất một chữ in hoa",
+            "lowercase": "Ít nhất một chữ thường",
+            "number": "Ít nhất một chữ số",
+            "specialChar": "Ít nhất một ký tự đặc biệt",
+            "passwordsDoNotMatch": "Mật khẩu không khớp"
+          },
+          "errors": {
+            "generic": "Đã xảy ra lỗi. Vui lòng thử lại.",
+            "invalidCredentials": "Mật khẩu hiện tại không đúng.",
+            "requiresRecentLogin": "Vì lý do bảo mật, vui lòng đăng xuất và đăng nhập lại trước khi thử lại."
+          },
+          "deleteAccount": {
+            "button": "Xóa tài khoản",
+            "title": "Xóa tài khoản",
+            "description": "Hành động này là vĩnh viễn và không thể hoàn tác. Tất cả dữ liệu của bạn sẽ bị xóa vĩnh viễn.",
+            "warning": "Để xác nhận, hãy nhập DELETE bên dưới:",
+            "inputPlaceholder": "Nhập DELETE để xác nhận",
+            "passwordLabel": "Nhập mật khẩu của bạn để xác nhận:",
+            "passwordPlaceholder": "Mật khẩu hiện tại của bạn",
+            "confirmButton": "Xóa tài khoản của tôi",
+            "cancelButton": "Hủy",
+            "successMessage": "Tài khoản của bạn đã bị xóa.",
+            "validation": {
+              "confirmationRequired": "Vui lòng nhập DELETE để xác nhận",
+              "confirmationMismatch": "Bạn phải nhập chính xác DELETE",
+              "passwordRequired": "Mật khẩu là bắt buộc"
+            },
+            "errors": {
+              "generic": "Không thể xóa tài khoản. Vui lòng thử lại.",
+              "invalidCredentials": "Mật khẩu không đúng. Vui lòng thử lại.",
+              "requiresRecentLogin": "Vì lý do bảo mật, vui lòng đăng xuất và đăng nhập lại trước khi xóa tài khoản."
+            }
+          }
+        }
+      }
+    },
+    "docs": {
+      "pages": {
+        "architecture": {
+          "metadata": {
+            "title": "Kiến trúc",
+            "description": "Cấu trúc layer, sơ đồ luồng dữ liệu, design patterns và dependency injection với Awilix."
+          }
+        },
+        "coding-conventions": {
+          "metadata": {
+            "title": "Quy ước coding",
+            "description": "Patterns App Router, đặt tên file, component props, forms với Zod và next-intl i18n."
+          }
+        },
+        "development-guide": {
+          "metadata": {
+            "title": "Hướng dẫn phát triển",
+            "description": "Git workflow, hướng dẫn 7 bước thêm tính năng, tạo module và common patterns."
+          }
+        },
+        "firebase-integration": {
+          "metadata": {
+            "title": "Tích hợp Firebase",
+            "description": "Thiết lập Auth, Firestore và Analytics, interfaces trừu tượng, security rules và thay đổi providers."
+          }
+        },
+        "testing-guide": {
+          "metadata": {
+            "title": "Hướng dẫn testing",
+            "description": "Vitest + React Testing Library, 100% coverage, tổ chức test và pattern AAA."
+          }
+        },
+        "deployment": {
+          "metadata": {
+            "title": "Triển khai",
+            "description": "Thiết lập Firebase, hosting Cloudflare Pages, GitHub Actions CI/CD và biến môi trường."
+          }
+        }
+      }
+    },
+    "books": {
+      "form": {
+        "title": "Tên sách",
+        "description": "Mô tả",
+        "authors": "Tác giả",
+        "authorsPlaceholder": "Gõ và nhấn Enter để thêm",
+        "genres": "Thể loại",
+        "genresPlaceholder": "Gõ và nhấn Enter để thêm",
+        "links": "Liên kết",
+        "linksPlaceholder": "Gõ URL và nhấn Enter để thêm",
+        "cancel": "Hủy",
+        "validation": {
+          "titleRequired": "Vui lòng nhập tên sách",
+          "titleMaxLength": "Tối đa 200 ký tự",
+          "descriptionRequired": "Vui lòng nhập mô tả",
+          "descriptionMaxLength": "Tối đa 1000 ký tự",
+          "authorsRequired": "Cần ít nhất một tác giả"
+        }
+      },
+      "pages": {
+        "list": {
+          "title": "Sách",
+          "metadata": {
+            "description": "Duyệt và quản lý bộ sưu tập sách cá nhân của bạn."
+          },
+          "titleColumn": "Tên sách",
+          "create": "Tạo sách",
+          "searchPlaceholder": "Tìm theo tên…",
+          "pageSize": "Mỗi trang",
+          "viewDetail": "Xem",
+          "delete": "Xóa",
+          "previous": "Trước",
+          "next": "Sau",
+          "loading": "Đang tải…",
+          "empty": "Chưa có sách.",
+          "signInRequired": "Đăng nhập để quản lý sách.",
+          "authorsLabel": "Tác giả",
+          "genresLabel": "Thể loại",
+          "actionsLabel": "Thao tác",
+          "confirmDelete": "Xóa \"{title}\"?",
+          "cancel": "Hủy",
+          "deleted": "Đã xóa sách.",
+          "errors": {
+            "loadFailed": "Không tải được sách.",
+            "deleteFailed": "Không xóa được sách."
+          }
+        },
+        "create": {
+          "title": "Tạo sách",
+          "submit": "Tạo",
+          "signInRequired": "Đăng nhập để tạo sách.",
+          "created": "Đã tạo sách.",
+          "errors": {
+            "signInRequired": "Yêu cầu đăng nhập.",
+            "createFailed": "Không tạo được sách."
+          }
+        },
+        "detail": {
+          "title": "Chi tiết sách",
+          "metadata": {
+            "description": "Xem và chỉnh sửa chi tiết sách bao gồm tác giả, thể loại và liên kết."
+          },
+          "notFound": "Không tìm thấy sách.",
+          "signInRequired": "Đăng nhập để xem sách này.",
+          "loading": "Đang tải…",
+          "edit": "Sửa",
+          "backToList": "Quay lại",
+          "save": "Lưu",
+          "updated": "Đã cập nhật sách.",
+          "cancel": "Hủy",
+          "delete": "Xóa",
+          "authorsLabel": "Tác giả",
+          "descriptionLabel": "Mô tả",
+          "genresLabel": "Thể loại",
+          "linksLabel": "Liên kết",
+          "emptyValue": "—",
+          "confirmDelete": "Xóa sách này?",
+          "deleted": "Đã xóa sách.",
+          "errors": {
+            "loadFailed": "Không tải được sách.",
+            "updateFailed": "Không cập nhật được sách.",
+            "deleteFailed": "Không xóa được sách."
+          }
+        }
+      }
+    },
+    "legal": {
+      "pages": {
+        "privacy-policy": {
+          "title": "Chính sách quyền riêng tư",
+          "metadata": {
+            "description": "Tìm hiểu cách Next.js Starter Kit thu thập, sử dụng và bảo vệ dữ liệu của bạn."
+          },
+          "lastUpdated": "Cập nhật lần cuối: 31 tháng 1, 2026",
+          "sections": {
+            "overview": {
+              "title": "Tổng quan",
+              "body": "Starter kit này cung cấp luồng xác thực dựa trên Firebase. Nó có thể được dùng làm nền tảng cho các ứng dụng trong tương lai. Chính sách này giải thích dữ liệu nào được thu thập mặc định và cách dữ liệu được sử dụng. Nếu bạn xây dựng sản phẩm thực trên nền starter kit, hãy cập nhật chính sách này cho phù hợp."
+            },
+            "collection": {
+              "title": "Thông tin chúng tôi thu thập",
+              "body": "Chúng tôi chỉ thu thập dữ liệu tối thiểu để xác thực người dùng:",
+              "items": {
+                "email": "Địa chỉ email",
+                "displayName": "Tên hiển thị (nếu được nhà cung cấp xác thực trả về)",
+                "providerIds": "Định danh nhà cung cấp xác thực (Firebase, Google, Apple)"
+              },
+              "analyticsNote": "Nếu bật analytics, chúng tôi cũng có thể thu thập dữ liệu sử dụng cơ bản như thông tin thiết bị, loại trình duyệt, trang đã xem, và sự kiện tương tác."
+            },
+            "usage": {
+              "title": "Cách chúng tôi sử dụng thông tin",
+              "items": {
+                "auth": "Xác thực và giữ tài khoản của bạn an toàn.",
+                "display": "Hiển thị tên của bạn trong UI khi có sẵn.",
+                "improve": "Theo dõi độ ổn định và cải thiện trải nghiệm người dùng."
+              },
+              "note": "Chúng tôi chỉ dùng email và tên hiển thị cho mục đích xác thực và truy cập tài khoản."
+            },
+            "analytics": {
+              "title": "Analytics",
+              "body": "Chúng tôi có thể dùng Google Analytics hoặc Firebase Analytics để hiểu cách mọi người sử dụng starter kit. Dữ liệu analytics giúp cải thiện hiệu năng và khả năng sử dụng. Bạn có thể tắt analytics trong triển khai của mình nếu không cần."
+            },
+            "sharing": {
+              "title": "Chia sẻ và công bố",
+              "body": "Chúng tôi không bán thông tin cá nhân của bạn. Chúng tôi chỉ chia sẻ dữ liệu với các nhà cung cấp dịch vụ cần thiết để vận hành xác thực hoặc analytics, như Firebase và Google Analytics."
+            },
+            "retention": {
+              "title": "Lưu trữ dữ liệu",
+              "body": "Dữ liệu xác thực được lưu trữ trong suốt thời gian tài khoản của bạn hoạt động. Nếu bạn xóa tài khoản, chúng tôi sẽ xóa dữ liệu xác thực liên quan khỏi Firebase trong khoảng thời gian hợp lý."
+            },
+            "security": {
+              "title": "Bảo mật",
+              "body": "Chúng tôi áp dụng các biện pháp kỹ thuật và tổ chức hợp lý để bảo vệ thông tin của bạn. Tuy nhiên, không hệ thống nào có thể đảm bảo an toàn 100%."
+            },
+            "children": {
+              "title": "Quyền riêng tư của trẻ em",
+              "body": "Starter kit này không dành cho trẻ em dưới 13 tuổi. Nếu bạn cho rằng trẻ em đã cung cấp thông tin cá nhân, hãy xóa dữ liệu và cập nhật chính sách của sản phẩm."
+            },
+            "changes": {
+              "title": "Thay đổi chính sách",
+              "body": "Chúng tôi có thể cập nhật chính sách này khi starter kit phát triển. Hãy xem lại định kỳ và cập nhật khi bạn phát hành sản phẩm thực dựa trên starter kit."
+            },
+            "contact": {
+              "title": "Liên hệ",
+              "body": "Nếu có câu hỏi về quyền riêng tư, hãy liên hệ với đội ngũ vận hành ứng dụng được xây dựng từ starter kit này."
+            }
+          }
+        },
+        "terms-of-service": {
+          "title": "Điều khoản dịch vụ",
+          "metadata": {
+            "description": "Xem các điều khoản và điều kiện khi sử dụng Next.js Starter Kit."
+          },
+          "lastUpdated": "Cập nhật lần cuối: 31 tháng 1, 2026",
+          "sections": {
+            "overview": {
+              "title": "Tổng quan",
+              "body": "Các điều khoản này mô tả cách sử dụng starter kit. Nếu bạn triển khai sản phẩm thực dựa trên starter kit, hãy cập nhật điều khoản để phù hợp với sản phẩm, mô hình kinh doanh và yêu cầu pháp lý."
+            },
+            "acceptance": {
+              "title": "Chấp thuận",
+              "body": "Bằng việc truy cập hoặc sử dụng ứng dụng được xây dựng từ starter kit này, bạn đồng ý với các điều khoản. Nếu không đồng ý, vui lòng không sử dụng ứng dụng."
+            },
+            "accounts": {
+              "title": "Tài khoản và xác thực",
+              "body": "Starter kit sử dụng Firebase Authentication và hỗ trợ đăng nhập bằng email, Google và Apple. Bạn chịu trách nhiệm bảo vệ thông tin đăng nhập và mọi hoạt động diễn ra trong tài khoản của mình."
+            },
+            "acceptableUse": {
+              "title": "Sử dụng hợp lệ",
+              "body": "Bạn đồng ý không:",
+              "items": {
+                "unlawful": "Sử dụng dịch vụ cho mục đích trái pháp luật, gây hại hoặc lạm dụng.",
+                "access": "Cố gắng truy cập hoặc thăm dò tài khoản hoặc dữ liệu khác.",
+                "interference": "Can thiệp hoặc làm gián đoạn dịch vụ hay hạ tầng của dịch vụ."
+              }
+            },
+            "thirdParty": {
+              "title": "Dịch vụ bên thứ ba",
+              "body": "Starter kit tích hợp các dịch vụ bên thứ ba như Firebase và Google Analytics. Việc bạn sử dụng các dịch vụ đó cũng tuân theo điều khoản và chính sách quyền riêng tư của họ."
+            },
+            "starterKit": {
+              "title": "Tính chất starter kit",
+              "body": "Dự án này là starter kit phục vụ phát triển và tùy biến. Tính năng, thực tiễn dữ liệu và chính sách pháp lý có thể thay đổi khi bạn điều chỉnh nó cho ứng dụng sản xuất."
+            },
+            "termination": {
+              "title": "Chấm dứt",
+              "body": "Quyền truy cập có thể bị tạm ngưng hoặc chấm dứt bất cứ lúc nào do vi phạm điều khoản hoặc vì lý do vận hành."
+            },
+            "disclaimers": {
+              "title": "Miễn trừ trách nhiệm",
+              "body": "Starter kit được cung cấp theo trạng thái \"nguyên trạng\" và \"sẵn có\". Không có bảo đảm nào được đưa ra, và bạn tự chịu rủi ro khi sử dụng."
+            },
+            "liability": {
+              "title": "Giới hạn trách nhiệm",
+              "body": "Trong phạm vi tối đa luật cho phép, những người tạo ra starter kit không chịu trách nhiệm về các thiệt hại gián tiếp, ngẫu nhiên, đặc biệt, phát sinh hoặc mang tính trừng phạt do việc bạn sử dụng ứng dụng."
+            },
+            "changes": {
+              "title": "Thay đổi",
+              "body": "Các điều khoản này có thể được cập nhật khi starter kit phát triển. Hãy xem lại định kỳ và cập nhật khi bạn phát hành sản phẩm thực dựa trên starter kit."
+            },
+            "contact": {
+              "title": "Liên hệ",
+              "body": "Nếu có câu hỏi về các điều khoản này, hãy liên hệ với đội ngũ vận hành ứng dụng được xây dựng từ starter kit."
+            }
+          }
+        }
+      }
+    },
+    "contact": {
+      "pages": {
+        "contact": {
+          "title": "Liên hệ",
+          "metadata": {
+            "description": "Liên hệ với chúng tôi. Gửi tin nhắn hoặc email trực tiếp cho chúng tôi."
+          },
+          "subtitle": "Bạn có câu hỏi hoặc cần trợ giúp? Điền biểu mẫu bên dưới hoặc gửi email trực tiếp đến",
+          "form": {
+            "nameLabel": "Họ tên",
+            "namePlaceholder": "Họ tên của bạn",
+            "emailLabel": "Email",
+            "emailPlaceholder": "email.cua.ban@example.com",
+            "subjectLabel": "Chủ đề",
+            "subjectPlaceholder": "Nội dung liên hệ?",
+            "messageLabel": "Tin nhắn",
+            "messagePlaceholder": "Cho chúng tôi biết thêm về yêu cầu của bạn...",
+            "submitButton": "Gửi tin nhắn",
+            "validation": {
+              "nameRequired": "Vui lòng nhập họ tên",
+              "nameMaxLength": "Họ tên tối đa 200 ký tự",
+              "invalidEmail": "Email không hợp lệ",
+              "subjectRequired": "Vui lòng nhập chủ đề",
+              "subjectMaxLength": "Chủ đề tối đa 200 ký tự",
+              "messageRequired": "Vui lòng nhập tin nhắn",
+              "messageMaxLength": "Tin nhắn tối đa 2000 ký tự"
+            }
+          },
+          "emailNote": "Bạn cũng có thể liên hệ trực tiếp với chúng tôi tại",
+          "successMessage": "Ứng dụng email của bạn sẽ mở ngay. Nếu không, vui lòng gửi email trực tiếp cho chúng tôi."
+        }
+      }
+    },
+    "landing": {
+      "pages": {
+        "home": {
+          "badge": "Starter Kit",
+          "hero": {
+            "eyebrow": "Nền tảng sẵn sàng production",
+            "title": "Next.js Starter Kit",
+            "subtitle": "Bộ khởi tạo Next.js sẵn sàng production với Clean Architecture và cấu trúc module cho phát triển frontend mở rộng. Xây trên App Router, TypeScript và 100% test coverage."
+          },
+          "features": {
+            "title": "Tính năng chính",
+            "description": "Mọi thứ bạn cần để xây dựng ứng dụng frontend có khả năng mở rộng, dễ bảo trì với các best practices tích hợp sẵn.",
+            "items": {
+              "cleanArchitecture": {
+                "title": "Clean Architecture",
+                "description": "Bốn lớp riêng biệt (Domain, Application, Infrastructure, Presentation) với quy tắc phụ thuộc rõ ràng và Awilix DI."
+              },
+              "modularStructure": {
+                "title": "Cấu trúc Module",
+                "description": "Module tính năng dưới src/modules/ với ranh giới cô lập. App Router chỉ xử lý routing; toàn bộ code trong src/."
+              },
+              "testCoverage": {
+                "title": "100% Test Coverage",
+                "description": "Ngưỡng coverage bắt buộc với Vitest và React Testing Library. Pattern AAA và testing tập trung vào hành vi."
+              },
+              "i18nReady": {
+                "title": "Sẵn sàng i18n",
+                "description": "next-intl với locale-based routing. Đã có bản dịch tiếng Anh, Việt và Trung sẵn dùng."
+              },
+              "typeSafeForms": {
+                "title": "Form Type-Safe",
+                "description": "React Hook Form với Zod validation. Nguồn duy nhất cho schemas với tự động suy luận TypeScript."
+              },
+              "firebaseIntegration": {
+                "title": "Tích hợp Firebase",
+                "description": "Auth, Firestore và Analytics với interfaces trừu tượng. Dễ thay đổi provider mà không sửa code ứng dụng."
+              }
+            }
+          },
+          "architecture": {
+            "title": "Clean Architecture",
+            "description": "Tách biệt mối quan tâm với đảo ngược phụ thuộc. Các lớp trong không biết về các lớp ngoài, cho phép kiểm thử và linh hoạt.",
+            "layers": {
+              "domain": {
+                "title": "Domain",
+                "description": "Types cốt lõi, Zod schemas và interfaces. Không phụ thuộc bên ngoài—chỉ quy tắc nghiệp vụ và hình dạng dữ liệu."
+              },
+              "application": {
+                "title": "Application",
+                "description": "Use cases điều phối logic nghiệp vụ. Chỉ phụ thuộc Domain; không có UI hay framework cụ thể."
+              },
+              "infrastructure": {
+                "title": "Infrastructure",
+                "description": "Services và repositories triển khai domain interfaces. Mọi I/O bên ngoài và SDK usage nằm ở đây."
+              },
+              "presentation": {
+                "title": "Presentation",
+                "description": "Pages, components và hooks. Chi tiết React và Next.js; dùng Application layer qua DI container."
+              }
+            }
+          },
+          "techStack": {
+            "title": "Tech Stack",
+            "description": "Công nghệ hiện đại, sẵn sàng production được chọn lọc kỹ cho trải nghiệm developer và hiệu năng.",
+            "items": {
+              "nextjs": {
+                "name": "Next.js 16",
+                "description": "App Router, React Server Components và SSR/SSG tối ưu."
+              },
+              "react": {
+                "name": "React 19",
+                "description": "React mới nhất với concurrent features và hiệu năng cải thiện."
+              },
+              "typescript": {
+                "name": "TypeScript 5",
+                "description": "Strict mode bật để đảm bảo type safety tối đa trong codebase."
+              },
+              "tailwind": {
+                "name": "Tailwind CSS 4",
+                "description": "Styling utility-first với tự động sắp xếp và tối ưu class."
+              },
+              "radix": {
+                "name": "Radix UI",
+                "description": "Primitives accessible, unstyled qua bộ component shadcn/ui."
+              },
+              "rhf": {
+                "name": "React Hook Form",
+                "description": "Quản lý form hiệu năng với ít re-renders nhất."
+              },
+              "zod": {
+                "name": "Zod",
+                "description": "Validation schema với suy luận type TypeScript."
+              },
+              "zustand": {
+                "name": "Zustand",
+                "description": "Quản lý client state nhẹ với API đơn giản."
+              },
+              "nextIntl": {
+                "name": "next-intl",
+                "description": "Quốc tế hóa với locale routing và message formatting."
+              },
+              "firebase": {
+                "name": "Firebase",
+                "description": "Authentication, Firestore database và Analytics với interfaces trừu tượng."
+              },
+              "awilix": {
+                "name": "Awilix",
+                "description": "Container dependency injection cho code tách rời, dễ test."
+              },
+              "vitest": {
+                "name": "Vitest",
+                "description": "Unit testing nhanh với tích hợp React Testing Library."
+              }
+            }
+          },
+          "gettingStarted": {
+            "title": "Bắt đầu",
+            "description": "Clone repo, cài dependency và chạy dev server. Validate chạy lint, kiểm tra format và test với coverage.",
+            "steps": {
+              "install": "npm install",
+              "dev": "npm run dev",
+              "validate": "npm run validate"
+            }
+          },
+          "docs": {
+            "title": "Tài liệu",
+            "description": "Sáu hướng dẫn toàn diện về kiến trúc, quy ước, quy trình phát triển, testing, tích hợp Firebase và triển khai.",
+            "items": {
+              "architecture": {
+                "title": "Kiến trúc",
+                "description": "Cấu trúc layer, sơ đồ luồng dữ liệu, design patterns và dependency injection với Awilix."
+              },
+              "codingConventions": {
+                "title": "Quy ước coding",
+                "description": "Patterns App Router, đặt tên file, component props, forms với Zod và next-intl i18n."
+              },
+              "development": {
+                "title": "Hướng dẫn phát triển",
+                "description": "Git workflow, hướng dẫn 7 bước thêm tính năng, tạo module và common patterns."
+              },
+              "testing": {
+                "title": "Hướng dẫn testing",
+                "description": "Vitest + React Testing Library, 100% coverage, tổ chức test và pattern AAA."
+              },
+              "firebase": {
+                "title": "Tích hợp Firebase",
+                "description": "Thiết lập Auth, Firestore và Analytics, interfaces trừu tượng, security rules và thay đổi providers."
+              },
+              "deployment": {
+                "title": "Triển khai",
+                "description": "Thiết lập Firebase, hosting Cloudflare Pages, GitHub Actions CI/CD và biến môi trường."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

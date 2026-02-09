@@ -1,0 +1,656 @@
+{
+  "common": {
+    "navigation": {
+      "home": "主页",
+      "app": "应用",
+      "goToApp": "进入主应用",
+      "backToHome": "返回主页",
+      "signIn": "登录",
+      "signUp": "注册",
+      "signOut": "退出登录",
+      "profile": "个人资料",
+      "createAccount": "创建账号",
+      "privacy": "隐私",
+      "terms": "条款",
+      "legal": "法律",
+      "documents": "文档",
+      "docs": {
+        "architecture": "架构",
+        "codingConventions": "编码规范",
+        "developmentGuide": "开发指南",
+        "testingGuide": "测试指南",
+        "firebaseIntegration": "Firebase 集成",
+        "deployment": "部署"
+      },
+      "contact": "联系我们",
+      "menu": "菜单"
+    },
+    "footer": {
+      "copyright": "© 2026 Next.js Starter Kit。保留所有权利。"
+    },
+    "app": {
+      "metadata": {
+        "title": "Next.js Starter Kit",
+        "description": "使用 Clean Architecture、TypeScript 和 100% 测试覆盖率构建可扩展的 Next.js 应用。"
+      }
+    },
+    "errors": {
+      "notFound": {
+        "eyebrow": "未找到",
+        "title": "页面未找到",
+        "description": "您访问的页面不存在或已被移动。",
+        "cta": "返回主页"
+      },
+      "serverError": {
+        "eyebrow": "错误",
+        "title": "出错了",
+        "description": "发生意外错误，请重试。",
+        "tryAgain": "重试",
+        "cta": "返回主页"
+      },
+      "generic": {
+        "eyebrow": "错误",
+        "title": "出错了",
+        "description": "发生错误，请稍后再试。",
+        "cta": "返回主页"
+      }
+    }
+  },
+  "settings": {
+    "error": {
+      "saveFailed": "无法保存设置。"
+    },
+    "language": {
+      "label": "语言",
+      "options": {
+        "en": "英语",
+        "vi": "越南语",
+        "zh": "中文"
+      },
+      "flags": {
+        "en": "🇺🇸",
+        "vi": "🇻🇳",
+        "zh": "🇨🇳"
+      }
+    },
+    "theme": {
+      "label": "主题",
+      "options": {
+        "system": "跟随系统",
+        "light": "浅色",
+        "dark": "深色"
+      }
+    }
+  },
+  "modules": {
+    "auth": {
+      "pages": {
+        "sign-in": {
+          "title": "登录",
+          "or": "或",
+          "googleButton": "使用 Google 继续",
+          "emailLabel": "邮箱",
+          "passwordLabel": "密码",
+          "submitButton": "使用邮箱登录",
+          "forgotPasswordLink": "忘记密码？",
+          "noAccountPrompt": "还没有账号？",
+          "signUpLink": "注册",
+          "agreeToPolicyAndTerms": "登录即表示您同意我们的{privacy}和{terms}。",
+          "validation": {
+            "invalidEmail": "邮箱格式不正确",
+            "passwordRequired": "请输入密码",
+            "passwordMaxLength": "密码最多 20 个字符"
+          },
+          "errors": {
+            "invalidCredentials": "邮箱或密码错误。",
+            "tooManyRequests": "尝试次数过多，请稍后再试。",
+            "generic": "出错了，请重试。"
+          }
+        },
+        "sign-up": {
+          "title": "注册",
+          "or": "或",
+          "googleButton": "使用 Google 继续",
+          "emailLabel": "邮箱",
+          "passwordLabel": "密码",
+          "confirmPasswordLabel": "确认密码",
+          "fullNameLabel": "姓名（选填）",
+          "submitButton": "创建账号",
+          "hasAccountPrompt": "已有账号？",
+          "signInLink": "登录",
+          "agreeToPolicyAndTerms": "注册即表示您同意我们的{privacy}和{terms}。",
+          "validation": {
+            "invalidEmail": "邮箱格式不正确",
+            "passwordRequired": "请输入密码",
+            "minLength": "至少 8 个字符",
+            "passwordMaxLength": "密码最多 20 个字符",
+            "fullNameMaxLength": "姓名最多 200 个字符",
+            "uppercase": "至少一个大写字母",
+            "lowercase": "至少一个小写字母",
+            "number": "至少一个数字",
+            "specialChar": "至少一个特殊字符",
+            "passwordsDoNotMatch": "两次密码不一致"
+          },
+          "errors": {
+            "emailAlreadyInUse": "该邮箱已被使用。",
+            "generic": "出错了，请重试。"
+          }
+        },
+        "forgot-password": {
+          "title": "忘记密码",
+          "emailLabel": "邮箱",
+          "submitButton": "发送重置链接",
+          "successMessage": "如果存在该邮箱的账号，我们已发送重置链接。",
+          "backToSignIn": "返回登录",
+          "validation": {
+            "invalidEmail": "邮箱格式不正确"
+          },
+          "errors": {
+            "generic": "出错了，请重试。"
+          }
+        },
+        "profile": {
+          "title": "个人资料",
+          "metadata": {
+            "description": "查看和更新您的个人资料和密码。"
+          },
+          "emailLabel": "邮箱",
+          "fullNameLabel": "姓名",
+          "signInTypeLabel": "登录方式",
+          "signInTypeEmail": "邮箱",
+          "signInTypeGoogle": "Google",
+          "signInTypeApple": "Apple",
+          "signInTypeOther": "其他",
+          "saveButton": "保存",
+          "editButton": "编辑",
+          "passwordSectionTitle": "修改密码",
+          "oldPasswordLabel": "当前密码",
+          "newPasswordLabel": "新密码",
+          "confirmPasswordLabel": "确认新密码",
+          "cancelButton": "取消",
+          "changePasswordButton": "修改密码",
+          "updatePasswordButton": "更新密码",
+          "backToApp": "返回应用",
+          "successMessage": "资料已更新。",
+          "passwordSuccessMessage": "密码已更新。",
+          "validation": {
+            "fullNameMaxLength": "姓名最多 200 个字符",
+            "oldPasswordRequired": "请输入当前密码",
+            "minLength": "至少 8 个字符",
+            "passwordMaxLength": "密码最多 20 个字符",
+            "uppercase": "至少一个大写字母",
+            "lowercase": "至少一个小写字母",
+            "number": "至少一个数字",
+            "specialChar": "至少一个特殊字符",
+            "passwordsDoNotMatch": "两次密码不一致"
+          },
+          "errors": {
+            "generic": "出错了，请重试。",
+            "invalidCredentials": "当前密码不正确。",
+            "requiresRecentLogin": "出于安全考虑，请先退出登录并重新登录后再试。"
+          },
+          "deleteAccount": {
+            "button": "删除账户",
+            "title": "删除账户",
+            "description": "此操作是永久性的，无法撤销。您的所有数据将被永久删除。",
+            "warning": "请在下方输入 DELETE 以确认：",
+            "inputPlaceholder": "输入 DELETE 确认",
+            "passwordLabel": "输入您的密码以确认：",
+            "passwordPlaceholder": "您当前的密码",
+            "confirmButton": "删除我的账户",
+            "cancelButton": "取消",
+            "successMessage": "您的账户已被删除。",
+            "validation": {
+              "confirmationRequired": "请输入 DELETE 以确认",
+              "confirmationMismatch": "您必须准确输入 DELETE",
+              "passwordRequired": "密码是必填项"
+            },
+            "errors": {
+              "generic": "删除账户失败，请重试。",
+              "invalidCredentials": "密码不正确，请重试。",
+              "requiresRecentLogin": "出于安全考虑，请先退出登录并重新登录后再删除账户。"
+            }
+          }
+        }
+      }
+    },
+    "docs": {
+      "pages": {
+        "architecture": {
+          "metadata": {
+            "title": "架构",
+            "description": "层级结构、数据流图、设计模式与 Awilix 依赖注入。"
+          }
+        },
+        "coding-conventions": {
+          "metadata": {
+            "title": "编码规范",
+            "description": "App Router 模式、文件命名、组件 props、Zod 表单与 next-intl 国际化。"
+          }
+        },
+        "development-guide": {
+          "metadata": {
+            "title": "开发指南",
+            "description": "Git 工作流、7 步功能开发指南、模块创建与常用模式。"
+          }
+        },
+        "firebase-integration": {
+          "metadata": {
+            "title": "Firebase 集成",
+            "description": "Auth、Firestore 与 Analytics 设置、抽象接口、安全规则与更换提供商。"
+          }
+        },
+        "testing-guide": {
+          "metadata": {
+            "title": "测试指南",
+            "description": "Vitest + React Testing Library、100% 覆盖率、测试组织与 AAA 模式。"
+          }
+        },
+        "deployment": {
+          "metadata": {
+            "title": "部署",
+            "description": "Firebase 设置、Cloudflare Pages 托管、GitHub Actions CI/CD 与环境变量。"
+          }
+        }
+      }
+    },
+    "books": {
+      "form": {
+        "title": "标题",
+        "description": "描述",
+        "authors": "作者",
+        "authorsPlaceholder": "输入后按 Enter 添加",
+        "genres": "体裁",
+        "genresPlaceholder": "输入后按 Enter 添加",
+        "links": "链接",
+        "linksPlaceholder": "输入 URL 后按 Enter 添加",
+        "cancel": "取消",
+        "validation": {
+          "titleRequired": "请输入标题",
+          "titleMaxLength": "最多 200 个字符",
+          "descriptionRequired": "请输入描述",
+          "descriptionMaxLength": "最多 1000 个字符",
+          "authorsRequired": "至少需要一位作者"
+        }
+      },
+      "pages": {
+        "list": {
+          "title": "图书",
+          "metadata": {
+            "description": "浏览和管理您的个人图书收藏。"
+          },
+          "titleColumn": "标题",
+          "create": "创建图书",
+          "searchPlaceholder": "按标题搜索…",
+          "pageSize": "每页",
+          "viewDetail": "查看",
+          "delete": "删除",
+          "previous": "上一页",
+          "next": "下一页",
+          "loading": "加载中…",
+          "empty": "暂无图书。",
+          "signInRequired": "请登录以管理图书。",
+          "authorsLabel": "作者",
+          "genresLabel": "体裁",
+          "actionsLabel": "操作",
+          "confirmDelete": "删除「{title}」？",
+          "cancel": "取消",
+          "deleted": "已删除图书。",
+          "errors": {
+            "loadFailed": "加载图书失败。",
+            "deleteFailed": "删除图书失败。"
+          }
+        },
+        "create": {
+          "title": "创建图书",
+          "submit": "创建",
+          "signInRequired": "请登录以创建图书。",
+          "created": "图书已创建。",
+          "errors": {
+            "signInRequired": "请先登录。",
+            "createFailed": "创建图书失败。"
+          }
+        },
+        "detail": {
+          "title": "图书详情",
+          "metadata": {
+            "description": "查看和编辑图书详情，包括作者、分类和链接。"
+          },
+          "notFound": "未找到图书。",
+          "signInRequired": "请登录以查看此书。",
+          "loading": "加载中…",
+          "edit": "编辑",
+          "backToList": "返回",
+          "save": "保存",
+          "updated": "图书已更新。",
+          "cancel": "取消",
+          "delete": "删除",
+          "authorsLabel": "作者",
+          "descriptionLabel": "描述",
+          "genresLabel": "体裁",
+          "linksLabel": "链接",
+          "emptyValue": "—",
+          "confirmDelete": "确定删除此书？",
+          "deleted": "图书已删除。",
+          "errors": {
+            "loadFailed": "加载图书失败。",
+            "updateFailed": "更新图书失败。",
+            "deleteFailed": "删除图书失败。"
+          }
+        }
+      }
+    },
+    "legal": {
+      "pages": {
+        "privacy-policy": {
+          "title": "隐私政策",
+          "metadata": {
+            "description": "了解 Next.js Starter Kit 如何收集、使用和保护您的数据。"
+          },
+          "lastUpdated": "最后更新：2026年1月31日",
+          "sections": {
+            "overview": {
+              "title": "概述",
+              "body": "该 starter kit 提供基于 Firebase 的认证流程，可作为未来应用的基础。本政策说明默认收集的数据以及用途。如果你基于该 starter kit 构建真实产品，请根据实际行为更新本政策。"
+            },
+            "collection": {
+              "title": "我们收集的信息",
+              "body": "我们仅收集完成认证所需的最少数据：",
+              "items": {
+                "email": "邮箱地址",
+                "displayName": "显示名称（若由认证提供方提供）",
+                "providerIds": "认证提供方标识（Firebase、Google、Apple）"
+              },
+              "analyticsNote": "如果启用分析，我们也可能收集基础使用数据，如设备信息、浏览器类型、访问页面和交互事件。"
+            },
+            "usage": {
+              "title": "信息使用方式",
+              "items": {
+                "auth": "进行身份验证并保障账户安全。",
+                "display": "在可用时在 UI 中展示你的名称。",
+                "improve": "监控稳定性并改进用户体验。"
+              },
+              "note": "你的邮箱和显示名称仅用于认证与账户访问。"
+            },
+            "analytics": {
+              "title": "分析",
+              "body": "我们可能使用 Google Analytics 或 Firebase Analytics 了解人们如何使用 starter kit。分析数据用于提升性能与可用性。如不需要，可在你的部署中禁用分析。"
+            },
+            "sharing": {
+              "title": "共享与披露",
+              "body": "我们不会出售你的个人信息。我们仅与运营认证或分析所需的服务提供商共享数据，如 Firebase 和 Google Analytics。"
+            },
+            "retention": {
+              "title": "数据保留",
+              "body": "认证数据会在账户处于活跃状态期间保存。若你删除账户，我们会在合理时间内从 Firebase 中移除相关认证数据。"
+            },
+            "security": {
+              "title": "安全",
+              "body": "我们采用合理的技术和组织措施保护你的信息，但任何系统都无法保证 100% 安全。"
+            },
+            "children": {
+              "title": "儿童隐私",
+              "body": "该 starter kit 不面向 13 岁以下儿童。如果你认为儿童提供了个人信息，请删除数据并相应更新产品政策。"
+            },
+            "changes": {
+              "title": "政策变更",
+              "body": "随着 starter kit 的演进，我们可能更新本政策。请定期查看，并在发布基于该 starter kit 的真实产品时进行更新。"
+            },
+            "contact": {
+              "title": "联系",
+              "body": "如对隐私有疑问，请联系使用该 starter kit 构建的应用的运营团队。"
+            }
+          }
+        },
+        "terms-of-service": {
+          "title": "服务条款",
+          "metadata": {
+            "description": "查看使用 Next.js Starter Kit 的条款和条件。"
+          },
+          "lastUpdated": "最后更新：2026年1月31日",
+          "sections": {
+            "overview": {
+              "title": "概述",
+              "body": "本条款描述了如何使用该 starter kit。若你部署基于该 starter kit 的真实产品，应根据产品、商业模式和法律要求更新条款。"
+            },
+            "acceptance": {
+              "title": "接受条款",
+              "body": "访问或使用基于该 starter kit 构建的应用即表示你同意本条款。如不同意，请勿使用该应用。"
+            },
+            "accounts": {
+              "title": "账户与认证",
+              "body": "该 starter kit 使用 Firebase Authentication，支持邮箱、Google 和 Apple 登录。你应妥善保管凭据，并对账户下发生的活动负责。"
+            },
+            "acceptableUse": {
+              "title": "可接受使用",
+              "body": "你同意不进行以下行为：",
+              "items": {
+                "unlawful": "将服务用于违法、有害或滥用目的。",
+                "access": "尝试访问或探测其他账户或数据。",
+                "interference": "干扰或破坏服务及其基础设施。"
+              }
+            },
+            "thirdParty": {
+              "title": "第三方服务",
+              "body": "该 starter kit 集成 Firebase 与 Google Analytics 等第三方服务。你对这些服务的使用同样受其条款与隐私政策约束。"
+            },
+            "starterKit": {
+              "title": "starter kit 的性质",
+              "body": "本项目为开发与定制用途的 starter kit。当你将其适配为生产应用时，功能、数据实践和法律政策可能会变化。"
+            },
+            "termination": {
+              "title": "终止",
+              "body": "如违反条款或出于运营原因，访问权限可随时暂停或终止。"
+            },
+            "disclaimers": {
+              "title": "免责声明",
+              "body": "该 starter kit 以“按现状”和“可用”为基础提供。我们不提供任何保证，你需自行承担使用风险。"
+            },
+            "liability": {
+              "title": "责任限制",
+              "body": "在法律允许的最大范围内，starter kit 的创建者不对因使用该应用产生的间接、偶发、特殊、后果性或惩罚性损害负责。"
+            },
+            "changes": {
+              "title": "变更",
+              "body": "本条款可能随 starter kit 的演进而更新。请定期查看，并在发布基于该 starter kit 的真实产品时进行更新。"
+            },
+            "contact": {
+              "title": "联系",
+              "body": "如对本条款有疑问，请联系使用该 starter kit 构建的应用的运营团队。"
+            }
+          }
+        }
+      }
+    },
+    "contact": {
+      "pages": {
+        "contact": {
+          "title": "联系我们",
+          "metadata": {
+            "description": "联系我们。发送消息或直接发送电子邮件。"
+          },
+          "subtitle": "有问题或需要帮助？填写下方表单或直接发送邮件至",
+          "form": {
+            "nameLabel": "姓名",
+            "namePlaceholder": "您的姓名",
+            "emailLabel": "邮箱",
+            "emailPlaceholder": "your.email@example.com",
+            "subjectLabel": "主题",
+            "subjectPlaceholder": "关于什么？",
+            "messageLabel": "消息",
+            "messagePlaceholder": "请告诉我们更多关于您的需求...",
+            "submitButton": "发送消息",
+            "validation": {
+              "nameRequired": "请输入姓名",
+              "nameMaxLength": "姓名最多 200 个字符",
+              "invalidEmail": "邮箱格式不正确",
+              "subjectRequired": "请输入主题",
+              "subjectMaxLength": "主题最多 200 个字符",
+              "messageRequired": "请输入消息",
+              "messageMaxLength": "消息最多 2000 个字符"
+            }
+          },
+          "emailNote": "您也可以直接通过以下邮箱联系我们",
+          "successMessage": "您的邮件客户端即将打开。如果没有打开，请直接发送邮件给我们。"
+        }
+      }
+    },
+    "landing": {
+      "pages": {
+        "home": {
+          "badge": "Starter Kit",
+          "hero": {
+            "eyebrow": "生产就绪的基础",
+            "title": "Next.js Starter Kit",
+            "subtitle": "生产就绪的 Next.js 入门套件，采用 Clean Architecture 与模块化结构，支持可扩展的前端开发。基于 App Router、TypeScript 与 100% 测试覆盖率构建。"
+          },
+          "features": {
+            "title": "核心特性",
+            "description": "构建可扩展、易维护前端应用所需的一切，内置最佳实践。",
+            "items": {
+              "cleanArchitecture": {
+                "title": "Clean Architecture",
+                "description": "四个独立层（Domain、Application、Infrastructure、Presentation），清晰的依赖规则与 Awilix DI。"
+              },
+              "modularStructure": {
+                "title": "模块化结构",
+                "description": "功能模块位于 src/modules/，边界隔离。App Router 仅处理路由；代码均在 src/ 中。"
+              },
+              "testCoverage": {
+                "title": "100% 测试覆盖率",
+                "description": "使用 Vitest 与 React Testing Library 强制覆盖率阈值。AAA 模式与行为导向测试。"
+              },
+              "i18nReady": {
+                "title": "i18n 就绪",
+                "description": "next-intl 与基于 locale 的路由。开箱即用的英语、越南语与中文翻译。"
+              },
+              "typeSafeForms": {
+                "title": "类型安全表单",
+                "description": "React Hook Form 与 Zod 验证。Schema 单一数据源，自动 TypeScript 类型推断。"
+              },
+              "firebaseIntegration": {
+                "title": "Firebase 集成",
+                "description": "Auth、Firestore 与 Analytics 使用抽象接口。轻松更换提供商，无需修改应用代码。"
+              }
+            }
+          },
+          "architecture": {
+            "title": "Clean Architecture",
+            "description": "关注点分离与依赖反转。内层对外层无感知，实现可测试性与灵活性。",
+            "layers": {
+              "domain": {
+                "title": "Domain",
+                "description": "核心类型、Zod schemas 与接口。无外部依赖——纯业务规则与数据结构。"
+              },
+              "application": {
+                "title": "Application",
+                "description": "用例编排业务逻辑。仅依赖 Domain；无 UI 或框架细节。"
+              },
+              "infrastructure": {
+                "title": "Infrastructure",
+                "description": "实现 domain 接口的服务与仓库。所有外部 I/O 与 SDK 调用在此。"
+              },
+              "presentation": {
+                "title": "Presentation",
+                "description": "页面、组件与 hooks。React 与 Next.js 细节；通过 DI 容器使用 Application 层。"
+              }
+            }
+          },
+          "techStack": {
+            "title": "技术栈",
+            "description": "精心挑选的现代生产就绪技术，兼顾开发体验与性能。",
+            "items": {
+              "nextjs": {
+                "name": "Next.js 16",
+                "description": "App Router、React Server Components 与优化的 SSR/SSG。"
+              },
+              "react": {
+                "name": "React 19",
+                "description": "最新 React，具备并发特性与性能提升。"
+              },
+              "typescript": {
+                "name": "TypeScript 5",
+                "description": "启用严格模式，确保代码库最大类型安全。"
+              },
+              "tailwind": {
+                "name": "Tailwind CSS 4",
+                "description": "原子化样式，自动类名排序与优化。"
+              },
+              "radix": {
+                "name": "Radix UI",
+                "description": "通过 shadcn/ui 组件集提供无样式的可访问原语。"
+              },
+              "rhf": {
+                "name": "React Hook Form",
+                "description": "高性能表单管理，最小化重渲染。"
+              },
+              "zod": {
+                "name": "Zod",
+                "description": "Schema 验证，支持 TypeScript 类型推断。"
+              },
+              "zustand": {
+                "name": "Zustand",
+                "description": "轻量级客户端状态管理，API 简洁。"
+              },
+              "nextIntl": {
+                "name": "next-intl",
+                "description": "国际化支持 locale 路由与消息格式化。"
+              },
+              "firebase": {
+                "name": "Firebase",
+                "description": "认证、Firestore 数据库与 Analytics，使用抽象接口。"
+              },
+              "awilix": {
+                "name": "Awilix",
+                "description": "依赖注入容器，实现解耦与可测试代码。"
+              },
+              "vitest": {
+                "name": "Vitest",
+                "description": "快速单元测试，集成 React Testing Library。"
+              }
+            }
+          },
+          "gettingStarted": {
+            "title": "快速开始",
+            "description": "克隆仓库、安装依赖并启动开发服务器。validate 会执行 lint、格式检查与带覆盖率的测试。",
+            "steps": {
+              "install": "npm install",
+              "dev": "npm run dev",
+              "validate": "npm run validate"
+            }
+          },
+          "docs": {
+            "title": "文档",
+            "description": "六份全面指南涵盖架构、规范、开发流程、测试、Firebase 集成与部署。",
+            "items": {
+              "architecture": {
+                "title": "架构",
+                "description": "层级结构、数据流图、设计模式与 Awilix 依赖注入。"
+              },
+              "codingConventions": {
+                "title": "编码规范",
+                "description": "App Router 模式、文件命名、组件 props、Zod 表单与 next-intl 国际化。"
+              },
+              "development": {
+                "title": "开发指南",
+                "description": "Git 工作流、7 步功能开发指南、模块创建与常用模式。"
+              },
+              "testing": {
+                "title": "测试指南",
+                "description": "Vitest + React Testing Library、100% 覆盖率、测试组织与 AAA 模式。"
+              },
+              "firebase": {
+                "title": "Firebase 集成",
+                "description": "Auth、Firestore 与 Analytics 设置、抽象接口、安全规则与更换提供商。"
+              },
+              "deployment": {
+                "title": "部署",
+                "description": "Firebase 设置、Cloudflare Pages 托管、GitHub Actions CI/CD 与环境变量。"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

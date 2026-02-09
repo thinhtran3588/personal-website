@@ -1,0 +1,6 @@
+.cursor/
+.next/
+coverage/
+docs/
+nextjs-starter-kit-app/
+node_modules/

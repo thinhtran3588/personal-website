@@ -1,0 +1,656 @@
+{
+  "common": {
+    "navigation": {
+      "home": "Home",
+      "app": "App",
+      "goToApp": "Go to main app",
+      "backToHome": "Back to home",
+      "signIn": "Sign in",
+      "signUp": "Sign up",
+      "signOut": "Sign out",
+      "profile": "Profile",
+      "createAccount": "Create an account",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "legal": "Legal",
+      "documents": "Documents",
+      "docs": {
+        "architecture": "Architecture",
+        "codingConventions": "Coding conventions",
+        "developmentGuide": "Development guide",
+        "testingGuide": "Testing guide",
+        "firebaseIntegration": "Firebase integration",
+        "deployment": "Deployment"
+      },
+      "contact": "Contact",
+      "menu": "Menu"
+    },
+    "footer": {
+      "copyright": "© 2026 Next.js Starter Kit. All rights reserved."
+    },
+    "app": {
+      "metadata": {
+        "title": "Next.js Starter Kit",
+        "description": "Build scalable Next.js apps with Clean Architecture, TypeScript, and 100% test coverage out of the box."
+      }
+    },
+    "errors": {
+      "notFound": {
+        "eyebrow": "Not found",
+        "title": "Page not found",
+        "description": "The page you're looking for doesn't exist or has been moved.",
+        "cta": "Back to home"
+      },
+      "serverError": {
+        "eyebrow": "Error",
+        "title": "Something went wrong",
+        "description": "An unexpected error occurred. Please try again.",
+        "tryAgain": "Try again",
+        "cta": "Back to home"
+      },
+      "generic": {
+        "eyebrow": "Error",
+        "title": "Something went wrong",
+        "description": "An error occurred. Please try again later.",
+        "cta": "Back to home"
+      }
+    }
+  },
+  "settings": {
+    "error": {
+      "saveFailed": "Could not save settings."
+    },
+    "language": {
+      "label": "Language",
+      "options": {
+        "en": "English",
+        "vi": "Vietnamese",
+        "zh": "Chinese"
+      },
+      "flags": {
+        "en": "🇺🇸",
+        "vi": "🇻🇳",
+        "zh": "🇨🇳"
+      }
+    },
+    "theme": {
+      "label": "Theme",
+      "options": {
+        "system": "System",
+        "light": "Light",
+        "dark": "Dark"
+      }
+    }
+  },
+  "modules": {
+    "auth": {
+      "pages": {
+        "sign-in": {
+          "title": "Sign in",
+          "or": "Or",
+          "googleButton": "Continue with Google",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "submitButton": "Sign in with email",
+          "forgotPasswordLink": "Forgot password?",
+          "noAccountPrompt": "Don't have an account?",
+          "signUpLink": "Sign up",
+          "agreeToPolicyAndTerms": "By signing in you agree to our {privacy} and {terms}.",
+          "validation": {
+            "invalidEmail": "Invalid email",
+            "passwordRequired": "Password is required",
+            "passwordMaxLength": "Password must be at most 20 characters"
+          },
+          "errors": {
+            "invalidCredentials": "Invalid email or password.",
+            "tooManyRequests": "Too many attempts. Try again later.",
+            "generic": "Something went wrong. Please try again."
+          }
+        },
+        "sign-up": {
+          "title": "Sign up",
+          "or": "Or",
+          "googleButton": "Continue with Google",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "confirmPasswordLabel": "Confirm password",
+          "fullNameLabel": "Full name (optional)",
+          "submitButton": "Create account",
+          "hasAccountPrompt": "Already have an account?",
+          "signInLink": "Sign in",
+          "agreeToPolicyAndTerms": "By signing up you agree to our {privacy} and {terms}.",
+          "validation": {
+            "invalidEmail": "Invalid email",
+            "passwordRequired": "Password is required",
+            "minLength": "At least 8 characters",
+            "passwordMaxLength": "Password must be at most 20 characters",
+            "fullNameMaxLength": "Full name must be at most 200 characters",
+            "uppercase": "At least one uppercase letter",
+            "lowercase": "At least one lowercase letter",
+            "number": "At least one number",
+            "specialChar": "At least one special character",
+            "passwordsDoNotMatch": "Passwords do not match"
+          },
+          "errors": {
+            "emailAlreadyInUse": "This email is already in use.",
+            "generic": "Something went wrong. Please try again."
+          }
+        },
+        "forgot-password": {
+          "title": "Forgot password",
+          "emailLabel": "Email",
+          "submitButton": "Send reset link",
+          "successMessage": "If an account exists for this email, we've sent a reset link.",
+          "backToSignIn": "Back to sign in",
+          "validation": {
+            "invalidEmail": "Invalid email"
+          },
+          "errors": {
+            "generic": "Something went wrong. Please try again."
+          }
+        },
+        "profile": {
+          "title": "Profile",
+          "metadata": {
+            "description": "View and update your profile information and password."
+          },
+          "emailLabel": "Email",
+          "fullNameLabel": "Full name",
+          "signInTypeLabel": "Sign-in type",
+          "signInTypeEmail": "Email",
+          "signInTypeGoogle": "Google",
+          "signInTypeApple": "Apple",
+          "signInTypeOther": "Other",
+          "saveButton": "Save",
+          "editButton": "Edit",
+          "passwordSectionTitle": "Update password",
+          "oldPasswordLabel": "Current password",
+          "newPasswordLabel": "New password",
+          "confirmPasswordLabel": "Confirm new password",
+          "cancelButton": "Cancel",
+          "changePasswordButton": "Change password",
+          "updatePasswordButton": "Update password",
+          "backToApp": "Back to app",
+          "successMessage": "Profile updated.",
+          "passwordSuccessMessage": "Password updated.",
+          "validation": {
+            "fullNameMaxLength": "Full name must be at most 200 characters",
+            "oldPasswordRequired": "Current password is required",
+            "minLength": "At least 8 characters",
+            "passwordMaxLength": "Password must be at most 20 characters",
+            "uppercase": "At least one uppercase letter",
+            "lowercase": "At least one lowercase letter",
+            "number": "At least one number",
+            "specialChar": "At least one special character",
+            "passwordsDoNotMatch": "Passwords do not match"
+          },
+          "errors": {
+            "generic": "Something went wrong. Please try again.",
+            "invalidCredentials": "Current password is incorrect.",
+            "requiresRecentLogin": "For security, please sign out and sign back in before trying again."
+          },
+          "deleteAccount": {
+            "button": "Delete account",
+            "title": "Delete account",
+            "description": "This action is permanent and cannot be undone. All your data will be permanently deleted.",
+            "warning": "To confirm, type DELETE below:",
+            "inputPlaceholder": "Type DELETE to confirm",
+            "passwordLabel": "Enter your password to confirm:",
+            "passwordPlaceholder": "Your current password",
+            "confirmButton": "Delete my account",
+            "cancelButton": "Cancel",
+            "successMessage": "Your account has been deleted.",
+            "validation": {
+              "confirmationRequired": "Please type DELETE to confirm",
+              "confirmationMismatch": "You must type DELETE exactly",
+              "passwordRequired": "Password is required"
+            },
+            "errors": {
+              "generic": "Failed to delete account. Please try again.",
+              "invalidCredentials": "Incorrect password. Please try again.",
+              "requiresRecentLogin": "For security, please sign out and sign back in before deleting your account."
+            }
+          }
+        }
+      }
+    },
+    "docs": {
+      "pages": {
+        "architecture": {
+          "metadata": {
+            "title": "Architecture",
+            "description": "Layer structure, data flow diagrams, design patterns, and Awilix dependency injection."
+          }
+        },
+        "coding-conventions": {
+          "metadata": {
+            "title": "Coding Conventions",
+            "description": "App Router patterns, file naming, component props, forms with Zod, and next-intl i18n."
+          }
+        },
+        "development-guide": {
+          "metadata": {
+            "title": "Development Guide",
+            "description": "Git workflow, 7-step feature guide, module creation, and common patterns."
+          }
+        },
+        "firebase-integration": {
+          "metadata": {
+            "title": "Firebase Integration",
+            "description": "Auth, Firestore and Analytics setup, abstracted interfaces, security rules, and swapping providers."
+          }
+        },
+        "testing-guide": {
+          "metadata": {
+            "title": "Testing Guide",
+            "description": "Vitest + React Testing Library, 100% coverage, test organization, and AAA pattern."
+          }
+        },
+        "deployment": {
+          "metadata": {
+            "title": "Deployment",
+            "description": "Firebase setup, Cloudflare Pages hosting, GitHub Actions CI/CD, and environment variables."
+          }
+        }
+      }
+    },
+    "books": {
+      "form": {
+        "title": "Title",
+        "description": "Description",
+        "authors": "Authors",
+        "authorsPlaceholder": "Type and press Enter to add",
+        "genres": "Genres",
+        "genresPlaceholder": "Type and press Enter to add",
+        "links": "Links",
+        "linksPlaceholder": "Type URL and press Enter to add",
+        "cancel": "Cancel",
+        "validation": {
+          "titleRequired": "Title is required",
+          "titleMaxLength": "Max 200 characters",
+          "descriptionRequired": "Description is required",
+          "descriptionMaxLength": "Max 1000 characters",
+          "authorsRequired": "At least one author is required"
+        }
+      },
+      "pages": {
+        "list": {
+          "title": "Books",
+          "metadata": {
+            "description": "Browse and manage your personal book collection."
+          },
+          "titleColumn": "Title",
+          "create": "Create book",
+          "searchPlaceholder": "Search by title…",
+          "pageSize": "Per page",
+          "viewDetail": "View",
+          "delete": "Delete",
+          "previous": "Previous",
+          "next": "Next",
+          "loading": "Loading…",
+          "empty": "No books yet.",
+          "signInRequired": "Sign in to manage your books.",
+          "authorsLabel": "Authors",
+          "genresLabel": "Genres",
+          "actionsLabel": "Actions",
+          "confirmDelete": "Delete \"{title}\"?",
+          "cancel": "Cancel",
+          "deleted": "Book deleted.",
+          "errors": {
+            "loadFailed": "Failed to load books.",
+            "deleteFailed": "Failed to delete book."
+          }
+        },
+        "create": {
+          "title": "Create book",
+          "submit": "Create",
+          "signInRequired": "Sign in to create a book.",
+          "created": "Book created.",
+          "errors": {
+            "signInRequired": "Sign in required.",
+            "createFailed": "Failed to create book."
+          }
+        },
+        "detail": {
+          "title": "Book Detail",
+          "metadata": {
+            "description": "View and edit book details including authors, genres, and links."
+          },
+          "notFound": "Book not found.",
+          "signInRequired": "Sign in to view this book.",
+          "loading": "Loading…",
+          "edit": "Edit",
+          "backToList": "Back",
+          "save": "Save",
+          "updated": "Book updated.",
+          "cancel": "Cancel",
+          "delete": "Delete",
+          "authorsLabel": "Authors",
+          "descriptionLabel": "Description",
+          "genresLabel": "Genres",
+          "linksLabel": "Links",
+          "emptyValue": "—",
+          "confirmDelete": "Delete this book?",
+          "deleted": "Book deleted.",
+          "errors": {
+            "loadFailed": "Failed to load book.",
+            "updateFailed": "Failed to update book.",
+            "deleteFailed": "Failed to delete book."
+          }
+        }
+      }
+    },
+    "legal": {
+      "pages": {
+        "privacy-policy": {
+          "title": "Privacy Policy",
+          "metadata": {
+            "description": "Learn how Next.js Starter Kit collects, uses, and protects your data."
+          },
+          "lastUpdated": "Last updated: January 31, 2026",
+          "sections": {
+            "overview": {
+              "title": "Overview",
+              "body": "This starter kit provides authentication flows powered by Firebase. It may be used as a base for future applications. This policy explains what data the starter kit collects by default and how that data is used. If you build a real product on top of this starter kit, update this policy to match your actual behavior."
+            },
+            "collection": {
+              "title": "Information we collect",
+              "body": "We collect the minimum data needed to authenticate users:",
+              "items": {
+                "email": "Email address",
+                "displayName": "Display name (if provided by the auth provider)",
+                "providerIds": "Authentication provider identifiers (Firebase, Google, Apple)"
+              },
+              "analyticsNote": "If analytics is enabled, we may also collect basic usage data such as device information, browser type, pages viewed, and interaction events."
+            },
+            "usage": {
+              "title": "How we use information",
+              "items": {
+                "auth": "Authenticate you and keep your account secure.",
+                "display": "Display your name in the UI when available.",
+                "improve": "Monitor reliability and improve the user experience."
+              },
+              "note": "We use your email and display name only for authentication and account access."
+            },
+            "analytics": {
+              "title": "Analytics",
+              "body": "We may use Google Analytics or Firebase Analytics to understand how people use the starter kit. Analytics data helps us improve performance and usability. You can disable analytics in your own deployment if you do not need it."
+            },
+            "sharing": {
+              "title": "Sharing and disclosure",
+              "body": "We do not sell your personal information. We only share data with service providers needed to operate authentication or analytics, such as Firebase and Google Analytics."
+            },
+            "retention": {
+              "title": "Data retention",
+              "body": "Authentication data is stored as long as your account is active. If you delete your account, we remove associated authentication data from Firebase within a reasonable timeframe."
+            },
+            "security": {
+              "title": "Security",
+              "body": "We use reasonable technical and organizational measures to protect your information. However, no system can be guaranteed to be 100% secure."
+            },
+            "children": {
+              "title": "Children's privacy",
+              "body": "This starter kit is not intended for children under 13. If you believe a child has provided personal information, remove the data and update your product policies accordingly."
+            },
+            "changes": {
+              "title": "Changes to this policy",
+              "body": "We may update this policy as the starter kit evolves. Review it periodically, and update it when you ship a real product based on this starter kit."
+            },
+            "contact": {
+              "title": "Contact",
+              "body": "For questions about privacy, contact the team that operates the application built from this starter kit."
+            }
+          }
+        },
+        "terms-of-service": {
+          "title": "Terms of Service",
+          "metadata": {
+            "description": "Review the terms and conditions for using Next.js Starter Kit."
+          },
+          "lastUpdated": "Last updated: January 31, 2026",
+          "sections": {
+            "overview": {
+              "title": "Overview",
+              "body": "These terms describe how the starter kit can be used. If you deploy a real product based on this starter kit, you should update these terms to match your product, business model, and legal requirements."
+            },
+            "acceptance": {
+              "title": "Acceptance",
+              "body": "By accessing or using the application built from this starter kit, you agree to these terms. If you do not agree, do not use the application."
+            },
+            "accounts": {
+              "title": "Accounts and authentication",
+              "body": "The starter kit uses Firebase Authentication and supports email, Google, and Apple sign-in. You are responsible for safeguarding your credentials and for any activity that occurs under your account."
+            },
+            "acceptableUse": {
+              "title": "Acceptable use",
+              "body": "You agree not to:",
+              "items": {
+                "unlawful": "Use the service for unlawful, harmful, or abusive purposes.",
+                "access": "Attempt to access or probe other accounts or data.",
+                "interference": "Interfere with or disrupt the service or its infrastructure."
+              }
+            },
+            "thirdParty": {
+              "title": "Third-party services",
+              "body": "The starter kit integrates third-party services such as Firebase and Google Analytics. Your use of those services is also subject to their terms and privacy policies."
+            },
+            "starterKit": {
+              "title": "Starter kit nature",
+              "body": "This project is a starter kit intended for development and customization. Features, data practices, and legal policies may change when you adapt it for a production application."
+            },
+            "termination": {
+              "title": "Termination",
+              "body": "Access may be suspended or terminated at any time for violations of these terms or for operational reasons."
+            },
+            "disclaimers": {
+              "title": "Disclaimers",
+              "body": "The starter kit is provided on an \"as is\" and \"as available\" basis. No warranties are provided, and you use it at your own risk."
+            },
+            "liability": {
+              "title": "Limitation of liability",
+              "body": "To the fullest extent permitted by law, the creators of this starter kit are not liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the application."
+            },
+            "changes": {
+              "title": "Changes",
+              "body": "These terms may be updated as the starter kit evolves. Review them periodically, and update them when you ship a real product based on this starter kit."
+            },
+            "contact": {
+              "title": "Contact",
+              "body": "For questions about these terms, contact the team that operates the application built from this starter kit."
+            }
+          }
+        }
+      }
+    },
+    "contact": {
+      "pages": {
+        "contact": {
+          "title": "Contact Us",
+          "metadata": {
+            "description": "Get in touch with us. Send us a message or email us directly."
+          },
+          "subtitle": "Have a question or need help? Fill out the form below or email us directly at",
+          "form": {
+            "nameLabel": "Name",
+            "namePlaceholder": "Your name",
+            "emailLabel": "Email",
+            "emailPlaceholder": "your.email@example.com",
+            "subjectLabel": "Subject",
+            "subjectPlaceholder": "What is this about?",
+            "messageLabel": "Message",
+            "messagePlaceholder": "Tell us more about your inquiry...",
+            "submitButton": "Send message",
+            "validation": {
+              "nameRequired": "Name is required",
+              "nameMaxLength": "Name must be at most 200 characters",
+              "invalidEmail": "Invalid email",
+              "subjectRequired": "Subject is required",
+              "subjectMaxLength": "Subject must be at most 200 characters",
+              "messageRequired": "Message is required",
+              "messageMaxLength": "Message must be at most 2000 characters"
+            }
+          },
+          "emailNote": "You can also reach us directly at",
+          "successMessage": "Your email client should open shortly. If it doesn't, please email us directly."
+        }
+      }
+    },
+    "landing": {
+      "pages": {
+        "home": {
+          "badge": "Starter Kit",
+          "hero": {
+            "eyebrow": "Production-ready foundation",
+            "title": "Next.js Starter Kit",
+            "subtitle": "A production-ready Next.js starter with Clean Architecture and a modular structure for scalable frontend development. Built with the App Router, TypeScript, and 100% test coverage."
+          },
+          "features": {
+            "title": "Key Features",
+            "description": "Everything you need to build scalable, maintainable frontend applications with best practices built-in.",
+            "items": {
+              "cleanArchitecture": {
+                "title": "Clean Architecture",
+                "description": "Four distinct layers (Domain, Application, Infrastructure, Presentation) with clear dependency rules and Awilix DI."
+              },
+              "modularStructure": {
+                "title": "Modular Structure",
+                "description": "Feature modules under src/modules/ with isolated boundaries. App Router handles routing only; all code lives in src/."
+              },
+              "testCoverage": {
+                "title": "100% Test Coverage",
+                "description": "Mandatory coverage thresholds with Vitest and React Testing Library. AAA pattern and behavior-focused testing."
+              },
+              "i18nReady": {
+                "title": "i18n Ready",
+                "description": "next-intl with locale-based routing. English, Vietnamese, and Chinese translations included out of the box."
+              },
+              "typeSafeForms": {
+                "title": "Type-Safe Forms",
+                "description": "React Hook Form with Zod validation. Single source of truth for schemas with automatic TypeScript inference."
+              },
+              "firebaseIntegration": {
+                "title": "Firebase Integration",
+                "description": "Auth, Firestore and Analytics with abstracted interfaces. Easy to swap providers without changing application code."
+              }
+            }
+          },
+          "architecture": {
+            "title": "Clean Architecture",
+            "description": "Separation of concerns with dependency inversion. Inner layers have no knowledge of outer layers, enabling testability and flexibility.",
+            "layers": {
+              "domain": {
+                "title": "Domain",
+                "description": "Core types, Zod schemas, and interfaces. No external dependencies—pure business rules and data shapes."
+              },
+              "application": {
+                "title": "Application",
+                "description": "Use cases orchestrating business logic. Depends only on Domain; no UI or framework specifics."
+              },
+              "infrastructure": {
+                "title": "Infrastructure",
+                "description": "Services and repositories implementing domain interfaces. All external I/O and SDK usage lives here."
+              },
+              "presentation": {
+                "title": "Presentation",
+                "description": "Pages, components, and hooks. React and Next.js specifics; uses Application layer via DI container."
+              }
+            }
+          },
+          "techStack": {
+            "title": "Tech Stack",
+            "description": "Modern, production-ready technologies carefully selected for developer experience and performance.",
+            "items": {
+              "nextjs": {
+                "name": "Next.js 16",
+                "description": "App Router, React Server Components, and optimized SSR/SSG."
+              },
+              "react": {
+                "name": "React 19",
+                "description": "Latest React with concurrent features and improved performance."
+              },
+              "typescript": {
+                "name": "TypeScript 5",
+                "description": "Strict mode enabled for maximum type safety across the codebase."
+              },
+              "tailwind": {
+                "name": "Tailwind CSS 4",
+                "description": "Utility-first styling with automatic class sorting and optimization."
+              },
+              "radix": {
+                "name": "Radix UI",
+                "description": "Accessible, unstyled primitives via shadcn/ui component collection."
+              },
+              "rhf": {
+                "name": "React Hook Form",
+                "description": "Performant form management with minimal re-renders."
+              },
+              "zod": {
+                "name": "Zod",
+                "description": "Schema validation with TypeScript type inference."
+              },
+              "zustand": {
+                "name": "Zustand",
+                "description": "Lightweight client state management with simple API."
+              },
+              "nextIntl": {
+                "name": "next-intl",
+                "description": "Internationalization with locale routing and message formatting."
+              },
+              "firebase": {
+                "name": "Firebase",
+                "description": "Authentication, Firestore database and Analytics with abstracted interfaces."
+              },
+              "awilix": {
+                "name": "Awilix",
+                "description": "Dependency injection container for decoupled, testable code."
+              },
+              "vitest": {
+                "name": "Vitest",
+                "description": "Fast unit testing with React Testing Library integration."
+              }
+            }
+          },
+          "gettingStarted": {
+            "title": "Getting started",
+            "description": "Clone the repo, install dependencies, and run the dev server. Validation runs lint, format check, and tests with coverage.",
+            "steps": {
+              "install": "npm install",
+              "dev": "npm run dev",
+              "validate": "npm run validate"
+            }
+          },
+          "docs": {
+            "title": "Documentation",
+            "description": "Six comprehensive guides cover architecture, conventions, development workflow, testing, Firebase integration, and deployment.",
+            "items": {
+              "architecture": {
+                "title": "Architecture",
+                "description": "Layer structure, data flow diagrams, design patterns, and Awilix dependency injection."
+              },
+              "codingConventions": {
+                "title": "Coding conventions",
+                "description": "App Router patterns, file naming, component props, forms with Zod, and next-intl i18n."
+              },
+              "development": {
+                "title": "Development guide",
+                "description": "Git workflow, 7-step feature guide, module creation, and common patterns."
+              },
+              "testing": {
+                "title": "Testing guide",
+                "description": "Vitest + React Testing Library, 100% coverage, test organization, and AAA pattern."
+              },
+              "firebase": {
+                "title": "Firebase integration",
+                "description": "Auth, Firestore and Analytics setup, abstracted interfaces, security rules, and swapping providers."
+              },
+              "deployment": {
+                "title": "Deployment",
+                "description": "Firebase setup, Cloudflare Pages hosting, GitHub Actions CI/CD, and environment variables."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
