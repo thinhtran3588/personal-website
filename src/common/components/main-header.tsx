@@ -21,8 +21,8 @@ const SCROLL_HIDE_THRESHOLD = 32;
 const SCROLL_DELTA = 4;
 
 const navLinkClass = cn(
-  "relative py-1 transition text-[var(--text-muted)] hover:text-[var(--text-primary)] nav-link-indicator",
-  "after:absolute after:bottom-0 after:left-0 after:block after:h-0.5 after:w-full after:bg-[var(--text-primary)] after:content-[''] after:transition-transform after:duration-300 after:origin-left",
+  "relative py-1 transition-all duration-[var(--duration-normal)] ease-[var(--ease-spring)] text-[var(--text-muted)] hover:text-[var(--text-primary)] nav-link-indicator",
+  "after:absolute after:bottom-0 after:left-0 after:block after:h-0.5 after:w-full after:bg-[var(--text-primary)] after:content-[''] after:transition-transform after:duration-[var(--duration-normal)] after:ease-[var(--ease-spring)] after:origin-left",
 );
 
 export function MainHeader({

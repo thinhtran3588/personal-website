@@ -9,7 +9,7 @@ const Card = forwardRef<
   <div
     ref={ref}
     className={cn(
-      "rounded-xl sm:rounded-2xl",
+      "rounded-xl transition-[transform,box-shadow] duration-[var(--duration-normal)] ease-[var(--ease-spring)] sm:rounded-2xl",
       variant === "strong" ? "glass-panel-strong" : "glass-panel",
       className,
     )}

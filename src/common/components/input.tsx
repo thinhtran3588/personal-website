@@ -8,7 +8,7 @@ import { cn } from "@/common/utils/cn";
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 const inputBaseClass =
-  "flex h-9 w-full rounded-full border border-[var(--glass-border)] bg-[var(--glass-highlight)] px-3 py-1 text-sm text-[var(--text-primary)] shadow-sm transition-colors placeholder:text-[var(--text-muted)] focus-visible:outline-none focus-visible:border-[var(--glass-border)] focus-visible:bg-[var(--surface-soft)] disabled:cursor-not-allowed disabled:opacity-50";
+  "flex h-11 w-full rounded-full border border-[var(--glass-border)] bg-[var(--glass-highlight)] px-4 py-1 text-sm text-[var(--text-primary)] shadow-sm transition-all duration-[var(--duration-normal)] ease-[var(--ease-spring)] placeholder:text-[var(--text-muted)] focus-visible:outline-none focus-visible:border-[var(--accent)] focus-visible:bg-[var(--surface-soft)] disabled:cursor-not-allowed disabled:opacity-50";
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
