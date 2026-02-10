@@ -136,7 +136,7 @@
             "items": {
               "fullstack": {
                 "title": "Full Stack Development",
-                "description": "Build and ship scalable web and mobile applications end-to-end. From responsive frontends with React and Next.js to robust backends with Node.js and .NET, paired with PostgreSQL, SQL Server, or MongoDB. Cross-platform mobile delivery with React Native and Flutter, deployed on AWS, Azure, and Google Cloud."
+                "description": "Build and ship scalable web and mobile applications end-to-end. From responsive frontends with React and Next.js to robust backends with Node.js and .NET, paired with PostgreSQL, SQL Server, or MongoDB — deployed on AWS, Azure, and Google Cloud. Cross-platform mobile delivery with React Native and Flutter."
               },
               "blockchain": {
                 "title": "Blockchain Development",
@@ -166,9 +166,9 @@
                 "company": "Kuma Games Inc",
                 "period": "October 2021 - October 2025",
                 "points": {
-                  "0": "Led the engineering team to build and ship Chibi Kingdom, a blockchain gaming universe inspired by Romance of the Three Kingdoms.",
+                  "0": "Directed the engineering team through the full product lifecycle to build and ship Chibi Kingdom, a blockchain gaming universe inspired by Romance of the Three Kingdoms.",
                   "1": "Architected the platform using React for the web application and Unity for game development, delivering a seamless cross-platform experience.",
-                  "2": "Designed and deployed smart contracts with Solidity on Mainnet, Polygon & Base, powering in-game economies and NFT systems."
+                  "2": "Designed and deployed smart contracts with Solidity on Ethereum Mainnet, Polygon, and Base, powering in-game token economies and NFT systems."
                 }
               },
               "1": {
@@ -176,8 +176,9 @@
                 "company": "GOSEI Vietnam JSC",
                 "period": "August 2017 - October 2021",
                 "points": {
-                  "0": "Maintained and enhanced an enterprise document management system used by multiple banks, incorporating web applications, Office Online Server, digital signing, Office plugins, and desktop clients.",
-                  "1": "Built with .NET MVC, Kendo UI, WPF, and SQL Server, ensuring high availability and compliance with banking-grade security requirements."
+                  "0": "Maintained and enhanced an enterprise document management system serving multiple banking institutions, incorporating web applications, Office Online Server, digital signing, Office plugins, and desktop clients.",
+                  "1": "Ensured high availability and compliance with banking-grade security requirements across all platform components.",
+                  "2": "Built with .NET MVC, Kendo UI, WPF, and SQL Server, delivering reliable performance at enterprise scale."
                 }
               },
               "2": {
@@ -185,9 +186,9 @@
                 "company": "Mindx Technology JSC",
                 "period": "March 2018 - February 2020",
                 "points": {
-                  "0": "Co-founded a software company and served as CTO, delivering custom web and mobile products for startups and SMEs.",
-                  "1": "Managed the engineering team end-to-end: gathering client requirements, designing solutions, and overseeing delivery timelines.",
-                  "2": "Built products using TypeScript, React, React Native, Node.js, MongoDB, AWS, and Google Cloud Platform."
+                  "0": "Co-founded a software company and led the engineering team as CTO, delivering custom web and mobile products for startups and SMEs.",
+                  "1": "Drove end-to-end product delivery — from gathering client requirements and designing solution architectures to overseeing engineering execution and launch timelines.",
+                  "2": "Shipped products to production using React, React Native, Node.js, MongoDB, AWS, and Google Cloud Platform."
                 }
               },
               "3": {
@@ -207,7 +208,7 @@
                 "points": {
                   "0": "Led the migration of HP Enterprise's Quoting tool from Excel VBA to a cloud-based Sales Support Cloud (SSC) solution.",
                   "1": "Architected the system for 24/7 global availability, handling high-volume concurrent requests across multiple time zones.",
-                  "2": "Delivered the solution using .NET MVC, Kendo UI, and SQL Server."
+                  "2": "Delivered the solution using .NET MVC, Kendo UI, and SQL Server, improving quoting speed and operational efficiency across global sales teams."
                 }
               },
               "5": {
@@ -216,7 +217,7 @@
                 "period": "July 2014 - May 2015",
                 "points": {
                   "0": "Successfully migrated a large-scale SQL Server database from version 2005 to 2012, preserving complex business logic and ensuring zero data loss.",
-                  "1": "Developed automated migration tools and validation scripts using SSIS, WPF, and Excel VBA."
+                  "1": "Developed automated migration tools and validation scripts using SSIS, WPF, and Excel VBA, significantly reducing manual effort and migration risk."
                 }
               },
               "6": {

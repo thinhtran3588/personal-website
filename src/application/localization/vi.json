@@ -136,7 +136,7 @@
             "items": {
               "fullstack": {
                 "title": "Phát triển Full Stack",
-                "description": "Xây dựng và phát hành ứng dụng web và di động có khả năng mở rộng từ đầu đến cuối. Từ giao diện responsive với React và Next.js đến backend mạnh mẽ với Node.js và .NET, kết hợp PostgreSQL, SQL Server hoặc MongoDB. Phát triển di động đa nền tảng với React Native và Flutter, triển khai trên AWS, Azure và Google Cloud."
+                "description": "Xây dựng và phát hành ứng dụng web và di động có khả năng mở rộng từ đầu đến cuối. Từ giao diện responsive với React và Next.js đến backend mạnh mẽ với Node.js và .NET, kết hợp PostgreSQL, SQL Server hoặc MongoDB — triển khai trên AWS, Azure và Google Cloud. Phát triển di động đa nền tảng với React Native và Flutter."
               },
               "blockchain": {
                 "title": "Phát triển Blockchain",
@@ -166,9 +166,9 @@
                 "company": "Kuma Games Inc",
                 "period": "Tháng 10/2021 - Tháng 10/2025",
                 "points": {
-                  "0": "Dẫn dắt đội ngũ kỹ thuật xây dựng và phát hành Chibi Kingdom, vũ trụ game blockchain lấy cảm hứng từ Tam Quốc Diễn Nghĩa.",
+                  "0": "Chỉ đạo đội ngũ kỹ thuật xuyên suốt vòng đời sản phẩm để xây dựng và phát hành Chibi Kingdom, vũ trụ game blockchain lấy cảm hứng từ Tam Quốc Diễn Nghĩa.",
                   "1": "Kiến trúc nền tảng sử dụng React cho ứng dụng web và Unity cho phát triển game, mang lại trải nghiệm đa nền tảng liền mạch.",
-                  "2": "Thiết kế và triển khai smart contracts bằng Solidity trên Mainnet, Polygon & Base, vận hành nền kinh tế trong game và hệ thống NFT."
+                  "2": "Thiết kế và triển khai smart contracts bằng Solidity trên Ethereum Mainnet, Polygon và Base, vận hành nền kinh tế token trong game và hệ thống NFT."
                 }
               },
               "1": {
@@ -176,8 +176,9 @@
                 "company": "GOSEI Vietnam JSC",
                 "period": "Tháng 8/2017 - Tháng 10/2021",
                 "points": {
-                  "0": "Bảo trì và nâng cấp hệ thống quản lý tài liệu doanh nghiệp được sử dụng bởi nhiều ngân hàng, bao gồm ứng dụng web, Office Online Server, ký số, plugin Office và ứng dụng desktop.",
-                  "1": "Xây dựng với .NET MVC, Kendo UI, WPF và SQL Server, đảm bảo tính sẵn sàng cao và tuân thủ yêu cầu bảo mật cấp ngân hàng."
+                  "0": "Bảo trì và nâng cấp hệ thống quản lý tài liệu doanh nghiệp phục vụ nhiều tổ chức ngân hàng, bao gồm ứng dụng web, Office Online Server, ký số, plugin Office và ứng dụng desktop.",
+                  "1": "Đảm bảo tính sẵn sàng cao và tuân thủ yêu cầu bảo mật cấp ngân hàng trên toàn bộ các thành phần của nền tảng.",
+                  "2": "Xây dựng với .NET MVC, Kendo UI, WPF và SQL Server, mang lại hiệu suất ổn định ở quy mô doanh nghiệp."
                 }
               },
               "2": {
@@ -185,9 +186,9 @@
                 "company": "Mindx Technology JSC",
                 "period": "Tháng 3/2018 - Tháng 2/2020",
                 "points": {
-                  "0": "Đồng sáng lập công ty phần mềm và giữ vai trò CTO, phát triển các sản phẩm web và mobile tùy chỉnh cho startup và doanh nghiệp vừa và nhỏ.",
-                  "1": "Quản lý đội ngũ kỹ thuật toàn diện: thu thập yêu cầu khách hàng, thiết kế giải pháp và giám sát tiến độ giao hàng.",
-                  "2": "Xây dựng sản phẩm sử dụng TypeScript, React, React Native, Node.js, MongoDB, AWS và Google Cloud Platform."
+                  "0": "Đồng sáng lập công ty phần mềm và dẫn dắt đội ngũ kỹ thuật với vai trò CTO, phát triển các sản phẩm web và mobile tùy chỉnh cho startup và doanh nghiệp vừa và nhỏ.",
+                  "1": "Chủ trì toàn bộ quy trình phát triển sản phẩm — từ thu thập yêu cầu khách hàng, thiết kế kiến trúc giải pháp đến giám sát triển khai và ra mắt sản phẩm.",
+                  "2": "Đưa sản phẩm vào vận hành sử dụng React, React Native, Node.js, MongoDB, AWS và Google Cloud Platform."
                 }
               },
               "3": {
@@ -207,7 +208,7 @@
                 "points": {
                   "0": "Dẫn dắt việc chuyển đổi công cụ Quoting của HP Enterprise từ Excel VBA sang giải pháp Sales Support Cloud (SSC) trên đám mây.",
                   "1": "Kiến trúc hệ thống hoạt động liên tục 24/7 toàn cầu, xử lý lượng lớn yêu cầu đồng thời qua nhiều múi giờ.",
-                  "2": "Phát triển giải pháp sử dụng .NET MVC, Kendo UI và SQL Server."
+                  "2": "Phát triển giải pháp sử dụng .NET MVC, Kendo UI và SQL Server, cải thiện tốc độ báo giá và hiệu quả vận hành cho các đội ngũ bán hàng toàn cầu."
                 }
               },
               "5": {
@@ -216,7 +217,7 @@
                 "period": "Tháng 7/2014 - Tháng 5/2015",
                 "points": {
                   "0": "Di chuyển thành công cơ sở dữ liệu SQL Server quy mô lớn từ phiên bản 2005 lên 2012, bảo toàn logic nghiệp vụ phức tạp và đảm bảo không mất dữ liệu.",
-                  "1": "Phát triển công cụ di chuyển tự động và script kiểm tra sử dụng SSIS, WPF và Excel VBA."
+                  "1": "Phát triển công cụ di chuyển tự động và script kiểm tra sử dụng SSIS, WPF và Excel VBA, giảm đáng kể công sức thủ công và rủi ro trong quá trình di chuyển."
                 }
               },
               "6": {

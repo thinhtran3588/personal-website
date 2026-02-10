@@ -136,7 +136,7 @@
             "items": {
               "fullstack": {
                 "title": "全栈开发",
-                "description": "端到端构建和交付可扩展的Web和移动应用。从使用React和Next.js的响应式前端到使用Node.js和.NET的强大后端，搭配PostgreSQL、SQL Server或MongoDB。使用React Native和Flutter进行跨平台移动开发，部署到AWS、Azure和Google Cloud。"
+                "description": "端到端构建和交付可扩展的Web和移动应用。从使用React和Next.js的响应式前端到使用Node.js和.NET的强大后端，搭配PostgreSQL、SQL Server或MongoDB——部署到AWS、Azure和Google Cloud。使用React Native和Flutter进行跨平台移动开发。"
               },
               "blockchain": {
                 "title": "区块链开发",
@@ -166,9 +166,9 @@
                 "company": "Kuma Games Inc",
                 "period": "2021年10月 - 2025年10月",
                 "points": {
-                  "0": "领导工程团队构建并交付Chibi Kingdom，一个以三国演义为灵感的区块链游戏宇宙。",
+                  "0": "全程主导工程团队完成产品全生命周期，构建并交付Chibi Kingdom，一个以三国演义为灵感的区块链游戏宇宙。",
                   "1": "使用React构建Web应用、Unity进行游戏开发，架构整个平台以提供无缝的跨平台体验。",
-                  "2": "在Mainnet、Polygon和Base上设计和部署Solidity智能合约，驱动游戏内经济和NFT系统。"
+                  "2": "在Ethereum Mainnet、Polygon和Base上设计和部署Solidity智能合约，驱动游戏内代币经济和NFT系统。"
                 }
               },
               "1": {
@@ -176,8 +176,9 @@
                 "company": "GOSEI Vietnam JSC",
                 "period": "2017年8月 - 2021年10月",
                 "points": {
-                  "0": "维护和增强多家银行使用的企业文档管理系统，涵盖Web应用、Office Online Server、数字签名、Office插件和桌面客户端。",
-                  "1": "使用.NET MVC、Kendo UI、WPF和SQL Server构建，确保高可用性并符合银行级安全要求。"
+                  "0": "维护和增强服务多家银行机构的企业文档管理系统，涵盖Web应用、Office Online Server、数字签名、Office插件和桌面客户端。",
+                  "1": "确保所有平台组件的高可用性，并符合银行级安全合规要求。",
+                  "2": "使用.NET MVC、Kendo UI、WPF和SQL Server构建，在企业级规模下提供稳定可靠的性能。"
                 }
               },
               "2": {
@@ -185,9 +186,9 @@
                 "company": "Mindx Technology JSC",
                 "period": "2018年3月 - 2020年2月",
                 "points": {
-                  "0": "联合创办软件公司并担任CTO，为初创企业和中小企业提供定制Web和移动产品。",
-                  "1": "全面管理工程团队：收集客户需求、设计解决方案并监督交付进度。",
-                  "2": "使用TypeScript、React、React Native、Node.js、MongoDB、AWS和Google Cloud Platform构建产品。"
+                  "0": "联合创办软件公司并以CTO身份领导工程团队，为初创企业和中小企业交付定制Web和移动产品。",
+                  "1": "主导端到端产品交付——从收集客户需求、设计解决方案架构到监督工程执行和产品上线。",
+                  "2": "使用React、React Native、Node.js、MongoDB、AWS和Google Cloud Platform将产品交付上线。"
                 }
               },
               "3": {
@@ -207,7 +208,7 @@
                 "points": {
                   "0": "主导将HP Enterprise的报价工具从Excel VBA迁移至云端Sales Support Cloud（SSC）解决方案。",
                   "1": "架构系统实现全球24/7可用性，跨多个时区处理高并发请求。",
-                  "2": "使用.NET MVC、Kendo UI和SQL Server交付解决方案。"
+                  "2": "使用.NET MVC、Kendo UI和SQL Server交付解决方案，提升了全球销售团队的报价速度和运营效率。"
                 }
               },
               "5": {
@@ -216,7 +217,7 @@
                 "period": "2014年7月 - 2015年5月",
                 "points": {
                   "0": "成功将大型SQL Server数据库从2005版本迁移至2012版本，保留复杂业务逻辑并确保零数据丢失。",
-                  "1": "使用SSIS、WPF和Excel VBA开发自动化迁移工具和验证脚本。"
+                  "1": "使用SSIS、WPF和Excel VBA开发自动化迁移工具和验证脚本，大幅减少人工操作和迁移风险。"
                 }
               },
               "6": {
