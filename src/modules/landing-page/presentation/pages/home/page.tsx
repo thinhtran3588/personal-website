@@ -102,7 +102,7 @@ export async function LandingPage() {
 
   return (
     <>
-      <div className="flex flex-col gap-28 sm:gap-32">
+      <div className="flex flex-col gap-24 sm:gap-28">
         {/* Main Section */}
         <section className="hero-shine glass-panel-strong liquid-border rounded-2xl px-8 py-14 sm:rounded-3xl sm:px-12 sm:py-20">
           <div className="relative z-10 flex flex-col items-center gap-10 text-center lg:flex-row lg:items-start lg:gap-16 lg:text-left">
@@ -118,16 +118,16 @@ export async function LandingPage() {
             </div>
 
             <div className="space-y-6">
-              <p className="hero-entrance hero-entrance-delay-1 text-xs font-medium tracking-[0.28em] text-[var(--text-muted)] uppercase">
+              <p className="hero-entrance hero-entrance-delay-1 text-[0.6875rem] font-medium tracking-[0.3em] text-[var(--text-muted)] uppercase">
                 {tHome("main.greeting")}
               </p>
-              <h1 className="hero-entrance hero-entrance-delay-2 text-3xl leading-tight font-semibold text-[var(--text-primary)] sm:text-4xl lg:text-5xl lg:leading-[1.15]">
+              <h1 className="hero-entrance hero-entrance-delay-2 text-[2.125rem] leading-tight font-bold tracking-tight text-[var(--text-primary)] sm:text-[2.5rem] lg:text-[3rem] lg:leading-[1.1]">
                 {tHome("main.name")}
               </h1>
-              <p className="hero-entrance hero-entrance-delay-3 text-xl text-[var(--text-muted)] sm:text-2xl">
+              <p className="hero-entrance hero-entrance-delay-3 text-lg text-[var(--text-muted)] sm:text-xl">
                 {tHome("main.rolePrefix")} <TypedText roles={roles} />
               </p>
-              <p className="hero-entrance hero-entrance-delay-3 max-w-2xl text-base leading-relaxed text-[var(--text-muted)]">
+              <p className="hero-entrance hero-entrance-delay-3 max-w-2xl text-[1.0625rem] leading-relaxed text-[var(--text-muted)]">
                 {tHome("main.bio", { yearsOfExperience })}
               </p>
 
@@ -143,7 +143,7 @@ export async function LandingPage() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="glass-panel flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-[var(--text-muted)] transition hover:text-[var(--text-primary)]"
+                      className="glass-panel flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-[var(--text-muted)] transition-all duration-[var(--duration-normal)] ease-[var(--ease-spring)] hover:translate-y-[-1px] hover:text-[var(--text-primary)]"
                     >
                       <Icon className="h-4 w-4" />
                       {tHome(`main.social.${key}`)}
@@ -179,10 +179,10 @@ export async function LandingPage() {
         <ScrollReveal>
           <section className="space-y-8">
             <div className="space-y-2">
-              <p className="text-xs font-medium tracking-[0.28em] text-[var(--text-muted)] uppercase">
+              <p className="text-[0.6875rem] font-medium tracking-[0.3em] text-[var(--text-muted)] uppercase">
                 {tHome("services.eyebrow")}
               </p>
-              <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
+              <h2 className="text-[1.375rem] font-semibold tracking-tight text-[var(--text-primary)] sm:text-[1.75rem]">
                 {tHome("services.title")}
               </h2>
             </div>
@@ -209,10 +209,10 @@ export async function LandingPage() {
         <ScrollReveal>
           <section className="space-y-8">
             <div className="space-y-2">
-              <p className="text-xs font-medium tracking-[0.28em] text-[var(--text-muted)] uppercase">
+              <p className="text-[0.6875rem] font-medium tracking-[0.3em] text-[var(--text-muted)] uppercase">
                 {tHome("resume.eyebrow", { yearsOfExperience })}
               </p>
-              <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
+              <h2 className="text-[1.375rem] font-semibold tracking-tight text-[var(--text-primary)] sm:text-[1.75rem]">
                 {tHome("resume.title")}
               </h2>
             </div>
