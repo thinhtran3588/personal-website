@@ -90,7 +90,9 @@
               "subjectRequired": "Subject is required",
               "subjectMaxLength": "Subject must be at most 200 characters",
               "messageRequired": "Message is required",
-              "messageMaxLength": "Message must be at most 2000 characters"
+              "messageMaxLength": "Message must be at most 1000 characters",
+              "sourceRequired": "Source is required",
+              "sourceMaxLength": "Source must be at most 200 characters"
             }
           },
           "emailNote": "You can also reach me directly at",

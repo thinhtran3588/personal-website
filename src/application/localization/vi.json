@@ -90,7 +90,9 @@
               "subjectRequired": "Vui lòng nhập chủ đề",
               "subjectMaxLength": "Chủ đề tối đa 200 ký tự",
               "messageRequired": "Vui lòng nhập tin nhắn",
-              "messageMaxLength": "Tin nhắn tối đa 2000 ký tự"
+              "messageMaxLength": "Tin nhắn tối đa 1000 ký tự",
+              "sourceRequired": "Vui lòng cung cấp nguồn",
+              "sourceMaxLength": "Nguồn tối đa 200 ký tự"
             }
           },
           "emailNote": "Bạn cũng có thể liên hệ trực tiếp với tôi tại",

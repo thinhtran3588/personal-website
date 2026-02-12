@@ -1,9 +1,13 @@
 import { z } from "zod";
 
+export type ContactFormData = z.infer<
+  ReturnType<typeof createContactFormSchema>
+>;
+
 export function createContactFormSchema(t: (key: string) => string) {
   return z.object({
     name: z.string().min(1, t("nameRequired")).max(200, t("nameMaxLength")),
-    email: z.string().email(t("invalidEmail")),
+    email: z.string().min(1, t("emailRequired")).email(t("invalidEmail")),
     subject: z
       .string()
       .min(1, t("subjectRequired"))
@@ -11,10 +15,10 @@ export function createContactFormSchema(t: (key: string) => string) {
     message: z
       .string()
       .min(1, t("messageRequired"))
-      .max(2000, t("messageMaxLength")),
+      .max(1000, t("messageMaxLength")),
+    source: z
+      .string()
+      .min(1, t("sourceRequired"))
+      .max(200, t("sourceMaxLength")),
   });
 }
-
-export type ContactFormData = z.infer<
-  ReturnType<typeof createContactFormSchema>
->;
