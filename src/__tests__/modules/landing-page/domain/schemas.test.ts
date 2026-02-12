@@ -12,6 +12,7 @@ describe("createContactFormSchema", () => {
       email: "alice@example.com",
       subject: "Inquiry",
       message: "Hello, I have a question.",
+      source: "localhost",
     });
     expect(result.success).toBe(true);
   });
@@ -23,6 +24,7 @@ describe("createContactFormSchema", () => {
       email: "alice@example.com",
       subject: "Inquiry",
       message: "Hello",
+      source: "localhost",
     });
     expect(result.success).toBe(false);
   });
@@ -34,6 +36,7 @@ describe("createContactFormSchema", () => {
       email: "alice@example.com",
       subject: "Inquiry",
       message: "Hello",
+      source: "localhost",
     });
     expect(result.success).toBe(false);
   });
@@ -45,6 +48,7 @@ describe("createContactFormSchema", () => {
       email: "not-an-email",
       subject: "Inquiry",
       message: "Hello",
+      source: "localhost",
     });
     expect(result.success).toBe(false);
   });
@@ -56,6 +60,7 @@ describe("createContactFormSchema", () => {
       email: "alice@example.com",
       subject: "",
       message: "Hello",
+      source: "localhost",
     });
     expect(result.success).toBe(false);
   });
@@ -67,6 +72,7 @@ describe("createContactFormSchema", () => {
       email: "alice@example.com",
       subject: "a".repeat(201),
       message: "Hello",
+      source: "localhost",
     });
     expect(result.success).toBe(false);
   });
@@ -78,17 +84,19 @@ describe("createContactFormSchema", () => {
       email: "alice@example.com",
       subject: "Inquiry",
       message: "",
+      source: "localhost",
     });
     expect(result.success).toBe(false);
   });
 
-  it("rejects message over 2000 characters", () => {
+  it("rejects message over 1000 characters", () => {
     const schema = createContactFormSchema(t);
     const result = schema.safeParse({
       name: "Alice",
       email: "alice@example.com",
       subject: "Inquiry",
-      message: "a".repeat(2001),
+      message: "a".repeat(1001),
+      source: "localhost",
     });
     expect(result.success).toBe(false);
   });

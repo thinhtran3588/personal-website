@@ -90,7 +90,9 @@
               "subjectRequired": "请输入主题",
               "subjectMaxLength": "主题最多 200 个字符",
               "messageRequired": "请输入消息",
-              "messageMaxLength": "消息最多 2000 个字符"
+              "messageMaxLength": "消息最多 1000 个字符",
+              "sourceRequired": "请输入来源",
+              "sourceMaxLength": "来源最多 200 个字符"
             }
           },
           "emailNote": "您也可以直接通过以下邮箱联系我",

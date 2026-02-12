@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "sonner";
 
 import { Button } from "@/common/components/button";
 import {
@@ -16,16 +17,17 @@ import {
 } from "@/common/components/form";
 import { Input } from "@/common/components/input";
 import { Textarea } from "@/common/components/textarea";
+import { SUPPORT_API_URL } from "@/common/constants";
+import { getWindowHost } from "@/common/utils/browser";
 import {
   createContactFormSchema,
   type ContactFormData,
 } from "@/modules/landing-page/domain/schemas";
 
-const SUPPORT_EMAIL = "quangthinhtran3588@gmail.com";
-
 export function ContactForm() {
   const t = useTranslations("modules.contact.pages.contact");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const contactFormSchema = useMemo(
     () => createContactFormSchema((key) => t(`form.validation.${key}`)),
@@ -34,14 +36,41 @@ export function ContactForm() {
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: { name: "", email: "", subject: "", message: "" },
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      source: getWindowHost(),
+    },
   });
 
-  function onSubmit(values: ContactFormData) {
-    const mailtoBody = `Name: ${values.name}\nEmail: ${values.email}\n\n${values.message}`;
-    const mailtoUrl = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(values.subject)}&body=${encodeURIComponent(mailtoBody)}`;
-    window.open(mailtoUrl, "_self");
-    setSubmitted(true);
+  async function onSubmit(values: ContactFormData) {
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(SUPPORT_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setSubmitted(true);
+      form.reset();
+      toast.success(t("successMessage"));
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error(
+        error instanceof Error ? error.message : "Something went wrong",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -118,8 +147,13 @@ export function ContactForm() {
               </FormItem>
             )}
           />
-          <Button type="submit" variant="primary" className="w-full sm:w-auto">
-            {t("form.submitButton")}
+          <Button
+            type="submit"
+            variant="primary"
+            className="w-full sm:w-auto"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? t("form.submittingButton") : t("form.submitButton")}
           </Button>
         </form>
       </Form>
