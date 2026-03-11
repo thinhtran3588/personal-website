@@ -1,0 +1,176 @@
+{
+  "eyebrow": "{yearsOfExperience}年以上经验",
+  "title": "我的简历",
+  "tabs": {
+    "experience": "工作经历",
+    "skills": "专业技能",
+    "education": "教育与认证"
+  },
+  "summary": "资深技术领导者与系统架构师，拥有{yearsOfExperience}年以上经验，擅长将复杂业务需求转化为高性能软件系统。曾担任VP of Engineering与Co-Founder，具备将产品从MVP扩展到全球发布的实战经验。过往成果包括：主导多链区块链系统落地，并整合AI提升用户参与度。持有AWS认证，专注构建安全且高可用的架构。",
+  "linksLabel": "找到我",
+  "links": [
+    {
+      "key": "linkedin",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/thinhtran3588"
+    },
+    {
+      "key": "github",
+      "label": "Github",
+      "href": "https://github.com/thinhtran3588"
+    },
+    {
+      "key": "facebook",
+      "label": "Facebook",
+      "href": "https://www.facebook.com/bongusagi"
+    }
+  ],
+  "bestSkillsLabel": "核心专长",
+  "bestSkills": [
+    {
+      "key": "fullstack",
+      "label": "全栈开发（Node.js/TS/.NET）"
+    },
+    {
+      "key": "web3",
+      "label": "Web3与智能合约（Solidity）"
+    },
+    {
+      "key": "cloud",
+      "label": "云战略与DevOps（AWS认证）"
+    },
+    {
+      "key": "architecture",
+      "label": "系统架构与设计"
+    },
+    {
+      "key": "mobile",
+      "label": "跨平台移动开发（Flutter/RN）"
+    },
+    {
+      "key": "leadership",
+      "label": "工程管理"
+    }
+  ],
+  "experience": [
+    {
+      "title": "工程副总裁（VP of Engineering）",
+      "company": "Kuma Games Inc",
+      "period": "2021年10月 - 2025年10月",
+      "points": [
+        "领导工程组织完成《Chibi Kingdom》全生命周期交付，将产品从原型扩展到全球多链区块链发布。",
+        "主导AI能力落地以提升用户参与度，包括Web/Discord智能客服机器人与AI驱动的动态游戏内容生成。",
+        "设计稳健的混合架构，将Unity游戏层与Web3能力深度整合，并在Ethereum、Polygon、Base上管理高可靠智能合约。",
+        "建立工程规范并培养跨职能团队，保障游戏代币经济与NFT系统99.9%可用性。"
+      ]
+    },
+    {
+      "title": "联合创始人 & CTO",
+      "company": "Mindx Technology JSC",
+      "period": "2018年3月 - 2020年2月",
+      "points": [
+        "联合创办软件公司并带领精干工程团队，为越南初创企业与中小企业交付高性能Web与移动解决方案。",
+        "担任首席解决方案架构师，选型可扩展技术栈（React、Node.js、Cloud），加速产品上市并保持高代码质量。",
+        "推动端到端产品策略落地：从业务访谈、需求梳理到实施管理与生产发布。"
+      ]
+    },
+    {
+      "title": "高级软件工程师（合同）",
+      "company": "GOSEI Vietnam JSC",
+      "period": "2017年8月 - 2021年10月",
+      "points": [
+        "开发Office Online Server集成MVP，实现银行级DMS中的浏览器实时协同文档编辑。",
+        "集成DocuSign API自动化电子签署流程，以安全、具法律效力的审批替代人工流程。",
+        "持续迭代核心.NET/SQL Server能力并进行性能优化，以满足不断提升的企业级安全标准。"
+      ]
+    },
+    {
+      "title": "高级软件工程师",
+      "company": "Ciber - CMC Joint Venture Corporation",
+      "period": "2017年2月 - 2017年8月",
+      "points": [
+        "为企业客户实施和定制Microsoft Dynamics 365，包括公共服务Web门户。",
+        "设计解决方案架构并建立CI/CD管道以加速交付周期。",
+        "使用.NET、SQL Server和jQuery构建集成和自定义模块。"
+      ]
+    },
+    {
+      "title": "高级软件工程师 / 技术负责人",
+      "company": "Tek Experts",
+      "period": "2015年5月 - 2017年2月",
+      "points": [
+        "主导将HP Enterprise报价引擎从传统Excel VBA迁移到现代化.NET Sales Support Cloud（SSC）平台。",
+        "构建高性能架构，将报价生成时间从数小时缩短到数分钟，显著提升销售团队效率。",
+        "突破Microsoft Office性能瓶颈，消除关键运维阻塞，支持全球并发用户7x24稳定服务。"
+      ]
+    },
+    {
+      "title": "SQL Server开发工程师",
+      "company": "Rendy",
+      "period": "2014年7月 - 2015年5月",
+      "points": [
+        "成功将大型SQL Server数据库从2005版本迁移至2012版本，保留复杂业务逻辑并确保零数据丢失。",
+        "使用SSIS、WPF和Excel VBA开发自动化迁移工具和验证脚本，大幅减少人工操作和迁移风险。"
+      ]
+    },
+    {
+      "title": "软件开发工程师 / 技术负责人",
+      "company": "SanhaIT Vina",
+      "period": "2011年6月 - 2014年5月",
+      "points": [
+        "构建覆盖豪华酒店、高尔夫俱乐部和度假村运营场景的Web ERP核心模块。",
+        "开发协同办公（groupware）平台，提升多地分布式团队协作效率。",
+        "采用.NET MVC、Java Spring、Oracle等技术栈交付企业级稳定系统。"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "全栈开发与数据",
+      "items": "Node.js, TypeScript, React, Next.js, .NET/C#, PostgreSQL, MongoDB, SQL Server, Oracle"
+    },
+    {
+      "name": "Web3与区块链",
+      "items": "Solidity, Hardhat, Ethereum/Polygon/Base"
+    },
+    {
+      "name": "云与DevOps（AWS认证）",
+      "items": "AWS, Azure, Google Cloud, Docker, GitHub Actions"
+    },
+    {
+      "name": "移动开发",
+      "items": "Flutter, React Native"
+    },
+    {
+      "name": "领导力与战略",
+      "items": "System Architecture, Technical Advisory, Product Roadmap, Engineering Management"
+    }
+  ],
+  "education": [
+    {
+      "title": "软件工程硕士",
+      "institution": "FPT大学",
+      "period": "2018"
+    },
+    {
+      "title": "AWS Certified Solution Architect - Associate",
+      "institution": "Amazon Web Services (AWS)",
+      "period": "2020"
+    },
+    {
+      "title": "AWS Certified Developer - Associate",
+      "institution": "Amazon Web Services (AWS)",
+      "period": "2020"
+    },
+    {
+      "title": "AWS Certified SysOps Administrator - Associate",
+      "institution": "Amazon Web Services (AWS)",
+      "period": "2020"
+    },
+    {
+      "title": "软件工程学士",
+      "institution": "FPT大学",
+      "period": "2011"
+    }
+  ]
+}

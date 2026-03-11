@@ -1,0 +1,176 @@
+{
+  "eyebrow": "{yearsOfExperience}+ years of experience",
+  "title": "My Resume",
+  "tabs": {
+    "experience": "Experience",
+    "skills": "Professional Skills",
+    "education": "Education and Certification"
+  },
+  "summary": "Senior Engineering Leader and Architect with {yearsOfExperience}+ years of experience transforming complex business requirements into high-performance software. A former VP of Engineering and Co-Founder expert in scaling products from MVP to global launch. Proven track record in orchestrating multi-chain blockchain systems and integrating AI to drive user engagement. AWS certified with a focus on building secure, high-availability architectures.",
+  "linksLabel": "Find me",
+  "links": [
+    {
+      "key": "linkedin",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/thinhtran3588"
+    },
+    {
+      "key": "github",
+      "label": "Github",
+      "href": "https://github.com/thinhtran3588"
+    },
+    {
+      "key": "facebook",
+      "label": "Facebook",
+      "href": "https://www.facebook.com/bongusagi"
+    }
+  ],
+  "bestSkillsLabel": "Expertise",
+  "bestSkills": [
+    {
+      "key": "fullstack",
+      "label": "Full-Stack Development (Node.js/TS/.NET)"
+    },
+    {
+      "key": "web3",
+      "label": "Web3 & Smart Contracts (Solidity)"
+    },
+    {
+      "key": "cloud",
+      "label": "Cloud Strategy & DevOps (AWS Certified)"
+    },
+    {
+      "key": "architecture",
+      "label": "System Architecture & Design"
+    },
+    {
+      "key": "mobile",
+      "label": "Cross-Platform Mobile (Flutter/RN)"
+    },
+    {
+      "key": "leadership",
+      "label": "Engineering Management"
+    }
+  ],
+  "experience": [
+    {
+      "title": "VP of Engineering",
+      "company": "Kuma Games Inc",
+      "period": "October 2021 - October 2025",
+      "points": [
+        "Directed the engineering organization through the full lifecycle of 'Chibi Kingdom,' scaling from prototype to a global multi-chain blockchain launch.",
+        "Spearheaded AI integration to boost user engagement, including intelligent chatbots for Web/Discord support and AI-driven generation of dynamic gaming content.",
+        "Architected a robust hybrid infrastructure integrating Unity gameplay with Web3 layers, managing high-integrity smart contracts across Ethereum, Polygon, and Base.",
+        "Established engineering standards and mentored a cross-functional team, ensuring 99.9% uptime for the game's token economy and NFT systems."
+      ]
+    },
+    {
+      "title": "Co-Founder & CTO",
+      "company": "Mindx Technology JSC",
+      "period": "March 2018 - February 2020",
+      "points": [
+        "Co-founded a software agency and led a lean engineering squad to deliver high-performance web and mobile solutions for a portfolio of Vietnam-based startups and SMEs.",
+        "Acted as the lead solution architect, selecting scalable stacks (React, Node.js, Cloud) to accelerate time-to-market while maintaining high code quality.",
+        "Drove end-to-end product strategy—from stakeholder consulting and requirement gathering to overseeing execution and successful production releases."
+      ]
+    },
+    {
+      "title": "Senior Software Engineer (Contract)",
+      "company": "GOSEI Vietnam JSC",
+      "period": "August 2017 - October 2021",
+      "points": [
+        "Developed the MVP for an Office Online Server integration, enabling real-time browser-based document editing within a banking-grade DMS.",
+        "Integrated DocuSign API to automate digital signature workflows, replacing manual processes with secure, legally-binding electronic approvals.",
+        "Delivered incremental feature updates and performance optimizations for core .NET/SQL Server components to meet evolving corporate security standards."
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Ciber - CMC Joint Venture Corporation",
+      "period": "February 2017 - August 2017",
+      "points": [
+        "Implemented and customized Microsoft Dynamics 365 for enterprise customers, including public services web portals.",
+        "Designed solution architectures and established CI/CD pipelines to accelerate delivery cycles.",
+        "Built integrations and custom modules using .NET, SQL Server, and jQuery."
+      ]
+    },
+    {
+      "title": "Senior Software Engineer / Technical Lead",
+      "company": "Tek Experts",
+      "period": "May 2015 - February 2017",
+      "points": [
+        "Led the migration of HP Enterprise’s quoting engine from legacy Excel VBA to a modern .NET-based Sales Support Cloud (SSC) solution.",
+        "Engineered a high-performance architecture that reduced quote generation time from hours to minutes, significantly increasing sales team productivity.",
+        "Eliminated critical operational bottlenecks by lifting the performance constraints of Microsoft Office, enabling seamless 24/7 global availability for concurrent users."
+      ]
+    },
+    {
+      "title": "SQL Server Developer",
+      "company": "Rendy",
+      "period": "July 2014 - May 2015",
+      "points": [
+        "Successfully executed the migration of a large-scale SQL Server database (2005 to 2012) while preserving complex business logic and zero data loss.",
+        "Developed automated migration and validation tools using SSIS, WPF, and Excel VBA, significantly reducing manual effort and project risk."
+      ]
+    },
+    {
+      "title": "Software Developer / Technical Lead",
+      "company": "SanhaIT Vina",
+      "period": "June 2011 - May 2014",
+      "points": [
+        "Built comprehensive web-based ERP modules for managing operations in luxury hotels, golf clubs, and resorts.",
+        "Engineered a groupware collaboration platform to improve efficiency for distributed remote teams across multiple properties.",
+        "Delivered enterprise stability using a diverse stack of .NET MVC, Java Spring, and Oracle."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Full-Stack Development & Data",
+      "items": "Node.js, TypeScript, React, Next.js, .NET/C#, PostgreSQL, MongoDB, SQL Server, Oracle"
+    },
+    {
+      "name": "Web3 & Blockchain",
+      "items": "Solidity, Hardhat, Ethereum/Polygon/Base"
+    },
+    {
+      "name": "Cloud & DevOps (AWS Certified)",
+      "items": "AWS, Azure, Google Cloud, Docker, GitHub Actions"
+    },
+    {
+      "name": "Mobile Development",
+      "items": "Flutter, React Native"
+    },
+    {
+      "name": "Leadership & Strategy",
+      "items": "System Architecture, Technical Advisory, Product Roadmap, Engineering Management"
+    }
+  ],
+  "education": [
+    {
+      "title": "Master's Degree, Software Engineering",
+      "institution": "FPT University",
+      "period": "2018"
+    },
+    {
+      "title": "AWS Certified Solution Architect - Associate",
+      "institution": "Amazon Web Services (AWS)",
+      "period": "2020"
+    },
+    {
+      "title": "AWS Certified Developer - Associate",
+      "institution": "Amazon Web Services (AWS)",
+      "period": "2020"
+    },
+    {
+      "title": "AWS Certified SysOps Administrator - Associate",
+      "institution": "Amazon Web Services (AWS)",
+      "period": "2020"
+    },
+    {
+      "title": "Bachelor's Degree, Software Engineering",
+      "institution": "FPT University",
+      "period": "2011"
+    }
+  ]
+}

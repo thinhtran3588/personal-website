@@ -83,9 +83,11 @@
             "messageLabel": "消息",
             "messagePlaceholder": "请告诉我更多关于您的需求...",
             "submitButton": "发送消息",
+            "submittingButton": "发送中...",
             "validation": {
               "nameRequired": "请输入姓名",
               "nameMaxLength": "姓名最多 200 个字符",
+              "emailRequired": "请输入邮箱",
               "invalidEmail": "邮箱格式不正确",
               "subjectRequired": "请输入主题",
               "subjectMaxLength": "主题最多 200 个字符",
@@ -115,20 +117,13 @@
               "3": "DevOps工程师",
               "4": "技术顾问"
             },
-            "bio": "拥有{yearsOfExperience}年以上经验的资深技术领导者，专注于构建可扩展的软件产品。从联合创办科技公司到以VP of Engineering身份领导工程团队，我专注于全栈开发、区块链和云架构。我已交付企业系统、区块链游戏和在多个国家使用的移动应用。",
-            "findMe": "找到我",
             "bestSkills": "核心技能",
-            "social": {
-              "github": "Github",
-              "linkedin": "LinkedIn",
-              "facebook": "Facebook"
-            },
             "skills": {
-              "solidity": "Solidity",
               "react": "React",
               "reactNative": "React Native",
               "flutter": "Flutter",
               "nodejs": "Node.js",
+              "solidity": "Solidity",
               "devops": "DevOps"
             }
           },
@@ -151,135 +146,6 @@
               "consultant": {
                 "title": "咨询服务",
                 "description": "与创始人和产品团队合作，将创意转化为生产级软件。从架构设计和技术选型到团队建设和交付，帮助高效地将产品推向市场。"
-              }
-            }
-          },
-          "resume": {
-            "eyebrow": "{yearsOfExperience}年以上经验",
-            "title": "我的简历",
-            "tabs": {
-              "experience": "工作经历",
-              "skills": "专业技能",
-              "education": "教育与认证"
-            },
-            "experience": {
-              "0": {
-                "title": "VP of Engineering",
-                "company": "Kuma Games Inc",
-                "period": "2021年10月 - 2025年10月",
-                "points": {
-                  "0": "全程主导工程团队完成产品全生命周期，构建并交付Chibi Kingdom，一个以三国演义为灵感的区块链游戏宇宙。",
-                  "1": "使用React构建Web应用、Unity进行游戏开发，架构整个平台以提供无缝的跨平台体验。",
-                  "2": "在Ethereum Mainnet、Polygon和Base上设计和部署Solidity智能合约，驱动游戏内代币经济和NFT系统。"
-                }
-              },
-              "1": {
-                "title": "高级软件工程师（合同）",
-                "company": "GOSEI Vietnam JSC",
-                "period": "2017年8月 - 2021年10月",
-                "points": {
-                  "0": "维护和增强服务多家银行机构的企业文档管理系统，涵盖Web应用、Office Online Server、数字签名、Office插件和桌面客户端。",
-                  "1": "确保所有平台组件的高可用性，并符合银行级安全合规要求。",
-                  "2": "使用.NET MVC、Kendo UI、WPF和SQL Server构建，在企业级规模下提供稳定可靠的性能。"
-                }
-              },
-              "2": {
-                "title": "联合创始人 & CTO",
-                "company": "Mindx Technology JSC",
-                "period": "2018年3月 - 2020年2月",
-                "points": {
-                  "0": "联合创办软件公司并以CTO身份领导工程团队，为初创企业和中小企业交付定制Web和移动产品。",
-                  "1": "主导端到端产品交付——从收集客户需求、设计解决方案架构到监督工程执行和产品上线。",
-                  "2": "使用React、React Native、Node.js、MongoDB、AWS和Google Cloud Platform将产品交付上线。"
-                }
-              },
-              "3": {
-                "title": "高级软件工程师",
-                "company": "Ciber - CMC Joint Venture Corporation",
-                "period": "2017年2月 - 2017年8月",
-                "points": {
-                  "0": "为企业客户实施和定制Microsoft Dynamics 365，包括公共服务Web门户。",
-                  "1": "设计解决方案架构并建立CI/CD管道以加速交付周期。",
-                  "2": "使用.NET、SQL Server和jQuery构建集成和自定义模块。"
-                }
-              },
-              "4": {
-                "title": "高级软件工程师 / 技术负责人",
-                "company": "Tek Experts",
-                "period": "2015年5月 - 2017年2月",
-                "points": {
-                  "0": "主导将HP Enterprise的报价工具从Excel VBA迁移至云端Sales Support Cloud（SSC）解决方案。",
-                  "1": "架构系统实现全球24/7可用性，跨多个时区处理高并发请求。",
-                  "2": "使用.NET MVC、Kendo UI和SQL Server交付解决方案，提升了全球销售团队的报价速度和运营效率。"
-                }
-              },
-              "5": {
-                "title": "SQL Server开发工程师",
-                "company": "Rendy",
-                "period": "2014年7月 - 2015年5月",
-                "points": {
-                  "0": "成功将大型SQL Server数据库从2005版本迁移至2012版本，保留复杂业务逻辑并确保零数据丢失。",
-                  "1": "使用SSIS、WPF和Excel VBA开发自动化迁移工具和验证脚本，大幅减少人工操作和迁移风险。"
-                }
-              },
-              "6": {
-                "title": "软件开发工程师 / 技术负责人",
-                "company": "SanhaIT Vina",
-                "period": "2011年6月 - 2014年5月",
-                "points": {
-                  "0": "构建基于Web的ERP解决方案，管理高尔夫俱乐部、度假村和豪华酒店的运营。",
-                  "1": "开发群件平台，提升分布式远程团队的协作效率。",
-                  "2": "使用.NET MVC、Kendo UI、Java Spring和Oracle交付。"
-                }
-              }
-            },
-            "skills": {
-              "0": {
-                "name": "前端",
-                "items": "React, Next.js, React Native, Flutter, TypeScript"
-              },
-              "1": {
-                "name": "后端",
-                "items": "Node.js, .NET/C#"
-              },
-              "2": {
-                "name": "数据库",
-                "items": "PostgreSQL, MongoDB, SQL Server"
-              },
-              "3": {
-                "name": "区块链",
-                "items": "Solidity, Hardhat"
-              },
-              "4": {
-                "name": "DevOps与云",
-                "items": "Docker, GitHub Actions, AWS, Azure, Google Cloud"
-              }
-            },
-            "education": {
-              "0": {
-                "title": "AWS Certified SysOps Administrator - Associate",
-                "institution": "Amazon Web Services (AWS)",
-                "period": "2020"
-              },
-              "1": {
-                "title": "AWS Certified Developer - Associate",
-                "institution": "Amazon Web Services (AWS)",
-                "period": "2020"
-              },
-              "2": {
-                "title": "AWS Certified Solution Architect - Associate",
-                "institution": "Amazon Web Services (AWS)",
-                "period": "2020"
-              },
-              "3": {
-                "title": "软件工程硕士",
-                "institution": "FPT大学",
-                "period": "2018"
-              },
-              "4": {
-                "title": "软件工程学士",
-                "institution": "FPT大学",
-                "period": "2011"
               }
             }
           }

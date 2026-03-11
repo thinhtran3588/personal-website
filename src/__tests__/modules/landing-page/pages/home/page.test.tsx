@@ -2,9 +2,11 @@ import { render, screen } from "@testing-library/react";
 
 import { getYearsOfExperience } from "@/application/config/personal-info";
 import messages from "@/application/localization/en.json";
+import resumeMessages from "@/application/localization/resume.json";
 import { LandingPage } from "@/modules/landing-page/presentation/pages/home/page";
 
 const home = messages.modules.landing.pages.home;
+const homeResume = resumeMessages;
 
 describe("LandingPage", () => {
   it("renders the main section with name heading", async () => {
@@ -20,7 +22,7 @@ describe("LandingPage", () => {
   it("renders the bio text", async () => {
     render(await LandingPage());
 
-    const expectedBio = home.main.bio.replace(
+    const expectedBio = homeResume.summary.replace(
       "{yearsOfExperience}",
       String(getYearsOfExperience()),
     );
@@ -50,16 +52,16 @@ describe("LandingPage", () => {
     render(await LandingPage());
 
     expect(
-      screen.getByRole("heading", { name: home.resume.title }),
+      screen.getByRole("heading", { name: homeResume.title }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("tab", { name: home.resume.tabs.experience }),
+      screen.getByRole("tab", { name: homeResume.tabs.experience }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("tab", { name: home.resume.tabs.skills }),
+      screen.getByRole("tab", { name: homeResume.tabs.skills }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("tab", { name: home.resume.tabs.education }),
+      screen.getByRole("tab", { name: homeResume.tabs.education }),
     ).toBeInTheDocument();
   });
 
@@ -67,20 +69,24 @@ describe("LandingPage", () => {
     render(await LandingPage());
 
     expect(
-      screen.getByRole("link", { name: home.main.social.github }),
+      screen.getByRole("link", { name: homeResume.links[1].label }),
     ).toHaveAttribute("href", "https://github.com/thinhtran3588");
     expect(
-      screen.getByRole("link", { name: home.main.social.linkedin }),
+      screen.getByRole("link", { name: homeResume.links[0].label }),
     ).toHaveAttribute("href", "https://www.linkedin.com/in/thinhtran3588");
   });
 
   it("renders skill badges", async () => {
     render(await LandingPage());
 
-    expect(screen.getByText(home.main.skills.solidity)).toBeInTheDocument();
-    expect(screen.getByText(home.main.skills.react)).toBeInTheDocument();
     expect(
-      screen.getAllByText(home.main.skills.nodejs).length,
+      screen.getByText(homeResume.bestSkills[4].label),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(homeResume.bestSkills[0].label),
+    ).toBeInTheDocument();
+    expect(
+      screen.getAllByText(homeResume.bestSkills[3].label).length,
     ).toBeGreaterThanOrEqual(1);
   });
 });
