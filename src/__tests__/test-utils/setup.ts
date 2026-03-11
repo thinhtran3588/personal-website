@@ -3,8 +3,26 @@ import "@testing-library/jest-dom/vitest";
 import { vi } from "vitest";
 
 import messages from "@/application/localization/en.json";
+import resumeMessages from "@/application/localization/resume.json";
 import { initializeContainer } from "@/application/register-container";
 import { getContainerOrNull } from "@/common/utils/container";
+
+const mergedMessages = {
+  ...messages,
+  modules: {
+    ...messages.modules,
+    landing: {
+      ...messages.modules.landing,
+      pages: {
+        ...messages.modules.landing.pages,
+        home: {
+          ...messages.modules.landing.pages.home,
+          resume: resumeMessages,
+        },
+      },
+    },
+  },
+};
 
 if (getContainerOrNull() === null) {
   initializeContainer();
@@ -19,7 +37,7 @@ const lookupMessage = (
       return (result as Record<string, unknown>)[key];
     }
     return undefined;
-  }, messages);
+  }, mergedMessages);
 
   let resolved = typeof value === "string" ? value : String(value ?? fullKey);
 
@@ -50,7 +68,7 @@ vi.mock("next-intl/server", () => ({
     async (namespace?: string) =>
     (key: string, params?: Record<string, string | number>) =>
       lookupMessage(namespace ? `${namespace}.${key}` : key, params),
-  getMessages: async () => messages,
+  getMessages: async () => mergedMessages,
   getLocale: async () => "en",
   getRequestConfig: (
     handler: (params: {

@@ -1,0 +1,176 @@
+{
+  "eyebrow": "Hơn {yearsOfExperience} năm kinh nghiệm",
+  "title": "Hồ sơ của tôi",
+  "tabs": {
+    "experience": "Kinh nghiệm",
+    "skills": "Kỹ năng chuyên môn",
+    "education": "Học vấn và Chứng chỉ"
+  },
+  "summary": "Lãnh đạo kỹ thuật và kiến trúc sư phần mềm với hơn {yearsOfExperience} năm kinh nghiệm chuyển đổi yêu cầu nghiệp vụ phức tạp thành hệ thống hiệu năng cao. Từng đảm nhiệm VP of Engineering và Co-Founder, có kinh nghiệm mở rộng sản phẩm từ MVP đến phát hành toàn cầu. Có thành tích triển khai hệ thống blockchain đa chuỗi và tích hợp AI để tăng mức độ tương tác người dùng. Sở hữu các chứng chỉ AWS, tập trung vào kiến trúc an toàn và độ sẵn sàng cao.",
+  "linksLabel": "Tìm tôi tại",
+  "links": [
+    {
+      "key": "linkedin",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/thinhtran3588"
+    },
+    {
+      "key": "github",
+      "label": "Github",
+      "href": "https://github.com/thinhtran3588"
+    },
+    {
+      "key": "facebook",
+      "label": "Facebook",
+      "href": "https://www.facebook.com/bongusagi"
+    }
+  ],
+  "bestSkillsLabel": "Chuyên môn nổi bật",
+  "bestSkills": [
+    {
+      "key": "fullstack",
+      "label": "Phát triển Full-Stack (Node.js/TS/.NET)"
+    },
+    {
+      "key": "web3",
+      "label": "Web3 & Hợp đồng thông minh (Solidity)"
+    },
+    {
+      "key": "cloud",
+      "label": "Chiến lược Cloud & DevOps (Chứng chỉ AWS)"
+    },
+    {
+      "key": "architecture",
+      "label": "Kiến trúc & Thiết kế hệ thống"
+    },
+    {
+      "key": "mobile",
+      "label": "Phát triển di động đa nền tảng (Flutter/RN)"
+    },
+    {
+      "key": "leadership",
+      "label": "Quản lý kỹ thuật"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Phó Chủ tịch Kỹ thuật (VP of Engineering)",
+      "company": "Kuma Games Inc",
+      "period": "Tháng 10/2021 - Tháng 10/2025",
+      "points": [
+        "Dẫn dắt tổ chức kỹ thuật xuyên suốt vòng đời của Chibi Kingdom, mở rộng từ nguyên mẫu đến phát hành blockchain đa chuỗi ở quy mô toàn cầu.",
+        "Chủ trì tích hợp AI để gia tăng mức độ tương tác người dùng, bao gồm chatbot thông minh cho Web/Discord và cơ chế AI tạo nội dung game động.",
+        "Thiết kế kiến trúc hạ tầng hybrid kết hợp gameplay Unity với lớp Web3, quản lý smart contract có độ tin cậy cao trên Ethereum, Polygon và Base.",
+        "Thiết lập chuẩn kỹ thuật và mentoring đội ngũ liên chức năng, đảm bảo 99.9% uptime cho hệ sinh thái token economy và NFT của game."
+      ]
+    },
+    {
+      "title": "Đồng sáng lập & CTO",
+      "company": "Mindx Technology JSC",
+      "period": "Tháng 3/2018 - Tháng 2/2020",
+      "points": [
+        "Đồng sáng lập công ty phần mềm và dẫn dắt đội ngũ kỹ thuật tinh gọn để phát triển sản phẩm web/mobile hiệu năng cao cho startup và SME tại Việt Nam.",
+        "Đảm nhiệm vai trò kiến trúc sư giải pháp chính, lựa chọn stack có khả năng mở rộng (React, Node.js, Cloud) để tăng tốc time-to-market và duy trì chất lượng mã nguồn.",
+        "Dẫn dắt chiến lược sản phẩm end-to-end: tư vấn stakeholder, phân tích yêu cầu, giám sát triển khai và đưa sản phẩm lên production thành công."
+      ]
+    },
+    {
+      "title": "Senior Software Engineer (hợp đồng)",
+      "company": "GOSEI Vietnam JSC",
+      "period": "Tháng 8/2017 - Tháng 10/2021",
+      "points": [
+        "Phát triển MVP cho tích hợp Office Online Server, cho phép chỉnh sửa tài liệu thời gian thực trên trình duyệt trong hệ thống DMS chuẩn ngân hàng.",
+        "Tích hợp DocuSign API để tự động hóa luồng ký số, thay thế quy trình thủ công bằng phê duyệt điện tử an toàn và có giá trị pháp lý.",
+        "Triển khai cập nhật tính năng theo từng giai đoạn và tối ưu hiệu năng các thành phần lõi .NET/SQL Server để đáp ứng yêu cầu bảo mật doanh nghiệp ngày càng cao."
+      ]
+    },
+    {
+      "title": "Kỹ sư Phần mềm Cao cấp",
+      "company": "Ciber - CMC Joint Venture Corporation",
+      "period": "Tháng 2/2017 - Tháng 8/2017",
+      "points": [
+        "Triển khai và tùy chỉnh Microsoft Dynamics 365 cho khách hàng doanh nghiệp, bao gồm cổng dịch vụ công.",
+        "Thiết kế kiến trúc giải pháp và thiết lập CI/CD pipelines nhằm đẩy nhanh chu kỳ phát triển.",
+        "Xây dựng tích hợp và module tùy chỉnh sử dụng .NET, SQL Server và jQuery."
+      ]
+    },
+    {
+      "title": "Kỹ sư Phần mềm Cao cấp / Trưởng nhóm Kỹ thuật",
+      "company": "Tek Experts",
+      "period": "Tháng 5/2015 - Tháng 2/2017",
+      "points": [
+        "Dẫn dắt chuyển đổi quoting engine của HP Enterprise từ Excel VBA legacy sang giải pháp Sales Support Cloud (SSC) hiện đại trên nền .NET.",
+        "Thiết kế kiến trúc hiệu năng cao, rút ngắn thời gian tạo báo giá từ hàng giờ xuống còn vài phút, cải thiện đáng kể năng suất đội ngũ sales.",
+        "Loại bỏ các bottleneck vận hành nghiêm trọng do giới hạn của Microsoft Office, đảm bảo khả năng phục vụ đồng thời 24/7 cho người dùng toàn cầu."
+      ]
+    },
+    {
+      "title": "Lập trình viên SQL Server",
+      "company": "Rendy",
+      "period": "Tháng 7/2014 - Tháng 5/2015",
+      "points": [
+        "Di chuyển thành công cơ sở dữ liệu SQL Server quy mô lớn từ phiên bản 2005 lên 2012, bảo toàn logic nghiệp vụ phức tạp và đảm bảo không mất dữ liệu.",
+        "Phát triển công cụ di chuyển tự động và script kiểm tra sử dụng SSIS, WPF và Excel VBA, giảm đáng kể công sức thủ công và rủi ro trong quá trình di chuyển."
+      ]
+    },
+    {
+      "title": "Lập trình viên Phần mềm / Trưởng nhóm Kỹ thuật",
+      "company": "SanhaIT Vina",
+      "period": "Tháng 6/2011 - Tháng 5/2014",
+      "points": [
+        "Xây dựng các module ERP nền web phục vụ quản lý vận hành cho khách sạn cao cấp, sân golf và khu nghỉ dưỡng.",
+        "Phát triển nền tảng cộng tác groupware giúp tăng hiệu quả làm việc cho các nhóm phân tán ở nhiều cơ sở.",
+        "Đảm bảo độ ổn định ở quy mô doanh nghiệp với stack đa công nghệ: .NET MVC, Java Spring và Oracle."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Phát triển Full-Stack & Dữ liệu",
+      "items": "Node.js, TypeScript, React, Next.js, .NET/C#, PostgreSQL, MongoDB, SQL Server, Oracle"
+    },
+    {
+      "name": "Web3 & Blockchain",
+      "items": "Solidity, Hardhat, Ethereum/Polygon/Base"
+    },
+    {
+      "name": "Cloud & DevOps (Chứng chỉ AWS)",
+      "items": "AWS, Azure, Google Cloud, Docker, GitHub Actions"
+    },
+    {
+      "name": "Phát triển di động",
+      "items": "Flutter, React Native"
+    },
+    {
+      "name": "Lãnh đạo & Chiến lược",
+      "items": "System Architecture, Technical Advisory, Product Roadmap, Engineering Management"
+    }
+  ],
+  "education": [
+    {
+      "title": "Thạc sĩ Kỹ thuật Phần mềm",
+      "institution": "Đại học FPT",
+      "period": "2018"
+    },
+    {
+      "title": "AWS Certified Solution Architect - Associate",
+      "institution": "Amazon Web Services (AWS)",
+      "period": "2020"
+    },
+    {
+      "title": "AWS Certified Developer - Associate",
+      "institution": "Amazon Web Services (AWS)",
+      "period": "2020"
+    },
+    {
+      "title": "AWS Certified SysOps Administrator - Associate",
+      "institution": "Amazon Web Services (AWS)",
+      "period": "2020"
+    },
+    {
+      "title": "Cử nhân Kỹ thuật Phần mềm",
+      "institution": "Đại học FPT",
+      "period": "2011"
+    }
+  ]
+}

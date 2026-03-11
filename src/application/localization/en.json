@@ -83,9 +83,11 @@
             "messageLabel": "Message",
             "messagePlaceholder": "Tell me more about your inquiry...",
             "submitButton": "Send message",
+            "submittingButton": "Sending...",
             "validation": {
               "nameRequired": "Name is required",
               "nameMaxLength": "Name must be at most 200 characters",
+              "emailRequired": "Email is required",
               "invalidEmail": "Invalid email",
               "subjectRequired": "Subject is required",
               "subjectMaxLength": "Subject must be at most 200 characters",
@@ -115,20 +117,13 @@
               "3": "DevOps Engineer",
               "4": "Tech Consultant"
             },
-            "bio": "Senior engineering leader with {yearsOfExperience}+ years of experience building scalable software products. From co-founding a tech company to leading engineering teams as VP of Engineering, I specialize in full-stack development, blockchain, and cloud architecture. I've shipped enterprise systems, blockchain games, and mobile apps used across multiple countries.",
-            "findMe": "Find me",
             "bestSkills": "Best skills",
-            "social": {
-              "github": "Github",
-              "linkedin": "LinkedIn",
-              "facebook": "Facebook"
-            },
             "skills": {
-              "solidity": "Solidity",
               "react": "React",
               "reactNative": "React Native",
               "flutter": "Flutter",
               "nodejs": "Node.js",
+              "solidity": "Solidity",
               "devops": "DevOps"
             }
           },
@@ -151,135 +146,6 @@
               "consultant": {
                 "title": "Consultant Service",
                 "description": "Partner with founders and product teams to turn ideas into production-ready software. From architecture design and tech stack selection to team building and delivery, I help bring products to market efficiently."
-              }
-            }
-          },
-          "resume": {
-            "eyebrow": "{yearsOfExperience}+ years of experience",
-            "title": "My Resume",
-            "tabs": {
-              "experience": "Experience",
-              "skills": "Professional Skills",
-              "education": "Education and Certification"
-            },
-            "experience": {
-              "0": {
-                "title": "VP of Engineering",
-                "company": "Kuma Games Inc",
-                "period": "October 2021 - October 2025",
-                "points": {
-                  "0": "Directed the engineering team through the full product lifecycle to build and ship Chibi Kingdom, a blockchain gaming universe inspired by Romance of the Three Kingdoms.",
-                  "1": "Architected the platform using React for the web application and Unity for game development, delivering a seamless cross-platform experience.",
-                  "2": "Designed and deployed smart contracts with Solidity on Ethereum Mainnet, Polygon, and Base, powering in-game token economies and NFT systems."
-                }
-              },
-              "1": {
-                "title": "Senior Software Engineer (contract)",
-                "company": "GOSEI Vietnam JSC",
-                "period": "August 2017 - October 2021",
-                "points": {
-                  "0": "Maintained and enhanced an enterprise document management system serving multiple banking institutions, incorporating web applications, Office Online Server, digital signing, Office plugins, and desktop clients.",
-                  "1": "Ensured high availability and compliance with banking-grade security requirements across all platform components.",
-                  "2": "Built with .NET MVC, Kendo UI, WPF, and SQL Server, delivering reliable performance at enterprise scale."
-                }
-              },
-              "2": {
-                "title": "Co-Founder & CTO",
-                "company": "Mindx Technology JSC",
-                "period": "March 2018 - February 2020",
-                "points": {
-                  "0": "Co-founded a software company and led the engineering team as CTO, delivering custom web and mobile products for startups and SMEs.",
-                  "1": "Drove end-to-end product delivery — from gathering client requirements and designing solution architectures to overseeing engineering execution and launch timelines.",
-                  "2": "Shipped products to production using React, React Native, Node.js, MongoDB, AWS, and Google Cloud Platform."
-                }
-              },
-              "3": {
-                "title": "Senior Software Engineer",
-                "company": "Ciber - CMC Joint Venture Corporation",
-                "period": "February 2017 - August 2017",
-                "points": {
-                  "0": "Implemented and customized Microsoft Dynamics 365 for enterprise customers, including public services web portals.",
-                  "1": "Designed solution architectures and established CI/CD pipelines to accelerate delivery cycles.",
-                  "2": "Built integrations and custom modules using .NET, SQL Server, and jQuery."
-                }
-              },
-              "4": {
-                "title": "Senior Software Engineer / Technical Lead",
-                "company": "Tek Experts",
-                "period": "May 2015 - February 2017",
-                "points": {
-                  "0": "Led the migration of HP Enterprise's Quoting tool from Excel VBA to a cloud-based Sales Support Cloud (SSC) solution.",
-                  "1": "Architected the system for 24/7 global availability, handling high-volume concurrent requests across multiple time zones.",
-                  "2": "Delivered the solution using .NET MVC, Kendo UI, and SQL Server, improving quoting speed and operational efficiency across global sales teams."
-                }
-              },
-              "5": {
-                "title": "SQL Server Developer",
-                "company": "Rendy",
-                "period": "July 2014 - May 2015",
-                "points": {
-                  "0": "Successfully migrated a large-scale SQL Server database from version 2005 to 2012, preserving complex business logic and ensuring zero data loss.",
-                  "1": "Developed automated migration tools and validation scripts using SSIS, WPF, and Excel VBA, significantly reducing manual effort and migration risk."
-                }
-              },
-              "6": {
-                "title": "Software Developer / Technical Lead",
-                "company": "SanhaIT Vina",
-                "period": "June 2011 - May 2014",
-                "points": {
-                  "0": "Built a web-based ERP solution for managing operations across golf clubs, resorts, and luxury hotels.",
-                  "1": "Developed a groupware platform that improved collaboration efficiency among distributed remote teams.",
-                  "2": "Delivered using .NET MVC, Kendo UI, Java Spring, and Oracle."
-                }
-              }
-            },
-            "skills": {
-              "0": {
-                "name": "Frontend",
-                "items": "React, Next.js, React Native, Flutter, TypeScript"
-              },
-              "1": {
-                "name": "Backend",
-                "items": "Node.js, .NET/C#"
-              },
-              "2": {
-                "name": "Database",
-                "items": "PostgreSQL, MongoDB, SQL Server"
-              },
-              "3": {
-                "name": "Blockchain",
-                "items": "Solidity, Hardhat"
-              },
-              "4": {
-                "name": "DevOps & Cloud",
-                "items": "Docker, GitHub Actions, AWS, Azure, Google Cloud"
-              }
-            },
-            "education": {
-              "0": {
-                "title": "AWS Certified SysOps Administrator - Associate",
-                "institution": "Amazon Web Services (AWS)",
-                "period": "2020"
-              },
-              "1": {
-                "title": "AWS Certified Developer - Associate",
-                "institution": "Amazon Web Services (AWS)",
-                "period": "2020"
-              },
-              "2": {
-                "title": "AWS Certified Solution Architect - Associate",
-                "institution": "Amazon Web Services (AWS)",
-                "period": "2020"
-              },
-              "3": {
-                "title": "Master's Degree, Software Engineering",
-                "institution": "FPT University",
-                "period": "2018"
-              },
-              "4": {
-                "title": "Bachelor's Degree, Software Engineering",
-                "institution": "FPT University",
-                "period": "2011"
               }
             }
           }
