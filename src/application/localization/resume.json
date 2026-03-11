@@ -1,4 +1,5 @@
 {
+  "headline": "Senior Engineering Leader & Architect",
   "eyebrow": "{yearsOfExperience}+ years of experience",
   "title": "My Resume",
   "tabs": {
@@ -29,7 +30,7 @@
   "bestSkills": [
     {
       "key": "fullstack",
-      "label": "Full-Stack Development (Node.js/TS/.NET)"
+      "label": "Full-Stack Development"
     },
     {
       "key": "web3",
@@ -75,7 +76,7 @@
       ]
     },
     {
-      "title": "Senior Software Engineer (Contract)",
+      "title": "Senior Technical Developer / Consultant",
       "company": "GOSEI Vietnam JSC",
       "period": "August 2017 - October 2021",
       "points": [

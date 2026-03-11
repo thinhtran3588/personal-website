@@ -1,4 +1,5 @@
 {
+  "headline": "资深技术领导者 & 架构师",
   "eyebrow": "{yearsOfExperience}年以上经验",
   "title": "我的简历",
   "tabs": {
@@ -75,7 +76,7 @@
       ]
     },
     {
-      "title": "高级软件工程师（合同）",
+      "title": "高级技术开发 / 顾问",
       "company": "GOSEI Vietnam JSC",
       "period": "2017年8月 - 2021年10月",
       "points": [

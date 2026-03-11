@@ -150,6 +150,16 @@
             }
           }
         },
+        "cv": {
+          "title": "Curriculum Vitae",
+          "metadata": {
+            "description": "CV có thể in của Thinh Tran."
+          },
+          "printButton": "In / Lưu PDF",
+          "summaryTitle": "Tóm tắt",
+          "certificationsTitle": "Chứng chỉ",
+          "educationTitle": "Học vấn"
+        },
         "products": {
           "title": "Sản phẩm của tôi",
           "metadata": {

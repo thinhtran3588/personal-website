@@ -1,4 +1,5 @@
 {
+  "headline": "Lãnh đạo Kỹ thuật Cấp cao & Kiến trúc sư",
   "eyebrow": "Hơn {yearsOfExperience} năm kinh nghiệm",
   "title": "Hồ sơ của tôi",
   "tabs": {
@@ -29,7 +30,7 @@
   "bestSkills": [
     {
       "key": "fullstack",
-      "label": "Phát triển Full-Stack (Node.js/TS/.NET)"
+      "label": "Phát triển Full-Stack"
     },
     {
       "key": "web3",
@@ -75,7 +76,7 @@
       ]
     },
     {
-      "title": "Senior Software Engineer (hợp đồng)",
+      "title": "Lập trình viên Kỹ thuật Cao cấp / Tư vấn",
       "company": "GOSEI Vietnam JSC",
       "period": "Tháng 8/2017 - Tháng 10/2021",
       "points": [

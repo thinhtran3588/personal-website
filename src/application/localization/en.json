@@ -150,6 +150,16 @@
             }
           }
         },
+        "cv": {
+          "title": "Curriculum Vitae",
+          "metadata": {
+            "description": "Print-ready CV for Thinh Tran."
+          },
+          "printButton": "Print / Save as PDF",
+          "summaryTitle": "Summary",
+          "certificationsTitle": "Certifications",
+          "educationTitle": "Education"
+        },
         "products": {
           "title": "My Products",
           "metadata": {

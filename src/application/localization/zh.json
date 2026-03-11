@@ -150,6 +150,16 @@
             }
           }
         },
+        "cv": {
+          "title": "简历",
+          "metadata": {
+            "description": "Thinh Tran 的可打印简历。"
+          },
+          "printButton": "打印 / 保存为 PDF",
+          "summaryTitle": "概述",
+          "certificationsTitle": "认证",
+          "educationTitle": "教育"
+        },
         "products": {
           "title": "我的产品",
           "metadata": {
