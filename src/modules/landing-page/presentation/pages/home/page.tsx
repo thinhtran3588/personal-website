@@ -16,7 +16,9 @@ import {
   FlutterIcon,
   GitHubIcon,
   LinkedInIcon,
+  MailIcon,
   NodejsIcon,
+  PhoneIcon,
   ReactIcon,
   SolidityIcon,
 } from "@/common/components/icons";
@@ -99,6 +101,8 @@ type HomeMessages = {
   };
   resume: {
     summary: string;
+    email: string;
+    mobile: string;
     linksLabel: string;
     bestSkillsLabel: string;
     links: Array<{ key: SocialIconKey; label: string; href: string }>;
@@ -169,6 +173,20 @@ export async function LandingPage() {
                   {tHome("resume.linksLabel")}
                 </p>
                 <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
+                  <a
+                    href={`mailto:${homeMessages.resume.email}`}
+                    className="glass-panel flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-[var(--text-muted)] transition-all duration-[var(--duration-normal)] ease-[var(--ease-spring)] hover:translate-y-[-1px] hover:text-[var(--text-primary)]"
+                  >
+                    <MailIcon className="h-4 w-4" />
+                    {homeMessages.resume.email}
+                  </a>
+                  <a
+                    href={`tel:${homeMessages.resume.mobile.replace(/\s+/g, "")}`}
+                    className="glass-panel flex items-center gap-2 rounded-xl px-4 py-2 text-sm text-[var(--text-muted)] transition-all duration-[var(--duration-normal)] ease-[var(--ease-spring)] hover:translate-y-[-1px] hover:text-[var(--text-primary)]"
+                  >
+                    <PhoneIcon className="h-4 w-4" />
+                    {homeMessages.resume.mobile}
+                  </a>
                   {links.map(({ key, href, label }) => {
                     const Icon = SOCIAL_ICON_BY_KEY[key];
 
