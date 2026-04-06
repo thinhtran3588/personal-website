@@ -1,6 +1,7 @@
 import { getMessages, getTranslations } from "next-intl/server";
 
 import { getYearsOfExperience } from "@/application/config/personal-info";
+import { LinkedInIcon, MailIcon, PhoneIcon } from "@/common/components/icons";
 import { PrintButton } from "@/modules/landing-page/presentation/pages/cv/components/print-button";
 
 type ExperienceItem = {
@@ -25,6 +26,8 @@ type HomeMessages = {
   badge: string;
   resume: {
     headline: string;
+    email: string;
+    mobile: string;
     summary: string;
     linksLabel: string;
     bestSkillsLabel: string;
@@ -85,21 +88,6 @@ export async function CvPage() {
                 </p>
               </div>
 
-              {cvLinks.map(({ key, href, label }) => {
-                const shortPath = new URL(href).pathname.replace(/^\/in\//, "");
-                return (
-                  <a
-                    key={key}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-xs text-slate-300 transition-colors hover:text-white"
-                  >
-                    {label}: {shortPath}
-                  </a>
-                );
-              })}
-
               <div className="space-y-3">
                 <p className="text-[0.65rem] font-bold tracking-[0.25em] text-slate-500 uppercase">
                   {tHome("resume.tabs.skills")}
@@ -141,6 +129,42 @@ export async function CvPage() {
                 ))}
               </div>
             </header>
+
+            {/* Contact details */}
+            <div className="mt-3 flex flex-wrap items-center gap-x-12 gap-y-3 border-b border-slate-100 pb-4">
+              <a
+                href={`mailto:${resume.email}`}
+                aria-label="Email"
+                className="flex items-center gap-3 text-[0.8rem] font-medium text-slate-600 transition-colors hover:text-slate-900"
+              >
+                <MailIcon className="h-4 w-4 text-slate-400" />
+                {resume.email}
+              </a>
+              <a
+                href={`tel:${resume.mobile.replace(/\s+/g, "")}`}
+                aria-label="Phone"
+                className="flex items-center gap-3 text-[0.8rem] font-medium text-slate-600 transition-colors hover:text-slate-900"
+              >
+                <PhoneIcon className="h-4 w-4 text-slate-400" />
+                {resume.mobile}
+              </a>
+              {cvLinks.map(({ key, href, label }) => {
+                const shortPath = new URL(href).pathname.replace(/^\/in\//, "");
+                return (
+                  <a
+                    key={key}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="flex items-center gap-3 text-[0.8rem] font-medium text-slate-600 transition-colors hover:text-slate-900"
+                  >
+                    <LinkedInIcon className="h-4 w-4 text-slate-400" />
+                    {shortPath}
+                  </a>
+                );
+              })}
+            </div>
 
             <main className="mt-4 space-y-4">
               {/* Certifications */}
