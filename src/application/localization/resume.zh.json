@@ -9,7 +9,7 @@
     "skills": "专业技能",
     "education": "教育与认证"
   },
-  "summary": "资深技术领导者与系统架构师，拥有{yearsOfExperience}年以上经验，擅长将复杂业务需求转化为高性能软件系统。曾担任VP of Engineering与Co-Founder，具备将产品从MVP扩展到全球发布的实战经验。过往成果包括：主导多链区块链系统落地，并整合AI提升用户参与度。持有AWS认证，专注构建安全且高可用的架构。",
+  "summary": "资深技术领导者与系统架构师，拥有 {yearsOfExperience} 年以上经验，专注于构建智能系统与高性能软件。曾担任 VP of Engineering 与 Co-Founder，擅长将 AI 驱动的产品从 MVP 扩展至全球发布。在开发自主 AI 代理、主导多链区块链系统落地以及利用云基础设施 (AWS/Google Cloud) 推动创新方面拥有丰富实战经验。持有 AWS 认证，专注构建安全、可扩展且针对 AI 优化的架构。",
   "linksLabel": "找到我",
   "links": [
     {
@@ -30,6 +30,10 @@
   ],
   "bestSkillsLabel": "核心专长",
   "bestSkills": [
+    {
+      "key": "ai",
+      "label": "智能代理 AI 与 大语言模型 (LangChain)"
+    },
     {
       "key": "fullstack",
       "label": "全栈开发（Node.js/TS/.NET）"
@@ -59,12 +63,14 @@
     {
       "title": "工程副总裁（VP of Engineering）",
       "company": "Kuma Games Inc",
-      "period": "2021年10月 - 2025年10月",
+      "period": "2020年10月 - 2025年10月",
       "points": [
         "领导工程组织完成《Chibi Kingdom》全生命周期交付，将产品从原型扩展到全球多链区块链发布。",
         "主导AI能力落地以提升用户参与度，包括Web/Discord智能客服机器人与AI驱动的动态游戏内容生成。",
-        "设计稳健的混合架构，将Unity游戏层与Web3能力深度整合，并在Ethereum、Polygon、Base上管理高可靠智能合约。",
-        "建立工程规范并培养跨职能团队，保障游戏代币经济与NFT系统99.9%可用性。"
+        "基于 **LangChain** 和 **Google Cloud/AWS** 实施智能代理 (Agentic AI) 系统，自主管理和分析社区讨论，提取有关热门话题和高需求功能的见解，以辅助产品路线图制定。",
+        "将 AI 代理 (AI Agents) 集成到内部开发工作流中，在设计、开发和测试各个环节实现任务自动化，从而优化工程交付速度。",
+        "设计稳健的混合架构，将 Unity 游戏层与 Web3 能力深度整合，并在 Ethereum、Polygon、Base 上管理高可靠智能合约。",
+        "建立工程规范并培养跨职能团队，保障游戏代币经济与 NFT 系统 99.9% 可用性。"
       ]
     },
     {
@@ -128,6 +134,10 @@
     }
   ],
   "skills": [
+    {
+      "name": "AI 与 智能代理系统",
+      "items": "LangChain, LLMs, AI Agents, 自主系统"
+    },
     {
       "name": "全栈开发与数据",
       "items": "Node.js, TypeScript, React, Next.js, .NET/C#, PostgreSQL, MongoDB, SQL Server, Oracle"

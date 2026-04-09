@@ -9,7 +9,7 @@
     "skills": "Professional Skills",
     "education": "Education and Certification"
   },
-  "summary": "Senior Engineering Leader and Architect with {yearsOfExperience}+ years of experience transforming complex business requirements into high-performance software. A former VP of Engineering and Co-Founder expert in scaling products from MVP to global launch. Proven track record in orchestrating multi-chain blockchain systems and integrating AI to drive user engagement. AWS certified with a focus on building secure, high-availability architectures.",
+  "summary": "Senior Engineering Leader and Architect with {yearsOfExperience}+ years of experience specialized in building intelligent systems and high-performance software. A former VP of Engineering and Co-Founder expert in scaling AI-driven products from MVP to global launch. Proven track record in developing autonomous AI agents, orchestrating multi-chain blockchain systems, and leveraging cloud infrastructure (AWS/Google Cloud) to drive innovation. AWS certified with a focus on secure, scalable, and AI-optimized architectures.",
   "linksLabel": "Find me",
   "links": [
     {
@@ -30,6 +30,10 @@
   ],
   "bestSkillsLabel": "Expertise",
   "bestSkills": [
+    {
+      "key": "ai",
+      "label": "Agentic AI & LLMs (LangChain)"
+    },
     {
       "key": "fullstack",
       "label": "Full-Stack Development"
@@ -59,10 +63,12 @@
     {
       "title": "VP of Engineering",
       "company": "Kuma Games Inc",
-      "period": "October 2021 - October 2025",
+      "period": "October 2020 - October 2025",
       "points": [
         "Directed the engineering organization through the full lifecycle of 'Chibi Kingdom,' scaling from prototype to a global multi-chain blockchain launch.",
         "Spearheaded AI integration to boost user engagement, including intelligent chatbots for Web/Discord support and AI-driven generation of dynamic gaming content.",
+        "Implemented agentic AI systems using **LangChain** and **Google Cloud/AWS** to autonomously manage and analyze community discussions, extracting actionable insights on trending topics and highly-requested features to inform the product roadmap.",
+        "Integrated AI agents into the internal development workflow, automating tasks across design, development, and testing to optimize engineering velocity.",
         "Architected a robust hybrid infrastructure integrating Unity gameplay with Web3 layers, managing high-integrity smart contracts across Ethereum, Polygon, and Base.",
         "Established engineering standards and mentored a cross-functional team, ensuring 99.9% uptime for the game's token economy and NFT systems."
       ]
@@ -128,6 +134,10 @@
     }
   ],
   "skills": [
+    {
+      "name": "AI & Agentic Systems",
+      "items": "LangChain, LLMs, AI Agents, Autonomous Systems"
+    },
     {
       "name": "Full-Stack Development & Data",
       "items": "Node.js, TypeScript, React, Next.js, .NET/C#, PostgreSQL, MongoDB, SQL Server, Oracle"
