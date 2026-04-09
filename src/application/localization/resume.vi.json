@@ -9,7 +9,7 @@
     "skills": "Kỹ năng chuyên môn",
     "education": "Học vấn và Chứng chỉ"
   },
-  "summary": "Lãnh đạo kỹ thuật và kiến trúc sư phần mềm với hơn {yearsOfExperience} năm kinh nghiệm chuyển đổi yêu cầu nghiệp vụ phức tạp thành hệ thống hiệu năng cao. Từng đảm nhiệm VP of Engineering và Co-Founder, có kinh nghiệm mở rộng sản phẩm từ MVP đến phát hành toàn cầu. Có thành tích triển khai hệ thống blockchain đa chuỗi và tích hợp AI để tăng mức độ tương tác người dùng. Sở hữu các chứng chỉ AWS, tập trung vào kiến trúc an toàn và độ sẵn sàng cao.",
+  "summary": "Lãnh đạo Kỹ thuật và Kiến trúc sư Phần mềm với hơn {yearsOfExperience} năm kinh nghiệm, chuyên sâu về xây dựng các hệ thống thông minh và phần mềm hiệu năng cao. Từng đảm nhiệm VP of Engineering và Co-Founder, chuyên gia trong việc mở rộng các sản phẩm ứng dụng AI từ MVP đến phát hành toàn cầu. Có thành tích triển khai các AI agent tự hành, hệ thống blockchain đa chuỗi và tối ưu hóa hạ tầng đám mây (AWS/Google Cloud). Sở hữu chứng chỉ AWS, tập trung vào các kiến trúc bảo mật, có khả năng mở rộng và tối ưu cho AI.",
   "linksLabel": "Tìm tôi tại",
   "links": [
     {
@@ -30,6 +30,10 @@
   ],
   "bestSkillsLabel": "Chuyên môn nổi bật",
   "bestSkills": [
+    {
+      "key": "ai",
+      "label": "Agentic AI & LLMs (LangChain)"
+    },
     {
       "key": "fullstack",
       "label": "Phát triển Full-Stack"
@@ -63,6 +67,8 @@
       "points": [
         "Dẫn dắt tổ chức kỹ thuật xuyên suốt vòng đời của Chibi Kingdom, mở rộng từ nguyên mẫu đến phát hành blockchain đa chuỗi ở quy mô toàn cầu.",
         "Chủ trì tích hợp AI để gia tăng mức độ tương tác người dùng, bao gồm chatbot thông minh cho Web/Discord và cơ chế AI tạo nội dung game động.",
+        "Triển khai hệ thống agentic AI sử dụng **LangChain** trên nền tảng đám mây (**Google Cloud/AWS**) để tự động quản lý và phân tích các cuộc thảo luận trong cộng đồng, trích xuất thông tin chi tiết về các chủ đề xu hướng và các tính năng được yêu cầu nhiều nhất để định hướng lộ trình sản phẩm.",
+        "Tích hợp các AI agent vào quy trình phát triển nội bộ, tự động hóa các tác vụ từ thiết kế, phát triển đến kiểm thử nhằm tối ưu hóa tốc độ hoàn thiện sản phẩm (engineering velocity).",
         "Thiết kế kiến trúc hạ tầng hybrid kết hợp gameplay Unity với lớp Web3, quản lý smart contract có độ tin cậy cao trên Ethereum, Polygon và Base.",
         "Thiết lập chuẩn kỹ thuật và mentoring đội ngũ liên chức năng, đảm bảo 99.9% uptime cho hệ sinh thái token economy và NFT của game."
       ]
@@ -128,6 +134,10 @@
     }
   ],
   "skills": [
+    {
+      "name": "AI & Hệ thống Agent",
+      "items": "LangChain, LLMs, AI Agents, Hệ thống tự hành"
+    },
     {
       "name": "Phát triển Full-Stack & Dữ liệu",
       "items": "Node.js, TypeScript, React, Next.js, .NET/C#, PostgreSQL, MongoDB, SQL Server, Oracle"
