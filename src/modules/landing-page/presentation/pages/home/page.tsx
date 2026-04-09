@@ -29,6 +29,7 @@ import { TypedText } from "./components/typed-text";
 
 type SocialIconKey = "linkedin" | "github" | "facebook";
 type SkillIconKey =
+  | "ai"
   | "fullstack"
   | "web3"
   | "cloud"
@@ -56,6 +57,7 @@ const SOCIAL_ICON_BY_KEY: Record<
 };
 
 const SKILL_ICON_BY_KEY: Record<SkillIconKey, ComponentType<HeroIconProps>> = {
+  ai: CloudGearIcon,
   fullstack: ReactIcon,
   web3: SolidityIcon,
   cloud: CloudGearIcon,
